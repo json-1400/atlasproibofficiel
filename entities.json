@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "entities": {
+    "organization": {
+      "@id": "https://atlasproibofficiel.com/#organization",
+      "name": "Atlas Pro ONTV Officiel",
+      "url": "https://atlasproibofficiel.com",
+      "logo": "https://atlasproibofficiel.com/logo.png"
+    },
+    "website": {
+      "@id": "https://atlasproibofficiel.com/#website",
+      "name": "Atlas Pro ONTV Officiel",
+      "url": "https://atlasproibofficiel.com"
+    },
+    "productAggregate": {
+      "@id": "https://atlasproibofficiel.com/#product-aggregate",
+      "name": "Abonnement Atlas Pro"
+    }
+  }
+}

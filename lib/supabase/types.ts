@@ -1,0 +1,128 @@
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[];
+
+export type OrderStatus = "pending" | "paid" | "delivered" | "failed";
+export type TicketStatus = "open" | "in_progress" | "resolved" | "closed";
+
+export interface Database {
+  public: {
+    Tables: {
+      customers: {
+        Row: {
+          id: string;
+          email: string;
+          name: string | null;
+          phone: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          email: string;
+          name?: string | null;
+          phone?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          email?: string;
+          name?: string | null;
+          phone?: string | null;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
+      orders: {
+        Row: {
+          id: string;
+          customer_id: string | null;
+          plan_slug: string;
+          amount: number;
+          currency: string;
+          status: OrderStatus;
+          payment_ref: string | null;
+          activation_start: string | null;
+          activation_end: string | null;
+          reminder_sent: boolean;
+          notes: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          customer_id?: string | null;
+          plan_slug: string;
+          amount: number;
+          currency?: string;
+          status?: OrderStatus;
+          payment_ref?: string | null;
+          activation_start?: string | null;
+          activation_end?: string | null;
+          reminder_sent?: boolean;
+          notes?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          customer_id?: string | null;
+          plan_slug?: string;
+          amount?: number;
+          currency?: string;
+          status?: OrderStatus;
+          payment_ref?: string | null;
+          activation_start?: string | null;
+          activation_end?: string | null;
+          reminder_sent?: boolean;
+          notes?: string | null;
+          created_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "orders_customer_id_fkey";
+            columns: ["customer_id"];
+            isOneToOne: false;
+            referencedRelation: "customers";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      tickets: {
+        Row: {
+          id: string;
+          email: string;
+          subject: string | null;
+          message: string;
+          status: TicketStatus;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          email: string;
+          subject?: string | null;
+          message: string;
+          status?: TicketStatus;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          email?: string;
+          subject?: string | null;
+          message?: string;
+          status?: TicketStatus;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
+    };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: {
+      order_status: OrderStatus;
+      ticket_status: TicketStatus;
+    };
+    CompositeTypes: Record<string, never>;
+  };
+}

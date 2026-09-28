@@ -36,6 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: `${SITE_URL}/ouvrir-ticket`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 
   const planRoutes: MetadataRoute.Sitemap = getAllPlans().map((plan) => ({

@@ -81,6 +81,11 @@ export function Footer(): React.JSX.Element {
                   Installation Smart TV
                 </Link>
               </li>
+              <li>
+                <Link href="/ouvrir-ticket" className="hover:text-heading transition-colors font-medium text-primary">
+                  Ouvrir un ticket support
+                </Link>
+              </li>
             </ul>
           </div>
 

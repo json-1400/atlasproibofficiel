@@ -180,3 +180,22 @@ export function buildTutorialSchema(tut: Tutorial): Array<Record<string, unknown
 
   return [articleSchema, howToSchema];
 }
+
+export function buildContactPageSchema(): Record<string, unknown> {
+  return {
+    "@type": "ContactPage",
+    "@id": `${SITE_URL}/ouvrir-ticket#webpage`,
+    url: `${SITE_URL}/ouvrir-ticket`,
+    name: "Support Client & Ouverture de Ticket | Atlas Pro ONTV",
+    description:
+      "Formulaire officiel d'ouverture de ticket support et assistance technique Atlas Pro ONTV. Réponse en moins de 2h ouvrées.",
+    isPartOf: {
+      "@id": ENTITY_IDS.website,
+    },
+    about: {
+      "@id": ENTITY_IDS.organization,
+    },
+    inLanguage: "fr-FR",
+  };
+}
+

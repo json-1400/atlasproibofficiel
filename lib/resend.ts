@@ -3,6 +3,7 @@ import { OrderConfirmationEmail } from "@/emails/OrderConfirmationEmail";
 import { ActivationEmail } from "@/emails/ActivationEmail";
 import { RenewalReminderEmail } from "@/emails/RenewalReminderEmail";
 import { ContactReceivedEmail } from "@/emails/ContactReceivedEmail";
+import { TicketConfirmationEmail } from "@/emails/TicketConfirmationEmail";
 
 let resendClient: Resend | null = null;
 
@@ -241,3 +242,59 @@ export async function sendContactReceivedEmail({
     return { success: false };
   }
 }
+
+export interface SendTicketConfirmationParams {
+  to: string;
+  customerName?: string;
+  ticketNumber: string;
+  category: string;
+  deviceType?: string;
+  subject: string;
+  message: string;
+}
+
+export async function sendTicketConfirmationEmail({
+  to,
+  customerName,
+  ticketNumber,
+  category,
+  deviceType,
+  subject,
+  message,
+}: SendTicketConfirmationParams): Promise<{ success: boolean; id?: string }> {
+  const resend = getResendClient();
+
+  if (!resend) {
+    console.log(
+      `[Dev Email Mock] To: ${to} | Ticket #${ticketNumber} (${category})`
+    );
+    return { success: true, id: `mock_email_${Date.now()}` };
+  }
+
+  try {
+    const response = await resend.emails.send({
+      from: DEFAULT_SENDER,
+      to,
+      subject: `Confirmation de ticket de support #${ticketNumber} - Atlas Pro ONTV`,
+      react: TicketConfirmationEmail({
+        customerName,
+        ticketNumber,
+        category,
+        deviceType,
+        subject,
+        message,
+      }),
+    });
+
+    if (response.error) {
+      console.error("[Resend Error: Ticket Confirmation]", response.error);
+      return { success: false };
+    }
+
+    return { success: true, id: response.data?.id };
+  } catch (error: unknown) {
+    console.error("[Resend Exception: Ticket Confirmation]", error);
+    return { success: false };
+  }
+}
+

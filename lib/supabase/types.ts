@@ -137,27 +137,51 @@ export interface Database {
       tickets: {
         Row: {
           id: string;
+          ticket_number: string | null;
+          customer_name: string | null;
           email: string;
+          phone: string | null;
+          order_number: string | null;
+          category: string | null;
+          device_type: string | null;
           subject: string | null;
           message: string;
           status: TicketStatus;
+          priority: string | null;
           created_at: string;
+          updated_at: string | null;
         };
         Insert: {
           id?: string;
+          ticket_number?: string | null;
+          customer_name?: string | null;
           email: string;
+          phone?: string | null;
+          order_number?: string | null;
+          category?: string | null;
+          device_type?: string | null;
           subject?: string | null;
           message: string;
           status?: TicketStatus;
+          priority?: string | null;
           created_at?: string;
+          updated_at?: string | null;
         };
         Update: {
           id?: string;
+          ticket_number?: string | null;
+          customer_name?: string | null;
           email?: string;
+          phone?: string | null;
+          order_number?: string | null;
+          category?: string | null;
+          device_type?: string | null;
           subject?: string | null;
           message?: string;
           status?: TicketStatus;
+          priority?: string | null;
           created_at?: string;
+          updated_at?: string | null;
         };
         Relationships: [];
       };

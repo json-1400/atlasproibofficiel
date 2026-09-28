@@ -39,7 +39,14 @@ const DISALLOWED_SCRAPERS_AND_AI = [
   "TurnitinBot",
 ];
 
-const PROTECTED_PATHS = ["/api/", "/merci", "/studio/", "/*?*"];
+const PROTECTED_PATHS = [
+  "/api/",
+  "/commander",
+  "/commander/",
+  "/merci",
+  "/studio/",
+  "/*?*",
+];
 
 export default function robots(): MetadataRoute.Robots {
   return {

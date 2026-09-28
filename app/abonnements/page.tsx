@@ -1,22 +1,23 @@
 import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
+import { Check, ArrowRight, RefreshCw, HelpCircle, Layers, ShieldCheck, Zap } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { PricingCard } from "@/components/sections/PricingCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllPlans } from "@/lib/mock-data";
 import { buildMetadata } from "@/lib/seo";
 import {
   buildOrganizationSchema,
+  buildWebSiteSchema,
+  buildCatalogCollectionSchema,
   buildBreadcrumbSchema,
-  buildHomepageProductAggregateSchema,
 } from "@/lib/schema";
-import { ShieldCheck, HelpCircle } from "lucide-react";
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Abonnements Atlas Pro ONTV Officiel | Comparatif des Offres",
+    title: "Catalogue des Abonnements Atlas Pro : 12, 6, 3 Mois & Renouvellement",
     description:
-      "Comparez les formules d'abonnement Atlas Pro ONTV 12 mois, 6 mois et 3 mois. Codes d'activation officiels livrés en 15 minutes avec garantie de stabilité.",
+      "Catalogue officiel des abonnements Atlas Pro. Comparez les formules 12 mois, 6 mois, 3 mois et le renouvellement de licence. Guide de choix et tarifs détaillés.",
     path: "/abonnements",
   });
 }
@@ -26,98 +27,209 @@ export default function AbonnementsPage(): React.JSX.Element {
 
   const breadcrumbs = [
     { name: "Accueil", path: "/" },
-    { name: "Abonnements", path: "/abonnements" },
+    { name: "Catalogue Abonnements", path: "/abonnements" },
   ];
 
   const graphData = [
     buildOrganizationSchema(),
-    buildHomepageProductAggregateSchema(plans),
+    buildWebSiteSchema(),
+    buildCatalogCollectionSchema(plans),
     buildBreadcrumbSchema(breadcrumbs),
   ];
 
   return (
     <>
       <JsonLd graph={graphData} />
-      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8 space-y-12">
-        <Breadcrumbs items={[{ label: "Abonnements" }]} />
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 space-y-12">
+        <Breadcrumbs items={[{ label: "Catalogue Abonnements" }]} />
 
+        {/* Hub Header */}
         <header className="text-center space-y-4 max-w-3xl mx-auto">
-          <h1 className="text-3xl font-extrabold sm:text-4xl text-heading">
-            Nos Formules d&apos;<span className="text-primary">Abonnement Atlas Pro ONTV</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary">
+            <Layers className="h-4 w-4" aria-hidden="true" />
+            <span>Catalogue Officiel • Comparatif des Licences</span>
+          </div>
+          <h1 className="text-3xl font-extrabold sm:text-4xl text-heading tracking-tight">
+            Catalogue des Abonnements Atlas Pro
           </h1>
-          <p className="text-base text-body">
-            Choisissez la formule adaptée à vos besoins. Tous les abonnements Atlas Pro incluent plus
-            de 10 000 chaînes directes, la VOD en 4K/FHD et une activation instantanée par e-mail.
+          <p className="text-base text-body leading-relaxed">
+            Consultez les caractéristiques détaillées de chaque formule d&apos;abonnement Atlas Pro. Que vous souhaitiez tester le service pour 3 mois, vous équiper pour 6 mois ou profiter du tarif le plus avantageux sur 12 mois, accédez aux fiches complètes ci-dessous.
           </p>
         </header>
 
-        {/* Pricing Grid */}
-        <section aria-label="Grille des tarifs" className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
-          {plans.map((plan) => (
-            <PricingCard key={plan.slug} plan={plan} />
-          ))}
+        {/* Catalog Cards Grid */}
+        <section aria-label="Liste des formules au catalogue" className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {plans.map((plan) => {
+            const monthlyEquivalent = (plan.price / plan.durationMonths).toFixed(2);
+            return (
+              <article
+                key={plan.slug}
+                className={`relative flex flex-col justify-between rounded-2xl border p-6 sm:p-8 bg-surface transition-all ${
+                  plan.isPopular ? "border-primary ring-1 ring-primary shadow-sm" : "border-border hover:border-slate-300"
+                }`}
+              >
+                {plan.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
+                    {plan.badge}
+                  </div>
+                )}
+
+                <div className="space-y-4">
+                  <div>
+                    <h2 className="text-xl font-bold text-heading">{plan.title}</h2>
+                    <p className="text-xs text-muted mt-1">Durée ferme : {plan.durationMonths} mois</p>
+                  </div>
+
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-extrabold text-heading">{plan.price}€</span>
+                    {plan.oldPrice && (
+                      <span className="text-sm text-muted line-through">{plan.oldPrice}€</span>
+                    )}
+                    <span className="text-xs font-semibold text-primary ml-auto">
+                      Soit {monthlyEquivalent}€ / mois
+                    </span>
+                  </div>
+
+                  <ul className="space-y-2.5 pt-2 border-t border-border text-xs text-body">
+                    {plan.features.slice(0, 4).map((feat, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-6 space-y-2.5">
+                  <Link
+                    href={`/abonnements/${plan.slug}`}
+                    className="flex h-11 w-full items-center justify-center gap-1.5 rounded-xl border border-primary bg-white px-4 text-xs font-bold text-primary hover:bg-primary/5 transition-colors"
+                  >
+                    <span>Voir la fiche détaillée</span>
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </Link>
+                  <Link
+                    href={`/commander/${plan.slug}`}
+                    className="flex h-10 w-full items-center justify-center rounded-xl bg-primary px-4 text-xs font-semibold text-white shadow-sm hover:bg-primary-hover transition-colors"
+                  >
+                    Commander directement
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </section>
 
-        {/* Trust & Guarantee Section */}
-        <section className="rounded-2xl border border-border bg-surface p-8 sm:p-10">
-          <h2 className="text-xl font-bold text-heading text-center mb-8">
-            La Garantie Atlas Pro ONTV Officiel
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
-            <div className="space-y-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mx-auto sm:mx-0">
-                <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+        {/* Existing Customers Hub Banner: Renouvellement */}
+        <section aria-label="Espace Renouvellement" className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <RefreshCw className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="font-bold text-heading text-base">Serveurs Dédiés Anti-Coupures</h3>
-              <p className="text-xs text-body leading-relaxed">
-                Infrastructure hébergée dans des datacenters européens à très haut débit pour éliminer les temps de chargement.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mx-auto sm:mx-0">
-                <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+              <div className="space-y-1">
+                <h2 className="text-lg font-bold text-heading">
+                  Vous possédez déjà un abonnement Atlas Pro ?
+                </h2>
+                <p className="text-xs sm:text-sm text-body max-w-xl">
+                  Prolongez votre abonnement en conservant votre code d&apos;activation ou votre adresse MAC sans réinstaller votre application.
+                </p>
               </div>
-              <h3 className="font-bold text-heading text-base">Sans Engagement</h3>
-              <p className="text-xs text-body leading-relaxed">
-                Paiement unique sans reconduction tacite. Vous gardez le contrôle total sur votre abonnement et son renouvellement.
-              </p>
             </div>
-
-            <div className="space-y-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mx-auto sm:mx-0">
-                <ShieldCheck className="h-5 w-5" aria-hidden="true" />
-              </div>
-              <h3 className="font-bold text-heading text-base">Support Dédié 7j/7</h3>
-              <p className="text-xs text-body leading-relaxed">
-                Assistance technique et configuration pas-à-pas disponible tous les jours pour vous accompagner sur tous vos appareils.
-              </p>
-            </div>
+            <Link
+              href="/abonnements/renouvellement"
+              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-xs font-bold text-white shadow-sm hover:bg-primary-hover transition-colors w-full sm:w-auto"
+            >
+              <span>Accéder au Renouvellement</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
         </section>
 
-        {/* Global FAQ */}
-        <section className="space-y-6 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-heading text-center flex items-center justify-center gap-2">
-            <HelpCircle className="h-6 w-6 text-primary" aria-hidden="true" />
-            <span>Foire Aux Questions sur l&apos;Abonnement</span>
-          </h2>
+        {/* Comparison Matrix (Hub Value-Add) */}
+        <section aria-label="Tableau comparatif des formules" className="space-y-6">
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <h2 className="text-2xl font-bold text-heading">
+              Tableau Comparatif des Formules
+            </h2>
+            <p className="text-xs sm:text-sm text-body">
+              Comparez les durées d&apos;abonnement pour sélectionner l&apos;offre la plus avantageuse.
+            </p>
+          </div>
 
-          <div className="space-y-4">
-            <div className="rounded-xl border border-border bg-white p-5">
-              <h3 className="text-sm font-bold text-heading">Comment activer mon code après commande ?</h3>
-              <p className="mt-2 text-xs text-body leading-relaxed">
-                Dès la confirmation de votre commande, vous recevez un code d&apos;activation unique par e-mail. Ouvrez simplement votre application Atlas Pro ONTV sur votre Smart TV ou boîtier et saisissez ce code pour déverrouiller l&apos;intégralité des flux.
-              </p>
-            </div>
+          <div className="overflow-x-auto rounded-2xl border border-border bg-surface shadow-sm">
+            <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr className="border-b border-border bg-white text-heading">
+                  <th scope="col" className="p-4 font-bold">Critères</th>
+                  <th scope="col" className="p-4 font-bold text-center">12 Mois (Optimal)</th>
+                  <th scope="col" className="p-4 font-bold text-center">6 Mois</th>
+                  <th scope="col" className="p-4 font-bold text-center">3 Mois</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border text-body">
+                <tr>
+                  <td className="p-4 font-semibold text-heading">Tarif total</td>
+                  <td className="p-4 text-center font-bold text-primary">45 €</td>
+                  <td className="p-4 text-center font-bold text-heading">30 €</td>
+                  <td className="p-4 text-center font-bold text-heading">20 €</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-heading">Équivalent mensuel</td>
+                  <td className="p-4 text-center font-bold text-primary">3,75 € / mois</td>
+                  <td className="p-4 text-center">5,00 € / mois</td>
+                  <td className="p-4 text-center">6,67 € / mois</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-heading">Qualité 4K, FHD & HEVC</td>
+                  <td className="p-4 text-center text-primary font-bold">Inclus</td>
+                  <td className="p-4 text-center text-primary font-bold">Inclus</td>
+                  <td className="p-4 text-center text-primary font-bold">Inclus</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-heading">VOD Films & Séries</td>
+                  <td className="p-4 text-center text-primary font-bold">Illimité</td>
+                  <td className="p-4 text-center text-primary font-bold">Illimité</td>
+                  <td className="p-4 text-center text-primary font-bold">Illimité</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-heading">Replay 7 jours</td>
+                  <td className="p-4 text-center text-primary font-bold">Inclus</td>
+                  <td className="p-4 text-center text-primary font-bold">Inclus</td>
+                  <td className="p-4 text-center text-primary font-bold">Inclus</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-heading">Économie constatée</td>
+                  <td className="p-4 text-center font-bold text-emerald-600 bg-emerald-50/50">Jusqu&apos;à 44% d&apos;économie</td>
+                  <td className="p-4 text-center font-medium">25% d&apos;économie</td>
+                  <td className="p-4 text-center text-muted">Tarif de base</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-            <div className="rounded-xl border border-border bg-white p-5">
-              <h3 className="text-sm font-bold text-heading">Puis-je changer d&apos;appareil en cours d&apos;abonnement ?</h3>
-              <p className="mt-2 text-xs text-body leading-relaxed">
-                Oui, votre abonnement peut être transféré vers un nouvel appareil. Il suffit de vous déconnecter de l&apos;ancien ou de contacter notre support pour réinitialiser le lien d&apos;adresse MAC en quelques secondes.
-              </p>
-            </div>
+        {/* Hub Footer Navigation */}
+        <section className="rounded-2xl border border-border bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <div className="flex items-center gap-3">
+            <HelpCircle className="h-5 w-5 text-primary shrink-0" aria-hidden="true" />
+            <p className="text-body">
+              Une question avant de choisir votre abonnement ? Nos techniciens vous répondent 7j/7.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <Link
+              href="/ouvrir-ticket"
+              className="inline-flex h-9 items-center justify-center rounded-xl bg-surface border border-border px-4 font-bold text-heading hover:bg-slate-50 transition-colors w-full sm:w-auto"
+            >
+              Poser une question
+            </Link>
+            <Link
+              href="/tutoriels"
+              className="inline-flex h-9 items-center justify-center rounded-xl bg-primary px-4 font-bold text-white hover:bg-primary-hover transition-colors w-full sm:w-auto"
+            >
+              Guides d&apos;installation
+            </Link>
           </div>
         </section>
       </div>

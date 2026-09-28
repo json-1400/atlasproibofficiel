@@ -199,3 +199,31 @@ export function buildContactPageSchema(): Record<string, unknown> {
   };
 }
 
+export function buildCatalogCollectionSchema(plans: Plan[]): Record<string, unknown> {
+  return {
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/abonnements#webpage`,
+    url: `${SITE_URL}/abonnements`,
+    name: "Catalogue des Abonnements Atlas Pro",
+    description:
+      "Catalogue et comparatif des forfaits d'abonnement Atlas Pro officiels : 12 mois, 6 mois, 3 mois et renouvellement.",
+    isPartOf: {
+      "@id": ENTITY_IDS.website,
+    },
+    about: {
+      "@id": ENTITY_IDS.organization,
+    },
+    inLanguage: "fr-FR",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: plans.map((plan, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${SITE_URL}/abonnements/${plan.slug}`,
+        name: plan.title,
+      })),
+    },
+  };
+}
+
+

@@ -16,6 +16,8 @@ export function buildOrganizationSchema(): Record<string, unknown> {
     logo: {
       "@type": "ImageObject",
       url: `${SITE_URL}/logo.png`,
+      width: 148,
+      height: 148,
     },
     contactPoint: [
       {

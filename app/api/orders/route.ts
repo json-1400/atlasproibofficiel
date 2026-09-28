@@ -4,6 +4,7 @@ import { checkRateLimit } from "@/lib/rate-limit";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { getPlanBySlug } from "@/lib/mock-data";
 import { sendOrderConfirmationEmail } from "@/lib/resend";
+import { sendAdminNewOrderAlert } from "@/lib/admin-notifications";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
@@ -41,7 +42,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    const { name, email, phone, planSlug, existingCode, honeypot } = parseResult.data;
+    const {
+      name,
+      email,
+      phone,
+      planSlug,
+      existingCode,
+      devicesCount,
+      preferredPayment,
+      honeypot,
+    } = parseResult.data;
 
     // Reject bot submission if honeypot was filled
     if (honeypot && honeypot.length > 0) {
@@ -59,7 +69,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // 4. Supabase Database Operations
     const supabase = getSupabaseServerClient();
-    let orderId = `ord_${Date.now().toString(36)}`;
+    let orderId = "10001";
 
     if (supabase) {
       // Upsert Customer
@@ -85,13 +95,19 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         .from("orders")
         .insert({
           customer_id: customer.id,
+          customer_name: name || null,
+          customer_email: email,
+          customer_phone: phone || null,
           plan_slug: plan.slug,
           amount: plan.price,
           currency: "EUR",
-          status: "pending",
+          devices_count: devicesCount,
+          preferred_payment: preferredPayment,
+          status: "nouvelle_demande",
+          customer_notes: existingCode || null,
           notes: existingCode || null,
         })
-        .select("id")
+        .select("id, order_number")
         .single();
 
       if (orderError || !newOrder) {
@@ -102,7 +118,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         );
       }
 
-      orderId = newOrder.id;
+      orderId = newOrder.order_number ? String(newOrder.order_number) : "10001";
     } else {
       console.log(
         `[Dev Mock Order Created] Plan: ${plan.slug}, Amount: ${plan.price}€, Email: ${email}`
@@ -116,6 +132,21 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       orderId,
       planTitle: plan.title,
       amount: plan.price,
+      devicesCount,
+      preferredPayment,
+    });
+
+    // 6. Notify Administrators via ADMIN_EMAILS
+    void sendAdminNewOrderAlert({
+      orderId,
+      customerName: name,
+      customerEmail: email,
+      customerPhone: phone,
+      planTitle: plan.title,
+      amount: plan.price,
+      devicesCount,
+      preferredPayment,
+      existingCode: existingCode || undefined,
     });
 
     return NextResponse.json(

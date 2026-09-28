@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 export function Header(): React.JSX.Element {
   return (
@@ -8,12 +8,18 @@ export function Header(): React.JSX.Element {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 text-heading font-bold text-lg tracking-tight"
+          className="flex items-center gap-2.5 text-heading font-bold text-lg tracking-tight"
           aria-label="Atlas Pro ONTV Accueil"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white">
-            <ShieldCheck className="h-5 w-5" aria-hidden="true" />
-          </span>
+          <Image
+            src="/logo.png"
+            alt="Atlas Pro ONTV - Logo Officiel"
+            width={36}
+            height={36}
+            sizes="36px"
+            priority
+            className="h-9 w-9 rounded-xl object-contain"
+          />
           <span>Atlas Pro ONTV</span>
         </Link>
 

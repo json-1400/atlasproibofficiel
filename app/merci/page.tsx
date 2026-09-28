@@ -13,7 +13,19 @@ export function generateMetadata(): Metadata {
   });
 }
 
-export default function MerciPage(): React.JSX.Element {
+interface MerciPageProps {
+  searchParams: Promise<{
+    orderId?: string;
+    plan?: string;
+  }>;
+}
+
+export default async function MerciPage({
+  searchParams,
+}: MerciPageProps): Promise<React.JSX.Element> {
+  const params = await searchParams;
+  const orderId = params.orderId;
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8 space-y-8 text-center">
       <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-light text-accent">
@@ -21,6 +33,12 @@ export default function MerciPage(): React.JSX.Element {
       </div>
 
       <div className="space-y-3">
+        {orderId && (
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary">
+            <span>Commande</span>
+            <span className="font-mono font-bold text-heading">#{orderId}</span>
+          </div>
+        )}
         <h1 className="text-3xl font-extrabold sm:text-4xl text-heading">
           Merci pour votre commande !
         </h1>

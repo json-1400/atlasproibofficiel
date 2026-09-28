@@ -6,7 +6,7 @@ import { ContactReceivedEmail } from "@/emails/ContactReceivedEmail";
 
 let resendClient: Resend | null = null;
 
-function getResendClient(): Resend | null {
+export function getResendClient(): Resend | null {
   if (resendClient) {
     return resendClient;
   }
@@ -25,7 +25,7 @@ function getResendClient(): Resend | null {
   return resendClient;
 }
 
-const DEFAULT_SENDER =
+export const DEFAULT_SENDER =
   process.env.RESEND_FROM_EMAIL ||
   process.env.RESEND_FROM ||
   "Atlasproibofficiel <support@atlasproibofficiel.com>";
@@ -36,6 +36,8 @@ export interface SendOrderConfirmationParams {
   orderId: string;
   planTitle: string;
   amount: number;
+  devicesCount?: number;
+  preferredPayment?: string;
 }
 
 export async function sendOrderConfirmationEmail({
@@ -44,12 +46,14 @@ export async function sendOrderConfirmationEmail({
   orderId,
   planTitle,
   amount,
+  devicesCount,
+  preferredPayment,
 }: SendOrderConfirmationParams): Promise<{ success: boolean; id?: string }> {
   const resend = getResendClient();
 
   if (!resend) {
     console.log(
-      `[Dev Email Mock] To: ${to} | OrderConfirmation: Order #${orderId} (${planTitle} - ${amount}€)`
+      `[Dev Email Mock] To: ${to} | OrderConfirmation: Order #${orderId} (${planTitle} - ${amount}€ - ${devicesCount || 1} écran(s) - ${preferredPayment || "carte"})`
     );
     return { success: true, id: `mock_email_${Date.now()}` };
   }
@@ -64,6 +68,8 @@ export async function sendOrderConfirmationEmail({
         orderId,
         planTitle,
         amount,
+        devicesCount,
+        preferredPayment,
       }),
     });
 

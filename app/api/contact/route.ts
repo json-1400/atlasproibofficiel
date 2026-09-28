@@ -3,6 +3,7 @@ import { contactInputSchema } from "@/lib/validations/contact";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { sendContactReceivedEmail } from "@/lib/resend";
+import { sendAdminNewTicketAlert } from "@/lib/admin-notifications";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
@@ -84,6 +85,15 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       ticketId,
       subject: subject || "Demande de support",
       messagePreview: message,
+    });
+
+    // 5. Notify Administrators via ADMIN_EMAILS
+    void sendAdminNewTicketAlert({
+      ticketId,
+      customerName: name,
+      customerEmail: email,
+      subject: subject || "Demande générale de support",
+      message,
     });
 
     return NextResponse.json(

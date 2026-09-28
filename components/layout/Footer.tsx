@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 export function Footer(): React.JSX.Element {
   const currentYear = new Date().getFullYear();
@@ -12,12 +12,18 @@ export function Footer(): React.JSX.Element {
           <div className="space-y-4">
             <Link
               href="/"
-              className="flex items-center gap-2 text-heading font-bold text-base"
+              className="flex items-center gap-2.5 text-heading font-bold text-base"
               aria-label="Atlas Pro ONTV Officiel"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-                <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-              </span>
+              <Image
+                src="/logo.png"
+                alt="Atlas Pro ONTV - Logo Officiel"
+                width={32}
+                height={32}
+                sizes="32px"
+                loading="lazy"
+                className="h-8 w-8 rounded-lg object-contain"
+              />
               <span>Atlas Pro ONTV</span>
             </Link>
             <p className="text-xs text-body leading-relaxed">

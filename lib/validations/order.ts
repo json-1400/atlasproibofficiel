@@ -28,6 +28,17 @@ export const orderInputSchema = z.object({
     .max(100, "L'identifiant est trop long")
     .optional()
     .nullable(),
+  devicesCount: z.coerce
+    .number()
+    .int("Le nombre d'appareils doit être un entier")
+    .min(1, "Au moins 1 appareil requis")
+    .max(4, "Maximum 4 appareils")
+    .default(1),
+  preferredPayment: z
+    .enum(["carte_bancaire", "paypal"], {
+      errorMap: () => ({ message: "Veuillez choisir un moyen de paiement valide" }),
+    })
+    .default("carte_bancaire"),
   honeypot: z.string().max(0, "Tentative de spam détectée").optional(),
 });
 

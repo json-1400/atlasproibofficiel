@@ -3,7 +3,7 @@
 // CLIENT: interactive form submission, honeypot handling, and checkout state management
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, AlertCircle, Loader2 } from "lucide-react";
+import { Lock, AlertCircle, Loader2, CreditCard, Wallet, Tv } from "lucide-react";
 
 export interface CheckoutFormProps {
   planSlug: "atlas-pro-12-mois" | "atlas-pro-6-mois" | "atlas-pro-3-mois";
@@ -16,6 +16,8 @@ export function CheckoutForm({ planSlug, planPrice }: CheckoutFormProps): React.
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [devicesCount, setDevicesCount] = useState<number>(1);
+  const [preferredPayment, setPreferredPayment] = useState<"carte_bancaire" | "paypal">("carte_bancaire");
   const [existingCode, setExistingCode] = useState("");
   const [honeypot, setHoneypot] = useState("");
 
@@ -38,6 +40,8 @@ export function CheckoutForm({ planSlug, planPrice }: CheckoutFormProps): React.
           email,
           phone,
           planSlug,
+          devicesCount,
+          preferredPayment,
           existingCode: existingCode.trim() || undefined,
           honeypot,
         }),
@@ -148,6 +152,73 @@ export function CheckoutForm({ planSlug, planPrice }: CheckoutFormProps): React.
       </div>
 
       <div>
+        <label className="block text-xs font-semibold text-heading mb-1.5">
+          Nombre d&apos;appareils (connexions simultanées) *
+        </label>
+        <div className="grid grid-cols-4 gap-2">
+          {[1, 2, 3, 4].map((count) => (
+            <button
+              key={count}
+              type="button"
+              onClick={() => setDevicesCount(count)}
+              className={`flex flex-col items-center justify-center rounded-xl border py-2.5 px-2 text-center transition-all ${
+                devicesCount === count
+                  ? "border-primary bg-primary/10 text-primary font-bold shadow-sm"
+                  : "border-border bg-white text-body hover:border-slate-300 font-medium"
+              }`}
+              aria-pressed={devicesCount === count}
+            >
+              <span className="text-sm font-bold">{count}</span>
+              <span className="text-[10px] text-slate-500">
+                {count === 1 ? "Écran" : "Écrans"}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-xs font-semibold text-heading mb-1.5">
+          Mode de règlement souhaité *
+        </label>
+        <div className="grid grid-cols-2 gap-2.5">
+          <button
+            type="button"
+            onClick={() => setPreferredPayment("carte_bancaire")}
+            className={`flex items-center gap-2.5 rounded-xl border p-3 text-left transition-all ${
+              preferredPayment === "carte_bancaire"
+                ? "border-primary bg-primary/10 text-primary font-bold shadow-sm"
+                : "border-border bg-white text-body hover:border-slate-300 font-medium"
+            }`}
+            aria-pressed={preferredPayment === "carte_bancaire"}
+          >
+            <CreditCard className="h-5 w-5 shrink-0" aria-hidden="true" />
+            <div>
+              <div className="text-xs font-bold leading-tight">Carte Bancaire</div>
+              <div className="text-[10px] text-slate-500 font-normal">Instructions sécurisées</div>
+            </div>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setPreferredPayment("paypal")}
+            className={`flex items-center gap-2.5 rounded-xl border p-3 text-left transition-all ${
+              preferredPayment === "paypal"
+                ? "border-primary bg-primary/10 text-primary font-bold shadow-sm"
+                : "border-border bg-white text-body hover:border-slate-300 font-medium"
+            }`}
+            aria-pressed={preferredPayment === "paypal"}
+          >
+            <Wallet className="h-5 w-5 shrink-0" aria-hidden="true" />
+            <div>
+              <div className="text-xs font-bold leading-tight">PayPal</div>
+              <div className="text-[10px] text-slate-500 font-normal">Virement sécurisé</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div>
         <label htmlFor="existingCode" className="block text-xs font-semibold text-heading mb-1">
           Ancien code ou Adresse MAC (Facultatif - en cas de renouvellement)
         </label>
@@ -176,14 +247,14 @@ export function CheckoutForm({ planSlug, planPrice }: CheckoutFormProps): React.
           ) : (
             <>
               <Lock className="h-4 w-4" aria-hidden="true" />
-              <span>Confirmer et Payer ({planPrice}€)</span>
+              <span>Valider ma commande ({planPrice}€)</span>
             </>
           )}
         </button>
       </div>
 
       <p className="text-[11px] text-center text-slate-400">
-        Paiement 100% sécurisé • Vos données ne sont jamais partagées à des tiers.
+        Activation rapide en moins de 15 minutes • Vos données restent 100% confidentielles.
       </p>
     </form>
   );

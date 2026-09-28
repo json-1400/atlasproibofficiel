@@ -5,6 +5,8 @@ export interface OrderConfirmationEmailProps {
   orderId: string;
   planTitle: string;
   amount: number;
+  devicesCount?: number;
+  preferredPayment?: string;
 }
 
 export function OrderConfirmationEmail({
@@ -12,6 +14,8 @@ export function OrderConfirmationEmail({
   orderId,
   planTitle,
   amount,
+  devicesCount = 1,
+  preferredPayment = "carte_bancaire",
 }: OrderConfirmationEmailProps): React.JSX.Element {
   return (
     <div
@@ -87,7 +91,7 @@ export function OrderConfirmationEmail({
                 <tr>
                   <td style={{ padding: "6px 0", color: "#64748B" }}>Référence commande :</td>
                   <td style={{ padding: "6px 0", textAlign: "right", fontWeight: "600", color: "#0F172A" }}>
-                    {orderId}
+                    #{orderId}
                   </td>
                 </tr>
                 <tr>
@@ -97,7 +101,19 @@ export function OrderConfirmationEmail({
                   </td>
                 </tr>
                 <tr>
-                  <td style={{ padding: "6px 0", color: "#64748B" }}>Montant réglé :</td>
+                  <td style={{ padding: "6px 0", color: "#64748B" }}>Connexions simultanées :</td>
+                  <td style={{ padding: "6px 0", textAlign: "right", fontWeight: "600", color: "#0F172A" }}>
+                    {devicesCount} écran{devicesCount > 1 ? "s" : ""}
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ padding: "6px 0", color: "#64748B" }}>Règlement souhaité :</td>
+                  <td style={{ padding: "6px 0", textAlign: "right", fontWeight: "600", color: "#0F172A" }}>
+                    {preferredPayment === "paypal" ? "PayPal" : "Carte Bancaire"}
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ padding: "6px 0", color: "#64748B" }}>Montant :</td>
                   <td style={{ padding: "6px 0", textAlign: "right", fontWeight: "700", color: "#4F46E5", fontSize: "16px" }}>
                     {amount} €
                   </td>

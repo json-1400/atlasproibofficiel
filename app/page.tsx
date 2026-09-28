@@ -7,6 +7,7 @@ import { ComparisonTable } from "@/components/sections/ComparisonTable";
 import { ActivationSteps } from "@/components/sections/ActivationSteps";
 import { DeviceCompatibility } from "@/components/sections/DeviceCompatibility";
 import { ChannelCatalogPreview } from "@/components/sections/ChannelCatalogPreview";
+import { VodCarousel } from "@/components/sections/VodCarousel";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getSingleScreenPlans, getAllPlans } from "@/lib/mock-data";
 import { buildMetadata } from "@/lib/seo";
@@ -200,7 +201,7 @@ export default function HomePage(): React.JSX.Element {
 
         {/* 6. Channel & VOD Catalog (H2) */}
         <section className="bg-surface border-y border-border py-16">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="text-center space-y-3 max-w-3xl mx-auto">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-heading">
                 Bouquet TV en Direct et Catalogue VOD Inclus avec Atlas IPTV
@@ -210,6 +211,10 @@ export default function HomePage(): React.JSX.Element {
               </p>
             </div>
 
+            {/* AI-Generated 4K Cinema VOD Swiper */}
+            <VodCarousel />
+
+            {/* Category Highlights Grid */}
             <ChannelCatalogPreview />
           </div>
         </section>

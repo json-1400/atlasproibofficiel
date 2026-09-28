@@ -17,7 +17,14 @@ export const orderInputSchema = z.object({
     .min(6, "Le numéro de téléphone est trop court")
     .max(30, "Le numéro de téléphone est trop long"),
   planSlug: z.enum(
-    ["atlas-pro-12-mois", "atlas-pro-6-mois", "atlas-pro-3-mois"],
+    [
+      "atlas-pro-12-mois",
+      "atlas-pro-6-mois",
+      "atlas-pro-3-mois",
+      "atlas-pro-2-ecrans",
+      "atlas-pro-3-ecrans",
+      "atlas-pro-4-ecrans",
+    ],
     {
       errorMap: () => ({ message: "Le forfait sélectionné est invalide" }),
     }

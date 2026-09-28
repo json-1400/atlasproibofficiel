@@ -3,20 +3,35 @@
 // CLIENT: interactive form submission, honeypot handling, and checkout state management
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, AlertCircle, Loader2, CreditCard, Wallet, Tv } from "lucide-react";
+import { Lock, AlertCircle, Loader2, CreditCard, Wallet } from "lucide-react";
+import { calculateOrderPrice } from "@/lib/pricing";
+
+export type ValidPlanSlug =
+  | "atlas-pro-12-mois"
+  | "atlas-pro-6-mois"
+  | "atlas-pro-3-mois"
+  | "atlas-pro-2-ecrans"
+  | "atlas-pro-3-ecrans"
+  | "atlas-pro-4-ecrans";
 
 export interface CheckoutFormProps {
-  planSlug: "atlas-pro-12-mois" | "atlas-pro-6-mois" | "atlas-pro-3-mois";
-  planPrice: number;
+  planSlug: ValidPlanSlug;
+  devicesCount: number;
+  onDevicesCountChange: (count: number) => void;
+  currentPrice: number;
 }
 
-export function CheckoutForm({ planSlug, planPrice }: CheckoutFormProps): React.JSX.Element {
+export function CheckoutForm({
+  planSlug,
+  devicesCount,
+  onDevicesCountChange,
+  currentPrice,
+}: CheckoutFormProps): React.JSX.Element {
   const router = useRouter();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [devicesCount, setDevicesCount] = useState<number>(1);
   const [preferredPayment, setPreferredPayment] = useState<"carte_bancaire" | "paypal">("carte_bancaire");
   const [existingCode, setExistingCode] = useState("");
   const [honeypot, setHoneypot] = useState("");
@@ -79,8 +94,8 @@ export function CheckoutForm({ planSlug, planPrice }: CheckoutFormProps): React.
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {/* Honeypot field (hidden from genuine users) */}
-      <div style={{ display: "none" }} aria-hidden="true">
+      {/* Honeypot field (hidden from genuine users via Tailwind utility class) */}
+      <div className="hidden" aria-hidden="true">
         <label htmlFor="website_url">Ne pas remplir ce champ</label>
         <input
           id="website_url"
@@ -152,28 +167,45 @@ export function CheckoutForm({ planSlug, planPrice }: CheckoutFormProps): React.
       </div>
 
       <div>
-        <label className="block text-xs font-semibold text-heading mb-1.5">
-          Nombre d&apos;appareils (connexions simultanées) *
-        </label>
+        <div className="flex items-center justify-between mb-1.5">
+          <label className="block text-xs font-semibold text-heading">
+            Nombre d&apos;appareils (connexions simultanées) *
+          </label>
+          <span className="text-[11px] font-bold text-primary">
+            {devicesCount} {devicesCount > 1 ? "écrans" : "écran"} ({currentPrice}€)
+          </span>
+        </div>
         <div className="grid grid-cols-4 gap-2">
-          {[1, 2, 3, 4].map((count) => (
-            <button
-              key={count}
-              type="button"
-              onClick={() => setDevicesCount(count)}
-              className={`flex flex-col items-center justify-center rounded-xl border py-2.5 px-2 text-center transition-all ${
-                devicesCount === count
-                  ? "border-primary bg-primary/10 text-primary font-bold shadow-sm"
-                  : "border-border bg-white text-body hover:border-slate-300 font-medium"
-              }`}
-              aria-pressed={devicesCount === count}
-            >
-              <span className="text-sm font-bold">{count}</span>
-              <span className="text-[10px] text-slate-500">
-                {count === 1 ? "Écran" : "Écrans"}
-              </span>
-            </button>
-          ))}
+          {[1, 2, 3, 4].map((count) => {
+            const optionPrice = calculateOrderPrice(planSlug, count);
+            const isSelected = devicesCount === count;
+
+            return (
+              <button
+                key={count}
+                type="button"
+                onClick={() => onDevicesCountChange(count)}
+                className={`flex flex-col items-center justify-center rounded-xl border py-2 px-1 text-center transition-all ${
+                  isSelected
+                    ? "border-primary bg-primary/10 text-primary font-bold shadow-sm ring-1 ring-primary"
+                    : "border-border bg-white text-body hover:border-slate-300 font-medium"
+                }`}
+                aria-pressed={isSelected}
+              >
+                <span className="text-sm font-bold">{count}</span>
+                <span className="text-[10px] text-slate-500">
+                  {count === 1 ? "Écran" : "Écrans"}
+                </span>
+                <span
+                  className={`mt-0.5 text-[11px] font-semibold ${
+                    isSelected ? "text-primary" : "text-slate-600"
+                  }`}
+                >
+                  {optionPrice}€
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -247,7 +279,7 @@ export function CheckoutForm({ planSlug, planPrice }: CheckoutFormProps): React.
           ) : (
             <>
               <Lock className="h-4 w-4" aria-hidden="true" />
-              <span>Valider ma commande ({planPrice}€)</span>
+              <span>Valider ma commande ({currentPrice}€)</span>
             </>
           )}
         </button>

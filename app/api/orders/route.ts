@@ -3,6 +3,7 @@ import { orderInputSchema } from "@/lib/validations/order";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { getPlanBySlug } from "@/lib/mock-data";
+import { calculateOrderPrice } from "@/lib/pricing";
 import { sendOrderConfirmationEmail } from "@/lib/resend";
 import { sendAdminNewOrderAlert } from "@/lib/admin-notifications";
 
@@ -67,6 +68,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
+    const calculatedAmount = calculateOrderPrice(plan.slug, devicesCount);
+
     // 4. Supabase Database Operations
     const supabase = getSupabaseServerClient();
     let orderId = "10001";
@@ -99,7 +102,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           customer_email: email,
           customer_phone: phone || null,
           plan_slug: plan.slug,
-          amount: plan.price,
+          amount: calculatedAmount,
           currency: "EUR",
           devices_count: devicesCount,
           preferred_payment: preferredPayment,
@@ -121,7 +124,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       orderId = newOrder.order_number ? String(newOrder.order_number) : "10001";
     } else {
       console.log(
-        `[Dev Mock Order Created] Plan: ${plan.slug}, Amount: ${plan.price}€, Email: ${email}`
+        `[Dev Mock Order Created] Plan: ${plan.slug}, Amount: ${calculatedAmount}€, Devices: ${devicesCount}, Email: ${email}`
       );
     }
 
@@ -134,7 +137,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         customerName: name,
         orderId,
         planTitle: plan.title,
-        amount: plan.price,
+        amount: calculatedAmount,
         devicesCount,
         preferredPayment,
       }),
@@ -144,7 +147,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         customerEmail: email,
         customerPhone: phone,
         planTitle: plan.title,
-        amount: plan.price,
+        amount: calculatedAmount,
         devicesCount,
         preferredPayment,
         existingCode: existingCode || undefined,
@@ -156,7 +159,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         success: true,
         orderId,
         planTitle: plan.title,
-        amount: plan.price,
+        amount: calculatedAmount,
         redirectUrl: `/merci?orderId=${encodeURIComponent(orderId)}&plan=${encodeURIComponent(
           plan.slug
         )}`,

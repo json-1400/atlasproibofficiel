@@ -1,9 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ShieldCheck, Zap } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { CheckoutForm } from "@/components/sections/CheckoutForm";
+import { CheckoutView } from "@/components/sections/CheckoutView";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllPlans, getPlanBySlug } from "@/lib/mock-data";
 import { buildMetadata } from "@/lib/seo";
@@ -49,8 +48,6 @@ export default async function CommanderPage({ params }: PageProps): Promise<Reac
     notFound();
   }
 
-  const validPlanSlug = plan.slug as "atlas-pro-12-mois" | "atlas-pro-6-mois" | "atlas-pro-3-mois";
-
   const breadcrumbs = [
     { name: "Accueil", path: "/" },
     { name: "Abonnements", path: "/abonnements" },
@@ -84,50 +81,7 @@ export default async function CommanderPage({ params }: PageProps): Promise<Reac
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {/* Order Form */}
-          <div className="md:col-span-7 rounded-2xl border border-border bg-white p-6 shadow-sm">
-            <CheckoutForm planSlug={validPlanSlug} planPrice={plan.price} />
-          </div>
-
-          {/* Order Summary */}
-          <div className="md:col-span-5 rounded-2xl border border-border bg-surface p-6 space-y-4">
-            <h2 className="text-sm font-bold text-heading pb-3 border-b border-border">
-              Récapitulatif de la commande
-            </h2>
-
-            <div className="space-y-2 text-xs">
-              <div className="flex justify-between text-heading font-medium">
-                <span>{plan.title}</span>
-                <span>{plan.price}€</span>
-              </div>
-              <div className="flex justify-between text-body">
-                <span>Durée</span>
-                <span>{plan.durationMonths} mois</span>
-              </div>
-              <div className="flex justify-between text-body">
-                <span>Frais d&apos;activation</span>
-                <span className="text-emerald-600 font-semibold">Gratuit</span>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-border flex justify-between items-baseline font-bold text-heading">
-              <span>Total TTC</span>
-              <span className="text-2xl text-primary">{plan.price}€</span>
-            </div>
-
-            <div className="rounded-xl bg-white border border-border p-3.5 space-y-2 text-[11px] text-body">
-              <div className="flex items-center gap-2 text-emerald-700 font-semibold">
-                <Zap className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>Livraison instantanée par e-mail</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-                <span>Garantie de service officiel Atlas Pro</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CheckoutView plan={plan} />
       </div>
     </>
   );

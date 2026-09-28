@@ -1,5 +1,11 @@
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
-import type { Plan, AppPage, Tutorial } from "@/lib/mock-data";
+import type { Plan } from "@/lib/mock-data";
+import {
+  DEFAULT_BRAND,
+  DEFAULT_PRODUCT_IMAGES,
+  DEFAULT_SHIPPING_DETAILS,
+  DEFAULT_RETURN_POLICY,
+} from "@/lib/schema-merchant";
 
 export const ENTITY_IDS = {
   organization: `${SITE_URL}/#organization`,
@@ -84,9 +90,8 @@ export function buildHomepageProductAggregateSchema(plans: Plan[]): Record<strin
     name: "Abonnement Atlas Pro",
     description:
       "Abonnement officiel IPTV Atlas Pro avec plus de 10 000 chaînes directes et VOD en 4K/FHD. Activation immédiate en moins de 15 minutes.",
-    brand: {
-      "@id": ENTITY_IDS.organization,
-    },
+    image: DEFAULT_PRODUCT_IMAGES,
+    brand: DEFAULT_BRAND,
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
@@ -99,8 +104,14 @@ export function buildHomepageProductAggregateSchema(plans: Plan[]): Record<strin
         price: plan.price.toFixed(2),
         priceCurrency: "EUR",
         priceValidUntil: "2026-12-31",
+        validFrom: "2026-01-01",
         availability: "https://schema.org/InStock",
         url: `${SITE_URL}/abonnements/${plan.slug}`,
+        seller: {
+          "@id": ENTITY_IDS.organization,
+        },
+        shippingDetails: DEFAULT_SHIPPING_DETAILS,
+        hasMerchantReturnPolicy: DEFAULT_RETURN_POLICY,
       })),
     },
   };
@@ -112,73 +123,23 @@ export function buildPlanSchema(plan: Plan): Record<string, unknown> {
     "@id": `${SITE_URL}/abonnements/${plan.slug}#product`,
     name: plan.title,
     description: plan.seoDescription,
-    brand: {
-      "@id": ENTITY_IDS.organization,
-    },
+    image: DEFAULT_PRODUCT_IMAGES,
+    brand: DEFAULT_BRAND,
     offers: {
       "@type": "Offer",
       price: plan.price.toFixed(2),
       priceCurrency: "EUR",
       priceValidUntil: "2026-12-31",
+      validFrom: "2026-01-01",
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/abonnements/${plan.slug}`,
       seller: {
         "@id": ENTITY_IDS.organization,
       },
+      shippingDetails: DEFAULT_SHIPPING_DETAILS,
+      hasMerchantReturnPolicy: DEFAULT_RETURN_POLICY,
     },
   };
-}
-
-export function buildAppSchema(app: AppPage): Record<string, unknown> {
-  return {
-    "@type": "SoftwareApplication",
-    "@id": `${SITE_URL}/telecharger/${app.slug}#software`,
-    name: app.title,
-    operatingSystem: app.platform,
-    applicationCategory: "MultimediaApplication",
-    softwareVersion: app.version,
-    downloadUrl: `${SITE_URL}${app.apkUrl}`,
-    fileFormat: app.apkUrl.endsWith(".apk")
-      ? "application/vnd.android.package-archive"
-      : "application/octet-stream",
-    offers: {
-      "@type": "Offer",
-      price: "0.00",
-      priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
-    },
-    publisher: {
-      "@id": ENTITY_IDS.organization,
-    },
-  };
-}
-
-export function buildTutorialSchema(tut: Tutorial): Array<Record<string, unknown>> {
-  const articleSchema: Record<string, unknown> = {
-    "@type": "Article",
-    "@id": `${SITE_URL}/tutoriels/${tut.slug}#article`,
-    headline: tut.title,
-    description: tut.excerpt,
-    publisher: {
-      "@id": ENTITY_IDS.organization,
-    },
-    inLanguage: "fr-FR",
-  };
-
-  const howToSchema: Record<string, unknown> = {
-    "@type": "HowTo",
-    "@id": `${SITE_URL}/tutoriels/${tut.slug}#howto`,
-    name: tut.title,
-    description: tut.excerpt,
-    step: tut.steps.map((step) => ({
-      "@type": "HowToStep",
-      position: step.stepNumber,
-      name: step.title,
-      text: step.instruction,
-    })),
-  };
-
-  return [articleSchema, howToSchema];
 }
 
 export function buildContactPageSchema(): Record<string, unknown> {

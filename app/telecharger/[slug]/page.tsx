@@ -10,9 +10,9 @@ import { getAllAppPages, getAppPageBySlug, getRelatedTutorials } from "@/lib/moc
 import { buildMetadata } from "@/lib/seo";
 import {
   buildOrganizationSchema,
-  buildAppSchema,
   buildBreadcrumbSchema,
 } from "@/lib/schema";
+import { buildAppSchema } from "@/lib/schema-content";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

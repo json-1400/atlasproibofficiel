@@ -9,9 +9,9 @@ import { getAllTutorials, getTutorialBySlug, getRelatedTutorials } from "@/lib/m
 import { buildMetadata } from "@/lib/seo";
 import {
   buildOrganizationSchema,
-  buildTutorialSchema,
   buildBreadcrumbSchema,
 } from "@/lib/schema";
+import { buildTutorialSchema } from "@/lib/schema-content";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

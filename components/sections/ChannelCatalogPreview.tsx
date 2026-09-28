@@ -15,15 +15,15 @@ const CATEGORIES: CategoryBlock[] = [
     badge: "Flux 60 FPS Anti-Freeze",
     icon: Trophy,
     description:
-      "Vivez les plus grands événements sportifs mondiaux en immersion totale : Ligue 1, Ligue des Champions, Premier League, Liga, Serie A, Formule 1, MotoGP, UFC et NBA.",
+      "Vivez les plus grands événements sportifs mondiaux en direct : football européen et international, sports mécaniques, grands tournois, arts martiaux et sports collectifs en immersion totale.",
     highlights: ["Canaux UHD dédiés 4K", "Multi-flux sans latence", "Zéro coupure en direct"],
   },
   {
-    title: "Bouquet Français Généraliste & TNT en FHD",
+    title: "Bouquet Français Généraliste & Chaînes Nationales",
     badge: "100% Chaînes Nationales",
     icon: Sparkles,
     description:
-      "Accédez à l'intégralité de la TNT française ainsi qu'aux chaînes thématiques d'information, jeunesse, découverte, documentaires et divertissement en qualité Full HD native.",
+      "Accédez aux chaînes nationales françaises ainsi qu'aux bouquets thématiques d'information, jeunesse, découverte, documentaires et divertissement en qualité Full HD native.",
     highlights: ["Qualité 1080p native", "EPG Guide TV synchronisé", "Multi-langues VF/VO"],
   },
   {

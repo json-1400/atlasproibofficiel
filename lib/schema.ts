@@ -226,4 +226,32 @@ export function buildCatalogCollectionSchema(plans: Plan[]): Record<string, unkn
   };
 }
 
+export function buildMultiScreenHubSchema(plans: Plan[]): Record<string, unknown> {
+  return {
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/abonnements/multi-ecran#webpage`,
+    url: `${SITE_URL}/abonnements/multi-ecran`,
+    name: "Abonnement IPTV Atlas Multiécrans",
+    description:
+      "Formules officielles multi-écrans Atlas Pro : 2, 3 et 4 connexions simultanées en 4K/FHD. Profitez de votre abonnement sur plusieurs téléviseurs en même temps.",
+    isPartOf: {
+      "@id": ENTITY_IDS.website,
+    },
+    about: {
+      "@id": ENTITY_IDS.organization,
+    },
+    inLanguage: "fr-FR",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: plans.map((plan, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${SITE_URL}/abonnements/${plan.slug}`,
+        name: plan.title,
+      })),
+    },
+  };
+}
+
+
 

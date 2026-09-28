@@ -169,7 +169,7 @@ export function Header(): React.JSX.Element {
               onClick={closeMenu}
               className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 text-sm font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
             >
-              <span>Commander 12 Mois (45€)</span>
+              <span>Commander 12 Mois (40€)</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
 

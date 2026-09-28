@@ -106,7 +106,7 @@ export default function RenouvellementPage(): React.JSX.Element {
                 Meilleur Tarif
               </span>
               <h3 className="text-lg font-bold text-heading">Renouvellement 12 Mois</h3>
-              <p className="text-3xl font-extrabold text-heading">45€</p>
+              <p className="text-3xl font-extrabold text-heading">40€</p>
               <ul className="space-y-2 text-xs text-body pt-2">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-600" aria-hidden="true" />
@@ -126,7 +126,7 @@ export default function RenouvellementPage(): React.JSX.Element {
               href="/commander/atlas-pro-12-mois"
               className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-hover transition-colors shadow-sm"
             >
-              <span>Renouveler pour 12 Mois (45€)</span>
+              <span>Renouveler pour 12 Mois (40€)</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

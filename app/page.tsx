@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Download, ArrowRight, ShieldCheck, Zap, Tv, CheckCircle2, HelpCircle } from "lucide-react";
 import { PricingCard } from "@/components/sections/PricingCard";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getAllPlans } from "@/lib/mock-data";
+import { getSingleScreenPlans, getAllPlans } from "@/lib/mock-data";
 import { buildMetadata } from "@/lib/seo";
 import {
   buildOrganizationSchema,
@@ -46,12 +46,13 @@ const HOMEPAGE_FAQS = [
 ];
 
 export default function HomePage(): React.JSX.Element {
-  const plans = getAllPlans();
+  const plans = getSingleScreenPlans();
+  const allPlans = getAllPlans();
 
   const graphData = [
     buildOrganizationSchema(),
     buildWebSiteSchema(),
-    buildHomepageProductAggregateSchema(plans),
+    buildHomepageProductAggregateSchema(allPlans),
     buildFaqSchema(HOMEPAGE_FAQS),
   ];
 
@@ -109,6 +110,16 @@ export default function HomePage(): React.JSX.Element {
             {plans.map((plan) => (
               <PricingCard key={plan.slug} plan={plan} />
             ))}
+          </div>
+
+          <div className="text-center pt-2">
+            <Link
+              href="/abonnements/multi-ecran"
+              className="inline-flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/5 px-5 py-3 text-xs sm:text-sm font-semibold text-primary hover:bg-primary/10 transition-colors"
+            >
+              <span>Besoin de 2, 3 ou 4 écrans simultanés ? Découvrez notre offre Multi-Écrans dès 60€/an</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
         </section>
 

@@ -7,6 +7,7 @@ export interface Plan {
   oldPrice?: number;
   badge?: string;
   isPopular?: boolean;
+  screensCount?: number;
   features: string[];
   ctaLabel: string;
   seoTitle: string;
@@ -49,10 +50,11 @@ export const MOCK_PLANS: Plan[] = [
     slug: "atlas-pro-12-mois",
     title: "Abonnement Atlas Pro 12 Mois",
     durationMonths: 12,
-    price: 45,
-    oldPrice: 65,
+    price: 40,
+    oldPrice: 60,
     badge: "Populaire - Meilleur Prix",
     isPopular: true,
+    screensCount: 1,
     features: [
       "Plus de 10 000 chaînes internationales en direct",
       "Qualité 4K, FHD et HD sans coupures",
@@ -62,10 +64,10 @@ export const MOCK_PLANS: Plan[] = [
       "Livraison immédiate par e-mail en 15 minutes",
       "Support WhatsApp réactif 7j/7",
     ],
-    ctaLabel: "Commander 12 Mois (45€)",
+    ctaLabel: "Commander 12 Mois (40€)",
     seoTitle: "Abonnement Atlas Pro 12 Mois Officiel | IPTV Stable 4K",
     seoDescription:
-      "Achetez l'abonnement Atlas Pro 12 mois officiel au meilleur prix (45€). Activation express en 15 minutes, chaînes 4K/FHD et assistance WhatsApp.",
+      "Achetez l'abonnement Atlas Pro 12 mois officiel au meilleur prix (40€). Activation express en 15 minutes, chaînes 4K/FHD et assistance WhatsApp.",
     faq: [
       {
         question: "En combien de temps recevrai-je mes codes Atlas Pro 12 mois ?",
@@ -138,6 +140,104 @@ export const MOCK_PLANS: Plan[] = [
         question: "Quelle connexion internet est recommandée ?",
         answer:
           "Une connexion d'au moins 15 Mbps (ADSL stable, 4G/5G ou Fibre) est recommandée pour profiter des flux FHD et 4K sans interruption.",
+      },
+    ],
+  },
+  {
+    id: "plan-2-ecrans",
+    slug: "atlas-pro-2-ecrans",
+    title: "Abonnement Atlas Pro 2 Écrans (12 Mois)",
+    durationMonths: 12,
+    price: 60,
+    oldPrice: 80,
+    badge: "Duo • 2 Écrans",
+    isPopular: false,
+    screensCount: 2,
+    features: [
+      "2 Connexions simultanées indépendantes",
+      "Plus de 10 000 chaînes directes en 4K/FHD",
+      "VOD Films et Séries en illimité sur 2 écrans",
+      "Replay 7 jours inclus sur chaque téléviseur",
+      "Compatible Smart TV, Android Box, Fire Stick, iOS",
+      "Livraison immédiate de vos 2 accès en 15 min",
+      "Support technique prioritaire 7j/7",
+    ],
+    ctaLabel: "Commander 2 Écrans (60€)",
+    seoTitle: "Abonnement IPTV Atlas 2 Écrans Simultanés | Atlas Pro ONTV Officiel",
+    seoDescription:
+      "Abonnement Atlas Pro 2 écrans simultanés (12 mois pour 60€). Regardez vos programmes en même temps sur 2 téléviseurs ou appareils en 4K sans coupure.",
+    faq: [
+      {
+        question: "Comment fonctionnent les 2 écrans simultanés ?",
+        answer:
+          "Vous recevez deux codes d'accès distincts ou un lien multiposte permettant de diffuser deux programmes différents au même moment, sans aucun conflit.",
+      },
+      {
+        question: "Les 2 écrans doivent-ils être dans le même logement ?",
+        answer:
+          "Ils peuvent être utilisés dans votre domicile principal (salon et chambre) ou en déplacement sur votre smartphone ou tablette.",
+      },
+    ],
+  },
+  {
+    id: "plan-3-ecrans",
+    slug: "atlas-pro-3-ecrans",
+    title: "Abonnement Atlas Pro 3 Écrans (12 Mois)",
+    durationMonths: 12,
+    price: 80,
+    oldPrice: 110,
+    badge: "Trio • 3 Écrans",
+    isPopular: false,
+    screensCount: 3,
+    features: [
+      "3 Connexions simultanées indépendantes",
+      "Accès 4K / FHD / HEVC sur 3 téléviseurs",
+      "VOD et Replay complets pour toute la famille",
+      "Chaque utilisateur gère ses favoris et zapping",
+      "Compatible toutes marques de Smart TV et boîtiers",
+      "Activation express en moins de 15 minutes",
+      "Assistance dédiée WhatsApp 7j/7",
+    ],
+    ctaLabel: "Commander 3 Écrans (80€)",
+    seoTitle: "Abonnement IPTV Atlas 3 Écrans Simultanés | Atlas Pro ONTV Officiel",
+    seoDescription:
+      "Abonnement Atlas Pro 3 écrans simultanés (12 mois à 80€). 3 flux 4K actifs en même temps pour toute la famille. Activation rapide et garantie anti-freeze.",
+    faq: [
+      {
+        question: "Puis-je utiliser 3 applications différentes ?",
+        answer:
+          "Oui, par exemple une Smart TV dans le salon avec IBO Player, une chambre avec Fire Stick, et une tablette en déplacement.",
+      },
+    ],
+  },
+  {
+    id: "plan-4-ecrans",
+    slug: "atlas-pro-4-ecrans",
+    title: "Abonnement Atlas Pro 4 Écrans (12 Mois)",
+    durationMonths: 12,
+    price: 100,
+    oldPrice: 140,
+    badge: "Pack Famille • 4 Écrans",
+    isPopular: false,
+    screensCount: 4,
+    features: [
+      "4 Connexions simultanées indépendantes",
+      "Le meilleur tarif par écran du marché (25€ / an / écran)",
+      "4 Flux 4K/FHD actifs en simultané sans baisse de débit",
+      "Catalogue VOD cinéma et séries illimité",
+      "Serveurs haute performance 10 Gbps anti-freeze",
+      "Livraison de vos 4 accès par e-mail en 15 min",
+      "Support VIP dédié 7j/7",
+    ],
+    ctaLabel: "Commander 4 Écrans (100€)",
+    seoTitle: "Abonnement IPTV Atlas 4 Écrans Simultanés | Atlas Pro ONTV Officiel",
+    seoDescription:
+      "Abonnement Atlas Pro 4 écrans simultanés Pack Famille (12 mois pour 100€). 4 postes actifs en direct 4K. Idéal grands foyers au meilleur tarif unitaire.",
+    faq: [
+      {
+        question: "Quelle bande passante internet est requise pour 4 écrans en 4K ?",
+        answer:
+          "Une connexion Fibre ou très haut débit (minimum 40 à 50 Mbps au total) permet d'alimenter les 4 écrans simultanément en ultra haute définition sans ralentissement.",
       },
     ],
   },
@@ -510,6 +610,14 @@ export const MOCK_TUTORIALS: Tutorial[] = [
 // Query helper functions
 export function getAllPlans(): Plan[] {
   return MOCK_PLANS;
+}
+
+export function getSingleScreenPlans(): Plan[] {
+  return MOCK_PLANS.filter((plan) => !plan.screensCount || plan.screensCount === 1);
+}
+
+export function getMultiScreenPlans(): Plan[] {
+  return MOCK_PLANS.filter((plan) => (plan.screensCount ?? 1) > 1);
 }
 
 export function getPlanBySlug(slug: string): Plan | undefined {

@@ -24,7 +24,7 @@ export function StickyCTA(): React.JSX.Element {
           href="/abonnements/atlas-pro-12-mois"
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
         >
-          <span>Activer l&apos;Abonnement (45€)</span>
+          <span>Activer l&apos;Abonnement (40€)</span>
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>

@@ -124,7 +124,7 @@ export default function TelechargerPage(): React.JSX.Element {
             href="/abonnements/atlas-pro-12-mois"
             className="inline-flex h-11 items-center justify-center rounded-xl bg-primary px-6 text-xs font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
           >
-            Obtenir mon Code d&apos;Activation (12 Mois à 45€)
+            Obtenir mon Code d&apos;Activation (12 Mois à 40€)
           </Link>
         </div>
       </section>

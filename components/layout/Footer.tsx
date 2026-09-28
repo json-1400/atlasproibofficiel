@@ -55,6 +55,11 @@ export function Footer(): React.JSX.Element {
                   Renouvellement d&apos;abonnement
                 </Link>
               </li>
+              <li>
+                <Link href="/abonnements/multi-ecran" className="hover:text-heading transition-colors text-primary font-medium">
+                  Offres Multi-Écrans (2 à 4 TV)
+                </Link>
+              </li>
             </ul>
           </div>
 

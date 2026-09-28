@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight, RefreshCw, HelpCircle, Layers, ShieldCheck, Zap } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getAllPlans } from "@/lib/mock-data";
+import { getSingleScreenPlans, getAllPlans } from "@/lib/mock-data";
 import { buildMetadata } from "@/lib/seo";
 import {
   buildOrganizationSchema,
@@ -17,13 +17,14 @@ export function generateMetadata(): Metadata {
   return buildMetadata({
     title: "Catalogue des Abonnements Atlas Pro : 12, 6, 3 Mois & Renouvellement",
     description:
-      "Catalogue officiel des abonnements Atlas Pro. Comparez les formules 12 mois, 6 mois, 3 mois et le renouvellement de licence. Guide de choix et tarifs détaillés.",
+      "Catalogue officiel des abonnements Atlas Pro. Comparez les formules 12 mois (40€), 6 mois, 3 mois et multi-écrans. Guide de choix et tarifs détaillés.",
     path: "/abonnements",
   });
 }
 
 export default function AbonnementsPage(): React.JSX.Element {
-  const plans = getAllPlans();
+  const plans = getSingleScreenPlans();
+  const allPlans = getAllPlans();
 
   const breadcrumbs = [
     { name: "Accueil", path: "/" },
@@ -120,6 +121,35 @@ export default function AbonnementsPage(): React.JSX.Element {
           })}
         </section>
 
+        {/* Multi-Screen Hub Spotlight */}
+        <section aria-label="Offres Multi-Écrans" className="rounded-2xl border border-primary/30 bg-primary/5 p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-white">
+                <Zap className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-bold text-primary">
+                  <span>Nouveau • Multi-Connexions</span>
+                </div>
+                <h2 className="text-lg sm:text-xl font-bold text-heading">
+                  Besoin de regarder sur 2, 3 ou 4 écrans en simultané ?
+                </h2>
+                <p className="text-xs sm:text-sm text-body max-w-2xl">
+                  Découvrez nos forfaits multi-écrans 12 mois dès <strong>60€ (2 écrans)</strong>, <strong>80€ (3 écrans)</strong> et <strong>100€ (4 écrans)</strong>. Diffusez vos flux en 4K sur plusieurs téléviseurs en même temps sans coupure.
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/abonnements/multi-ecran"
+              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-xs font-bold text-white shadow-sm hover:bg-primary-hover transition-colors w-full sm:w-auto"
+            >
+              <span>Voir les forfaits Multi-Écrans</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
+
         {/* Existing Customers Hub Banner: Renouvellement */}
         <section aria-label="Espace Renouvellement" className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-sm">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -150,7 +180,7 @@ export default function AbonnementsPage(): React.JSX.Element {
         <section aria-label="Tableau comparatif des formules" className="space-y-6">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
             <h2 className="text-2xl font-bold text-heading">
-              Tableau Comparatif des Formules
+              Tableau Comparatif des Formules 1 Écran
             </h2>
             <p className="text-xs sm:text-sm text-body">
               Comparez les durées d&apos;abonnement pour sélectionner l&apos;offre la plus avantageuse.
@@ -170,13 +200,13 @@ export default function AbonnementsPage(): React.JSX.Element {
               <tbody className="divide-y divide-border text-body">
                 <tr>
                   <td className="p-4 font-semibold text-heading">Tarif total</td>
-                  <td className="p-4 text-center font-bold text-primary">45 €</td>
+                  <td className="p-4 text-center font-bold text-primary">40 €</td>
                   <td className="p-4 text-center font-bold text-heading">30 €</td>
                   <td className="p-4 text-center font-bold text-heading">20 €</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-semibold text-heading">Équivalent mensuel</td>
-                  <td className="p-4 text-center font-bold text-primary">3,75 € / mois</td>
+                  <td className="p-4 text-center font-bold text-primary">3,33 € / mois</td>
                   <td className="p-4 text-center">5,00 € / mois</td>
                   <td className="p-4 text-center">6,67 € / mois</td>
                 </tr>

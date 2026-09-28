@@ -253,5 +253,39 @@ export function buildMultiScreenHubSchema(plans: Plan[]): Record<string, unknown
   };
 }
 
+export function buildHomepageHowToSchema(): Record<string, unknown> {
+  return {
+    "@type": "HowTo",
+    "@id": `${SITE_URL}/#howto-activation`,
+    name: "Comment activer votre abonnement Atlas Pro ONTV en 3 étapes",
+    description:
+      "Guide d'activation rapide de votre abonnement IPTV Atlas en France. Réception immédiate de vos codes par e-mail en moins de 15 minutes.",
+    totalTime: "PT15M",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Choisissez votre formule d'abonnement",
+        text: "Sélectionnez votre durée (12 mois à 40€, 6 mois à 30€ ou 3 mois à 20€) et validez votre commande par paiement sécurisé sans reconduction tacite.",
+        url: `${SITE_URL}/#tarifs`,
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Réception instantanée de vos codes par e-mail",
+        text: "Recevez en moins de 15 minutes vos identifiants Xtream Codes API, mot de passe et lien M3U directement par e-mail.",
+        url: `${SITE_URL}/#tarifs`,
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Configuration de l'application et visionnage",
+        text: "Téléchargez l'application Atlas Pro ONTV ou Atlas Pro Max sur votre Smart TV ou boîtier, entrez vos codes et commencez le visionnage.",
+        url: `${SITE_URL}/telecharger`,
+      },
+    ],
+  };
+}
+
 
 

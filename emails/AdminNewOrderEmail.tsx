@@ -24,7 +24,7 @@ export function AdminNewOrderEmail({
   existingCode,
 }: AdminNewOrderEmailProps): React.JSX.Element {
   // Clean phone number for WhatsApp link (remove spaces, plus, hyphens)
-  const cleanPhone = customerPhone.replace(/[^0-9]/g, "");
+  const cleanPhone = (customerPhone || "").replace(/[^0-9]/g, "");
   const whatsappUrl = `https://wa.me/${cleanPhone}`;
   const mailtoUrl = `mailto:${customerEmail}?subject=Votre commande Atlas Pro ONTV #${orderId}`;
 

@@ -78,23 +78,24 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // 4. Send Confirmation Email via Resend
-    void sendContactReceivedEmail({
-      to: email,
-      customerName: name,
-      ticketId,
-      subject: subject || "Demande de support",
-      messagePreview: message,
-    });
-
-    // 5. Notify Administrators via ADMIN_EMAILS
-    void sendAdminNewTicketAlert({
-      ticketId,
-      customerName: name,
-      customerEmail: email,
-      subject: subject || "Demande générale de support",
-      message,
-    });
+    // 4. Send Confirmation & Admin Alert Emails via Resend
+    // Await both in parallel so the serverless runtime stays active until emails are dispatched.
+    await Promise.allSettled([
+      sendContactReceivedEmail({
+        to: email,
+        customerName: name,
+        ticketId,
+        subject: subject || "Demande de support",
+        messagePreview: message,
+      }),
+      sendAdminNewTicketAlert({
+        ticketId,
+        customerName: name,
+        customerEmail: email,
+        subject: subject || "Demande générale de support",
+        message,
+      }),
+    ]);
 
     return NextResponse.json(
       {

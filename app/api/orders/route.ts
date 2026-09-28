@@ -125,29 +125,31 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // 5. Send Confirmation Email via Resend
-    void sendOrderConfirmationEmail({
-      to: email,
-      customerName: name,
-      orderId,
-      planTitle: plan.title,
-      amount: plan.price,
-      devicesCount,
-      preferredPayment,
-    });
-
-    // 6. Notify Administrators via ADMIN_EMAILS
-    void sendAdminNewOrderAlert({
-      orderId,
-      customerName: name,
-      customerEmail: email,
-      customerPhone: phone,
-      planTitle: plan.title,
-      amount: plan.price,
-      devicesCount,
-      preferredPayment,
-      existingCode: existingCode || undefined,
-    });
+    // 5. Send Confirmation & Admin Alert Emails via Resend
+    // Await both in parallel using Promise.allSettled so the serverless runtime does not terminate
+    // before the HTTP requests to Resend complete, while ensuring an email error never blocks the order response.
+    await Promise.allSettled([
+      sendOrderConfirmationEmail({
+        to: email,
+        customerName: name,
+        orderId,
+        planTitle: plan.title,
+        amount: plan.price,
+        devicesCount,
+        preferredPayment,
+      }),
+      sendAdminNewOrderAlert({
+        orderId,
+        customerName: name,
+        customerEmail: email,
+        customerPhone: phone,
+        planTitle: plan.title,
+        amount: plan.price,
+        devicesCount,
+        preferredPayment,
+        existingCode: existingCode || undefined,
+      }),
+    ]);
 
     return NextResponse.json(
       {

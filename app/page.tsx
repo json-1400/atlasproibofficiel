@@ -21,9 +21,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Abonnement Atlas Pro ONTV Officiel | Atlas IPTV France",
+    title: "Abonnement Atlas Pro Officiel | Accès IPTV Stable & Atlas Pro Max",
     description:
-      "Commandez votre abonnement Atlas Pro ONTV officiel en France. Profitez du serveur Atlas IPTV et IPTV Atlas en 4K/FHD. Activation immédiate en 15 min & support 7j/7.",
+      "Commandez votre abonnement Atlas Pro officiel en France. Activation express en 15 minutes, flux 4K/FHD haute disponibilité et assistance technique 7j/7.",
     path: "/",
   });
 }
@@ -81,11 +81,11 @@ export default function HomePage(): React.JSX.Element {
             </div>
 
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-heading max-w-5xl mx-auto leading-tight">
-              Abonnement <span className="text-primary">Atlas Pro ONTV</span> Officiel : Serveur IPTV Atlas & Atlas IPTV en France
+              Abonnement <span className="text-primary">Atlas Pro</span> Officiel : Votre Accès IPTV Haute Définition
             </h1>
 
             <p className="mx-auto max-w-3xl text-base sm:text-lg text-body leading-relaxed">
-              Bienvenue sur le portail de distribution officiel <strong>Atlas Pro France</strong>. Profitez de l&apos;excellence technologique de l&apos;<strong>IPTV Atlas</strong> avec votre <strong>abonnement Atlas Pro ONTV</strong> : plus de 10 000 chaînes directes en qualité 4K/FHD native et catalogue VOD illimité. Grâce à la robustesse de l&apos;infrastructure <strong>Atlas IPTV</strong>, bénéficiez d&apos;une activation express en moins de 15 minutes, d&apos;un flux anti-freeze sans coupure et d&apos;une compatibilité sur Smart TV et boîtiers.
+              Bienvenue sur le portail de distribution officiel <strong>Atlas Pro France</strong>. Profitez d&apos;une expérience de streaming supérieure avec votre abonnement Atlas Pro : plus de 10 000 chaînes directes en qualité 4K et Full HD native, ainsi qu&apos;un catalogue VOD complet. Bénéficiez d&apos;une activation express en moins de 15 minutes, d&apos;un flux anti-coupure haute disponibilité et d&apos;une compatibilité sur Smart TV, Fire Stick et boîtiers Android.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

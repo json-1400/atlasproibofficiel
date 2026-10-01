@@ -95,7 +95,19 @@ export default function MentionsLegalesPage(): React.JSX.Element {
 
           <div className="rounded-2xl border border-border bg-white p-6 space-y-3 shadow-sm">
             <h2 className="text-lg font-bold text-heading">
-              4. Données personnelles et cookies
+              4. Respect des droits d&apos;auteur & Signalement de contenu (DMCA)
+            </h2>
+            <p>
+              {SITE_NAME} respecte scrupuleusement les droits de propriété intellectuelle des créateurs et ayants droit. Notre plateforme commerciale et technique n&apos;héberge aucun flux audiovisuel ou fichier multimédia protégé sur ses propres serveurs web.
+            </p>
+            <p>
+              Si vous êtes titulaire de droits d&apos;auteur ou représentant d&apos;un ayant droit et estimez qu&apos;une référence ou un lien présent sur le site enfreint vos droits, vous pouvez nous adresser directement une demande de retrait ou de désindexation via notre service de support en sélectionnant le motif &laquo; Propriété intellectuelle / Signalement DMCA &raquo;. Toute demande légitime et documentée sera examinée et traitée sous 24 à 48 heures ouvrées.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-border bg-white p-6 space-y-3 shadow-sm">
+            <h2 className="text-lg font-bold text-heading">
+              5. Données personnelles et cookies
             </h2>
             <p>
               Pour toute information concernant la collecte, le traitement et la sécurisation des données nominatives dans le respect du Règlement Général sur la Protection des Données (RGPD), veuillez consulter notre{" "}

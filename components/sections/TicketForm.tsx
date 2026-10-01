@@ -278,6 +278,7 @@ export function TicketForm({ initialChallenge }: TicketFormProps): React.JSX.Ele
             <option value="activation">Activation / Code non reçu</option>
             <option value="renouvellement">Renouvellement d&apos;abonnement</option>
             <option value="commercial">Question commerciale / Facturation</option>
+            <option value="dmca">Propriété intellectuelle / Signalement DMCA</option>
             <option value="autre">Autre renseignement</option>
           </select>
         </div>

@@ -29,7 +29,7 @@ export function buildOrganizationSchema(): Record<string, unknown> {
         "@type": "ContactPoint",
         contactType: "customer support",
         availableLanguage: ["French"],
-        url: `${SITE_URL}/contact`,
+        url: `${SITE_URL}/ouvrir-ticket`,
       },
     ],
   };

@@ -48,6 +48,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: `${SITE_URL}/mentions-legales`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/politique-de-confidentialite`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/conditions-generales-de-vente`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
   ];
 
   const planRoutes: MetadataRoute.Sitemap = getAllPlans().map((plan) => ({

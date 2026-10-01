@@ -3,6 +3,19 @@ import type { AppPage, Tutorial } from "@/lib/mock-data";
 import { ENTITY_IDS } from "@/lib/schema";
 
 export function buildAppSchema(app: AppPage): Record<string, unknown> {
+  const isExternal = app.apkUrl.startsWith("http://") || app.apkUrl.startsWith("https://");
+  const downloadUrl = isExternal
+    ? app.apkUrl
+    : `${SITE_URL}${app.apkUrl.startsWith("/") ? app.apkUrl : `/${app.apkUrl}`}`;
+
+  const fileFormat = app.apkUrl.endsWith(".apk")
+    ? "application/vnd.android.package-archive"
+    : app.apkUrl.endsWith(".exe")
+    ? "application/vnd.microsoft.portable-executable"
+    : isExternal
+    ? "text/html"
+    : "application/octet-stream";
+
   return {
     "@type": "SoftwareApplication",
     "@id": `${SITE_URL}/telecharger/${app.slug}#software`,
@@ -10,10 +23,8 @@ export function buildAppSchema(app: AppPage): Record<string, unknown> {
     operatingSystem: app.platform,
     applicationCategory: "MultimediaApplication",
     softwareVersion: app.version,
-    downloadUrl: `${SITE_URL}${app.apkUrl}`,
-    fileFormat: app.apkUrl.endsWith(".apk")
-      ? "application/vnd.android.package-archive"
-      : "application/octet-stream",
+    downloadUrl,
+    fileFormat,
     offers: {
       "@type": "Offer",
       price: "0.00",

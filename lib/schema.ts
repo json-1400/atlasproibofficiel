@@ -3,7 +3,6 @@ import type { Plan } from "@/lib/mock-data";
 import {
   DEFAULT_BRAND,
   DEFAULT_PRODUCT_IMAGES,
-  DEFAULT_SHIPPING_DETAILS,
   DEFAULT_RETURN_POLICY,
 } from "@/lib/schema-merchant";
 
@@ -110,7 +109,6 @@ export function buildHomepageProductAggregateSchema(plans: Plan[]): Record<strin
         seller: {
           "@id": ENTITY_IDS.organization,
         },
-        shippingDetails: DEFAULT_SHIPPING_DETAILS,
         hasMerchantReturnPolicy: DEFAULT_RETURN_POLICY,
       })),
     },
@@ -136,7 +134,6 @@ export function buildPlanSchema(plan: Plan): Record<string, unknown> {
       seller: {
         "@id": ENTITY_IDS.organization,
       },
-      shippingDetails: DEFAULT_SHIPPING_DETAILS,
       hasMerchantReturnPolicy: DEFAULT_RETURN_POLICY,
     },
   };

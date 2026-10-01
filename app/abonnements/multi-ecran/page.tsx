@@ -142,6 +142,7 @@ export default function MultiScreenHubPage(): React.JSX.Element {
                   </Link>
                   <Link
                     href={`/commander/${plan.slug}`}
+                    rel="nofollow"
                     className="flex h-10 w-full items-center justify-center rounded-xl bg-primary px-4 text-xs font-semibold text-white shadow-sm hover:bg-primary-hover transition-colors"
                   >
                     Commander ({plan.price}€)

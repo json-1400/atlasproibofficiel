@@ -71,6 +71,7 @@ export function PricingCard({ plan }: PricingCardProps): React.JSX.Element {
       <div className="mt-8 pt-4">
         <Link
           href={`/commander/${plan.slug}`}
+          rel="nofollow"
           className={cn(
             "w-full inline-flex h-11 items-center justify-center rounded-xl text-xs font-bold transition-colors shadow-sm",
             isPop

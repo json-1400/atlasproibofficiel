@@ -135,6 +135,7 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
               <div className="mt-6 pt-6 border-t border-border space-y-3">
                 <Link
                   href={`/commander/${plan.slug}`}
+                  rel="nofollow"
                   className="w-full inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
                 >
                   <span>Commander maintenant</span>

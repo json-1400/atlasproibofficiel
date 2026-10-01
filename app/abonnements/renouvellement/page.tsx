@@ -124,6 +124,7 @@ export default function RenouvellementPage(): React.JSX.Element {
             </div>
             <Link
               href="/commander/atlas-pro-12-mois"
+              rel="nofollow"
               className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-hover transition-colors shadow-sm"
             >
               <span>Renouveler pour 12 Mois (40€)</span>
@@ -148,6 +149,7 @@ export default function RenouvellementPage(): React.JSX.Element {
             </div>
             <Link
               href="/commander/atlas-pro-6-mois"
+              rel="nofollow"
               className="mt-6 inline-flex h-11 items-center justify-center rounded-xl bg-surface border border-border text-heading text-xs font-bold hover:bg-slate-200 transition-colors"
             >
               Renouveler pour 6 Mois (30€)
@@ -171,6 +173,7 @@ export default function RenouvellementPage(): React.JSX.Element {
             </div>
             <Link
               href="/commander/atlas-pro-3-mois"
+              rel="nofollow"
               className="mt-6 inline-flex h-11 items-center justify-center rounded-xl bg-surface border border-border text-heading text-xs font-bold hover:bg-slate-200 transition-colors"
             >
               Renouveler pour 3 Mois (20€)

@@ -39,13 +39,12 @@ const DISALLOWED_SCRAPERS_AND_AI = [
   "TurnitinBot",
 ];
 
+// Only internal APIs and CMS admin studio are strictly disallowed from crawling.
+// Note: Pages with noindex (<meta robots="noindex"> like /commander and /merci) must NOT be disallowed in robots.txt,
+// otherwise Googlebot cannot crawl them to read the noindex directive and flags "Indexed, though blocked by robots.txt".
 const PROTECTED_PATHS = [
   "/api/",
-  "/commander",
-  "/commander/",
-  "/merci",
   "/studio/",
-  "/*?*",
 ];
 
 export default function robots(): MetadataRoute.Robots {

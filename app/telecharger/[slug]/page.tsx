@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Download, FileCheck, CheckCircle2 } from "lucide-react";
+import { Download, FileCheck, CheckCircle2, ExternalLink } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { StickyCTA } from "@/components/sections/StickyCTA";
 import { RelatedTutorials } from "@/components/sections/RelatedTutorials";
@@ -55,6 +55,7 @@ export default async function AppPageDetail({ params }: PageProps): Promise<Reac
 
   const relatedTutorials = getRelatedTutorials(app.relatedTutorialSlugs);
   const showStickyCTA = app.slug === "atlas-pro-ontv" || app.slug === "atlas-pro-max";
+  const isExternal = app.apkUrl.startsWith("http://") || app.apkUrl.startsWith("https://");
 
   const breadcrumbs = [
     { name: "Accueil", path: "/" },
@@ -97,14 +98,24 @@ export default async function AppPageDetail({ params }: PageProps): Promise<Reac
             <div className="shrink-0 flex flex-col gap-2">
               <a
                 href={app.apkUrl}
-                download
+                {...(isExternal
+                  ? { target: "_blank", rel: "noopener noreferrer nofollow" }
+                  : { download: true, rel: "nofollow" })}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-8 text-sm font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
               >
-                <Download className="h-5 w-5" aria-hidden="true" />
-                <span>Télécharger ({app.version})</span>
+                {isExternal ? (
+                  <ExternalLink className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <Download className="h-5 w-5" aria-hidden="true" />
+                )}
+                <span>
+                  {app.slug === "ios"
+                    ? "Accéder à l'App Store"
+                    : `Télécharger (${app.version})`}
+                </span>
               </a>
               <span className="text-[11px] text-center text-slate-400">
-                Téléchargement direct et gratuit
+                {isExternal ? "Lien officiel sécurisé" : "Téléchargement direct et gratuit"}
               </span>
             </div>
           </div>

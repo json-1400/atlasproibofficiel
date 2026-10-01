@@ -109,9 +109,19 @@ export const MOCK_PLANS: Plan[] = [
       "Commandez l'abonnement Atlas Pro 6 mois officiel pour 30€. Idéal pour tester sur la durée avec une qualité optimale et support inclus.",
     faq: [
       {
-        question: "Puis-je prolonger en formule 12 mois par la suite ?",
+        question: "À qui s'adresse principalement l'abonnement Atlas Pro 6 mois ?",
         answer:
-          "Oui, vous pouvez faire évoluer votre compte vers l'abonnement 12 mois à tout moment via notre page de renouvellement.",
+          "Cette formule est particulièrement prisée par les amateurs de sport désirant couvrir une demi-saison de compétitions (Ligue des Champions, championnats de football, F1) ou par les utilisateurs souhaitant tester le service sur une durée significative sans engagement annuel.",
+      },
+      {
+        question: "Puis-je prolonger en formule 12 mois par la suite sans réinstaller l'application ?",
+        answer:
+          "Oui, absolument. Vous pouvez faire évoluer votre abonnement vers un forfait 12 mois à tout moment via notre page de renouvellement. Vos identifiants sont prolongés sans nécessiter de réinstallation ni de perte de vos favoris.",
+      },
+      {
+        question: "Le forfait 6 mois comprend-il les chaînes 4K et le bouquet VOD complet ?",
+        answer:
+          "Tout à fait. La formule 6 mois inclut l'intégralité du bouquet Atlas Pro : plus de 10 000 chaînes en 4K/FHD native, le service Replay 7 jours ainsi que la cinémathèque VOD mise à jour chaque semaine.",
       },
     ],
   },
@@ -126,10 +136,10 @@ export const MOCK_PLANS: Plan[] = [
     isPopular: false,
     features: [
       "Accès complet au bouquet IPTV Atlas Pro",
-      "Qualité FHD & HD",
-      "Catalogue VOD à la demande",
+      "Qualité FHD & HD fluide",
+      "Catalogue VOD à la demande complet",
       "Livraison par e-mail en 15 minutes",
-      "Support d'installation inclus",
+      "Support d'installation et configuration inclus",
     ],
     ctaLabel: "Commander 3 Mois (20€)",
     seoTitle: "Abonnement Atlas Pro 3 Mois | Formule Découverte",
@@ -137,9 +147,19 @@ export const MOCK_PLANS: Plan[] = [
       "Testez la puissance des serveurs Atlas Pro avec la formule 3 mois à 20€. Configuration facile sur tous vos appareils.",
     faq: [
       {
-        question: "Quelle connexion internet est recommandée ?",
+        question: "Pourquoi choisir la formule découverte 3 mois ?",
         answer:
-          "Une connexion d'au moins 15 Mbps (ADSL stable, 4G/5G ou Fibre) est recommandée pour profiter des flux FHD et 4K sans interruption.",
+          "C'est la solution idéale pour évaluer sereinement la stabilité de nos serveurs CDN européens, la fluidité des flux en direct lors des grands matchs et la réactivité de notre support client pour seulement 20€.",
+      },
+      {
+        question: "Y a-t-il des restrictions sur les chaînes avec l'offre 3 mois ?",
+        answer:
+          "Aucune restriction. La formule 3 mois bénéficie rigoureusement du même accès premium que les formules longue durée : l'ensemble des chaînes en direct et le catalogue VOD complet.",
+      },
+      {
+        question: "Quelle connexion internet est recommandée pour le flux 4K ?",
+        answer:
+          "Une connexion internet stable d'au moins 15 Mbps (ADSL stable, Fibre optique ou 4G/5G) est recommandée pour profiter d'un visionnage fluide sans interruption.",
       },
     ],
   },

@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Check, ShieldCheck, Zap, ArrowRight, HelpCircle } from "lucide-react";
+import { Check, ShieldCheck, Zap, ArrowRight, HelpCircle, Clock, Layers } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllPlans, getPlanBySlug } from "@/lib/mock-data";
@@ -59,6 +59,36 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
     { name: plan.title, path: `/abonnements/${plan.slug}` },
   ];
 
+  const monthlyPrice = (plan.price / plan.durationMonths).toFixed(2);
+  const otherPlans = getAllPlans().filter((p) => p.slug !== plan.slug && !p.slug.includes("ecrans"));
+
+  const getProfileDescription = (months: number): { title: string; desc: string } => {
+    switch (months) {
+      case 12:
+        return {
+          title: "Le choix N°1 pour la sérénité & les économies",
+          desc: "Cette formule annuelle est le meilleur investissement pour votre divertissement. Elle offre le tarif mensuel le plus bas du marché (seulement 3,33€/mois) et vous garantit un accès ininterrompu à toutes les compétitions de l'année sans risque de coupure.",
+        };
+      case 6:
+        return {
+          title: "L'équilibre idéal entre flexibilité et budget",
+          desc: "Parfait pour suivre l'intégralité d'une demi-saison sportive (Ligue des Champions, championnats de football, sports mécaniques) ou profiter d'une période automne/hiver sans vous engager sur une année entière.",
+        };
+      case 3:
+        return {
+          title: "La formule découverte sans engagement",
+          desc: "Idéale pour évaluer en conditions réelles la stabilité de nos flux direct en 4K/FHD, vérifier la compatibilité avec vos équipements (Smart TV, boîtier, Fire Stick) et tester la réactivité de notre support client.",
+        };
+      default:
+        return {
+          title: "Formule sur-mesure",
+          desc: "Accès complet aux serveurs Atlas Pro en haute définition avec support dédié.",
+        };
+    }
+  };
+
+  const profile = getProfileDescription(plan.durationMonths);
+
   const graphData: Array<Record<string, unknown>> = [
     buildOrganizationSchema(),
     buildPlanSchema(plan),
@@ -96,6 +126,16 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
               Profitez de l&apos;expérience télévisuelle ultime avec l&apos;abonnement officiel Atlas Pro ONTV pour {plan.durationMonths} mois. Accès immédiat à toutes vos chaînes en direct favorites, retransmissions sportives en haute définition et milliers de titres VOD.
             </p>
 
+            <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 space-y-2">
+              <h2 className="text-base font-bold text-heading flex items-center gap-2">
+                <Clock className="h-4 w-4 text-primary" aria-hidden="true" />
+                <span>{profile.title}</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-body leading-relaxed">
+                {profile.desc}
+              </p>
+            </div>
+
             <div className="rounded-2xl border border-border bg-surface p-6 space-y-4">
               <h2 className="text-lg font-bold text-heading">
                 Ce qui est inclus dans votre formule :
@@ -127,9 +167,8 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
                 )}
                 <span className="text-xs text-body">/ {plan.durationMonths} mois</span>
               </div>
-
-              <p className="mt-2 text-xs text-body">
-                Paiement unique sécurisé, sans prélèvement automatique récurrent.
+              <p className="text-xs font-semibold text-emerald-600 mt-1">
+                Soit ~{monthlyPrice}€ / mois (Paiement unique sans abonnement caché)
               </p>
 
               <div className="mt-6 pt-6 border-t border-border space-y-3">
@@ -168,6 +207,42 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
                   <h3 className="text-sm font-bold text-heading">{item.question}</h3>
                   <p className="mt-2 text-xs text-body leading-relaxed">{item.answer}</p>
                 </div>
+              ))}
+            </div>
+        {/* Cross-Plan Comparison Section */}
+        {otherPlans.length > 0 && (
+          <section className="space-y-6 pt-8 border-t border-border">
+            <div className="space-y-1">
+              <h2 className="text-xl font-bold text-heading flex items-center gap-2">
+                <Layers className="h-5 w-5 text-primary" aria-hidden="true" />
+                <span>Comparer avec les autres formules Atlas Pro</span>
+              </h2>
+              <p className="text-xs text-body">
+                Vous hésitez sur la durée ? Découvrez les autres forfaits disponibles avec activation instantanée :
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {otherPlans.map((other) => (
+                <Link
+                  key={other.slug}
+                  href={`/abonnements/${other.slug}`}
+                  className="rounded-xl border border-border bg-surface p-4 hover:border-primary/40 hover:bg-white transition-all space-y-2 group"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-heading group-hover:text-primary transition-colors">
+                      {other.title}
+                    </span>
+                    <span className="text-sm font-extrabold text-primary">{other.price}€</span>
+                  </div>
+                  <p className="text-[11px] text-body line-clamp-2">
+                    {other.seoDescription}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary">
+                    <span>Voir les détails</span>
+                    <ArrowRight className="h-3 w-3" aria-hidden="true" />
+                  </span>
+                </Link>
               ))}
             </div>
           </section>

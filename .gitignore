@@ -17,6 +17,7 @@
 # misc
 .DS_Store
 *.pem
+google-pen-fix.md
 
 # debug
 npm-debug.log*

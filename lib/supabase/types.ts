@@ -185,6 +185,36 @@ export interface Database {
         };
         Relationships: [];
       };
+      content_revisions: {
+        Row: {
+          id: string;
+          route: string;
+          last_modified: string;
+          change_frequency: string;
+          priority: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          route: string;
+          last_modified?: string;
+          change_frequency?: string;
+          priority?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          route?: string;
+          last_modified?: string;
+          change_frequency?: string;
+          priority?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;

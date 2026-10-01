@@ -209,6 +209,9 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
                 </div>
               ))}
             </div>
+          </section>
+        )}
+
         {/* Cross-Plan Comparison Section */}
         {otherPlans.length > 0 && (
           <section className="space-y-6 pt-8 border-t border-border">

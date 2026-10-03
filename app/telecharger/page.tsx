@@ -78,9 +78,7 @@ export default function TelechargerPage(): React.JSX.Element {
               </div>
 
               <h2 className="text-xl font-bold text-heading mb-1">
-                <Link href={`/telecharger/${app.slug}`} className="hover:text-primary transition-colors">
-                  {app.title}
-                </Link>
+                {app.title}
               </h2>
               <p className="text-xs font-medium text-primary mb-3">{app.platform}</p>
 
@@ -97,13 +95,12 @@ export default function TelechargerPage(): React.JSX.Element {
             </div>
 
             <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-              <Link
-                href={`/telecharger/${app.slug}`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary-hover"
+              <span
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400 cursor-not-allowed"
+                title="Les fichiers de téléchargement seront disponibles prochainement"
               >
-                <span>Guide & Téléchargement</span>
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+                <span>Bientôt disponible</span>
+              </span>
               <span className="text-[11px] text-slate-400">SHA-256 certifié</span>
             </div>
           </article>

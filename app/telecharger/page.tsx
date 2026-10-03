@@ -33,6 +33,7 @@ export default function TelechargerPage(): React.JSX.Element {
   const getPlatformIcon = (slug: string): React.JSX.Element => {
     switch (slug) {
       case "atlas-pro-ontv":
+      case "atlas-pro-ibo":
         return <Tv className="h-6 w-6 text-primary" aria-hidden="true" />;
       case "atlas-pro-max":
         return <Smartphone className="h-6 w-6 text-primary" aria-hidden="true" />;

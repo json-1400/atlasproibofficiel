@@ -401,6 +401,25 @@ export const MOCK_APP_PAGES: AppPage[] = [
     seoDescription:
       "Comment télécharger Atlas Pro sur iPhone, iPad et Apple TV ? Guide complet pour installer et configurer votre service IPTV Atlas Pro sur iOS et tvOS en 5 minutes.",
   },
+  {
+    id: "app-ibo",
+    slug: "atlas-pro-ibo",
+    title: "Atlas Pro IBO Player",
+    platform: "Smart TV Samsung (Tizen) & LG (webOS)",
+    version: "v3.2.1",
+    apkUrl: "https://iboplayer.com",
+    sha256: "Vérifié Smart Hub & LG Content Store",
+    changelog: [
+      "Lecteur officiel optimisé pour Smart TV sans Android",
+      "Synchronisation parfaite de l'EPG Atlas Pro",
+      "Activation à distance ultra-rapide via adresse MAC"
+    ],
+    installSteps: [],
+    relatedTutorialSlugs: ["installation-smart-tv-samsung", "installation-smart-tv-lg"],
+    seoTitle: "Télécharger IBO Player pour Atlas Pro | Samsung & LG",
+    seoDescription:
+      "Installez l'application IBO Player sur votre Smart TV Samsung ou LG pour profiter de votre abonnement Atlas Pro sans boîtier additionnel.",
+  },
 ];
 
 export const MOCK_TUTORIALS: Tutorial[] = [

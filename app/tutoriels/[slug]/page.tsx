@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { HelpCircle } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ExpiredAlert } from "@/components/sections/ExpiredAlert";
 import { RelatedTutorials } from "@/components/sections/RelatedTutorials";
@@ -93,7 +94,7 @@ export default async function TutorialDetailPage({ params }: PageProps): Promise
             </p>
           </header>
 
-          {/* Tutorial Body Introduction */}
+          {/* Tutorial Body */}
           <div className="space-y-4 text-sm sm:text-base text-body leading-relaxed">
             {tut.body.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
@@ -105,7 +106,6 @@ export default async function TutorialDetailPage({ params }: PageProps): Promise
             <h2 className="text-xl sm:text-2xl font-bold text-heading">
               Marche à suivre détaillée
             </h2>
-
             <div className="space-y-5">
               {tut.steps.map((step) => (
                 <div
@@ -127,6 +127,30 @@ export default async function TutorialDetailPage({ params }: PageProps): Promise
               ))}
             </div>
           </section>
+
+          {/* FAQ Section */}
+          {tut.faq && tut.faq.length > 0 && (
+            <section aria-label="Questions fréquentes" className="space-y-4 pt-4 border-t border-border">
+              <h2 className="text-xl sm:text-2xl font-bold text-heading flex items-center gap-2">
+                <HelpCircle className="h-6 w-6 text-primary" aria-hidden="true" />
+                Questions fréquentes
+              </h2>
+              <div className="space-y-3">
+                {tut.faq.map(({ question, answer }) => (
+                  <details
+                    key={question}
+                    className="group rounded-xl border border-border bg-white p-5 open:border-primary/40 open:shadow-sm"
+                  >
+                    <summary className="text-sm font-bold text-heading cursor-pointer list-none flex items-center justify-between gap-4">
+                      <span>{question}</span>
+                      <HelpCircle className="h-4 w-4 text-primary shrink-0 group-open:text-primary-hover transition-colors" aria-hidden="true" />
+                    </summary>
+                    <p className="mt-3 text-xs sm:text-sm text-body leading-relaxed">{answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
         </article>
 
         {/* Cross-linking to related tutorials */}

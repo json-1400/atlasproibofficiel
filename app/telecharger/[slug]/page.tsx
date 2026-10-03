@@ -96,26 +96,16 @@ export default async function AppPageDetail({ params }: PageProps): Promise<Reac
             </div>
 
             <div className="shrink-0 flex flex-col gap-2">
-              <a
-                href={app.apkUrl}
-                {...(isExternal
-                  ? { target: "_blank", rel: "noopener noreferrer nofollow" }
-                  : { download: true, rel: "nofollow" })}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-8 text-sm font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
+              <button
+                disabled
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-slate-200 px-8 text-sm font-bold text-slate-500 shadow-sm cursor-not-allowed"
+                title="Les fichiers de téléchargement seront disponibles prochainement"
               >
-                {isExternal ? (
-                  <ExternalLink className="h-5 w-5" aria-hidden="true" />
-                ) : (
-                  <Download className="h-5 w-5" aria-hidden="true" />
-                )}
-                <span>
-                  {app.slug === "ios"
-                    ? "Accéder à l'App Store"
-                    : `Télécharger (${app.version})`}
-                </span>
-              </a>
+                <Download className="h-5 w-5 opacity-50" aria-hidden="true" />
+                <span>Bientôt disponible</span>
+              </button>
               <span className="text-[11px] text-center text-slate-400">
-                {isExternal ? "Lien officiel sécurisé" : "Téléchargement direct et gratuit"}
+                Fichiers en cours de mise à jour
               </span>
             </div>
           </div>

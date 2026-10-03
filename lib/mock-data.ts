@@ -267,32 +267,33 @@ export const MOCK_APP_PAGES: AppPage[] = [
   {
     id: "app-ontv",
     slug: "atlas-pro-ontv",
-    title: "Atlas Pro ONTV APK",
+    title: "Atlas Pro ONTV APK Officiel",
     platform: "Android TV, Boîtier Android & Smart TV",
-    version: "4.2.0",
-    apkUrl: "/downloads/atlas-pro-ontv-v4.2.0.apk",
+    version: "4.5.0",
+    apkUrl: "/downloads/atlas-pro-ontv-v4.5.0.apk",
     sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     changelog: [
-      "Optimisation du chargement du guide des programmes (EPG)",
-      "Réduction du temps de zapping à moins de 0.5s",
-      "Compatibilité native avec Android TV 12 et 14",
-      "Correction des plantages du lecteur interne sur flux 4K HEVC",
+      "Stabilité multi-serveur : basculement automatique en cas de surcharge",
+      "Interface télécommande entièrement redessinée (navigation 4 touches)",
+      "Zapping ultra-rapide inférieur à 0.3 seconde",
+      "Compatibilité native Android TV 14, Amazon Fire OS 8",
+      "Correction des gels de flux 4K HEVC sur certains boîtiers",
     ],
     installSteps: [
       {
-        title: "Télécharger l'APK",
+        title: "Télécharger l'APK Atlas Pro ONTV",
         description:
-          "Téléchargez le fichier APK directement sur votre appareil ou via l'application Downloader avec le code officiel.",
+          "Sur votre téléviseur Android ou boîtier, téléchargez le fichier APK via l'application Downloader avec le code fourni, ou directement depuis ce lien vérifié.",
       },
       {
         title: "Autoriser les sources inconnues",
         description:
-          "Dans les Paramètres de sécurité de votre téléviseur ou boîtier, autorisez l'installation d'applications inconnues.",
+          "Dans les Paramètres de sécurité de votre téléviseur ou boîtier, autorisez l'installation d'applications inconnues pour Downloader ou Gestionnaire de fichiers.",
       },
       {
         title: "Installer et ouvrir l'application",
         description:
-          "Lancez l'installateur APK puis ouvrez Atlas Pro ONTV pour saisir votre code d'abonnement actif.",
+          "Lancez l'installateur APK, acceptez les permissions demandées, puis ouvrez Atlas Pro ONTV. Saisissez votre code d'activation à 12 chiffres reçu par e-mail.",
       },
     ],
     relatedTutorialSlugs: [
@@ -300,9 +301,9 @@ export const MOCK_APP_PAGES: AppPage[] = [
       "installation-fire-stick",
       "erreur-connexion-serveur",
     ],
-    seoTitle: "Télécharger Atlas Pro ONTV APK Officiel v4.2.0 | Android & Smart TV",
+    seoTitle: "Atlas Pro ONTV APK Officiel v4.5 | Application Android TV & Smart TV",
     seoDescription:
-      "Téléchargement direct et sécurisé de l'APK officiel Atlas Pro ONTV pour Android TV et Smart TV. Version v4.2.0 vérifiée SHA-256.",
+      "Téléchargez Atlas Pro ONTV APK v4.5 officiel pour Android TV, Smart TV, Fire TV Stick et boîtiers. Application on TV stable, sans pub, flux 4K HDR. Code requis.",
   },
   {
     id: "app-max",
@@ -374,30 +375,30 @@ export const MOCK_APP_PAGES: AppPage[] = [
   {
     id: "app-ios",
     slug: "ios",
-    title: "Atlas Pro pour iOS & Apple TV",
+    title: "Atlas Pro sur iOS iPhone, iPad & Apple TV",
     platform: "iPhone, iPad & Apple TV (tvOS)",
     version: "Guide App Store",
     apkUrl: "https://apps.apple.com",
     sha256: "Vérifié App Store",
-    changelog: ["Compatibilité iOS 17 & 18", "Prise en charge AirPlay 2"],
+    changelog: ["Compatibilité iOS 17 & 18 et iPadOS 18", "Prise en charge AirPlay 2 vers Apple TV", "Mode Picture-in-Picture natif"],
     installSteps: [
       {
         title: "Télécharger le lecteur recommandé sur l'App Store",
-        description: "Installez l'application recommandée (IPTV Smarters Pro ou GSE Smart IPTV).",
+        description: "Ouvrez l'App Store sur votre iPhone ou iPad et installez l'application recommandée : IPTV Smarters Pro ou GSE Smart IPTV.",
       },
       {
-        title: "Choisir la connexion Xtream Codes",
-        description: "Sélectionnez 'Se connecter avec l'API Xtream Codes'.",
+        title: "Choisir la connexion Xtream Codes API",
+        description: "Dans l'application installée, sélectionnez 'Se connecter avec l'API Xtream Codes' pour saisir vos identifiants Atlas Pro.",
       },
       {
         title: "Renseigner l'URL de serveur et vos identifiants",
-        description: "Utilisez les identifiants fournis dans votre e-mail de bienvenue.",
+        description: "Entrez l'URL de serveur, le nom d'utilisateur et le mot de passe Atlas Pro fournis dans votre e-mail de bienvenue. Votre catalogue de chaînes se charge automatiquement.",
       },
     ],
     relatedTutorialSlugs: ["recuperer-identifiant-code", "resoudre-buffering-coupures"],
-    seoTitle: "Atlas Pro iOS & Apple TV | Tutoriel de configuration",
+    seoTitle: "Comment Télécharger Atlas Pro sur iPhone & iPad | Configuration iOS",
     seoDescription:
-      "Guide complet pour installer et configurer votre abonnement Atlas Pro sur iPhone, iPad et Apple TV en quelques minutes.",
+      "Comment télécharger Atlas Pro sur iPhone, iPad et Apple TV ? Guide complet pour installer et configurer votre service IPTV Atlas Pro sur iOS et tvOS en 5 minutes.",
   },
 ];
 
@@ -405,13 +406,14 @@ export const MOCK_TUTORIALS: Tutorial[] = [
   {
     id: "tut-erreur-connexion",
     slug: "erreur-connexion-serveur",
-    title: "Comment résoudre l'erreur 'Impossible de se connecter au serveur' sur Atlas Pro",
+    title: "Atlas Pro ne peut pas se connecter au serveur : pourquoi et comment réparer",
     category: "troubleshooting",
     excerpt:
-      "Votre application Atlas Pro indique une erreur de connexion au serveur ou un écran noir ? Découvrez les 4 étapes pour rétablir votre accès immédiatement.",
+      "Votre Atlas Pro ne peut pas se connecter au serveur ou affiche un écran noir ? Découvrez les 5 causes les plus fréquentes et les solutions pour retrouver vos flux en moins de 5 minutes.",
     body: [
       "L'erreur 'Impossible de se connecter au serveur' survient généralement lorsque l'URL de diffusion est obsolète, que le réseau local bloque les requêtes UDP/DNS, ou lorsque votre abonnement est arrivé à expiration.",
       "Avant toute manipulation lourde, vérifiez la validité de votre code d'accès ou l'état de votre connexion internet.",
+      "La deuxième cause la plus fréquente est l'expiration du code. Quand un abonnement expire, le serveur rejette l'authentification en silence — sans message d'alerte explicite. L'application se comporte alors comme si le serveur était en panne. Vérifiez immédiatement la date d'expiration dans Paramètres > Compte sur Atlas Pro ONTV. Si votre code est expiré, un simple renouvellement remet tout en marche en moins de 15 minutes.",
     ],
     steps: [
       {
@@ -424,19 +426,25 @@ export const MOCK_TUTORIALS: Tutorial[] = [
         stepNumber: 2,
         title: "Tester avec un changement de DNS",
         instruction:
-          "Dans les paramètres réseau de votre Smart TV ou boîtier, configurez les DNS sur Cloudflare (1.1.1.1 et 1.0.0.1) ou Google (8.8.8.8).",
+          "Dans les paramètres réseau de votre Smart TV ou boîtier, configurez les DNS sur Cloudflare (1.1.1.1 et 1.0.0.1) ou Google (8.8.8.8). Cette manipulation lève les blocages DNS opérateur en quelques secondes.",
       },
       {
         stepNumber: 3,
         title: "Vérifier la date de validité de votre compte",
         instruction:
-          "Si votre code est expiré, le serveur rejette automatiquement l'authentification sans afficher de message d'alerte explicite.",
+          "Allez dans Paramètres > Compte sur Atlas Pro ONTV. Si votre code est expiré, le serveur rejette automatiquement l'authentification. Un renouvellement remet tout en marche.",
       },
       {
         stepNumber: 4,
         title: "Vider le cache de l'application",
         instruction:
-          "Rendez-vous dans Paramètres > Applications > Atlas Pro ONTV > Forcer l'arrêt, puis Vider le cache.",
+          "Rendez-vous dans Paramètres > Applications > Atlas Pro ONTV > Forcer l'arrêt, puis Vider le cache. Relancez ensuite l'application.",
+      },
+      {
+        stepNumber: 5,
+        title: "Contacter le support si le problème persiste",
+        instruction:
+          "Si aucune des étapes précédentes n'a fonctionné, notre équipe technique est disponible sur WhatsApp 7j/7. Préparez votre code d'activation et le modèle de votre appareil.",
       },
     ],
     showExpiredAlert: true,
@@ -445,20 +453,22 @@ export const MOCK_TUTORIALS: Tutorial[] = [
       "resoudre-buffering-coupures",
       "installation-smart-tv-samsung",
     ],
-    seoTitle: "Résoudre Erreur Connexion Serveur Atlas Pro | Guide Dépannage",
+    seoTitle: "Atlas Pro Ne Peut Pas Se Connecter au Serveur : 5 Solutions Rapides",
     seoDescription:
-      "Solution pas à pas pour réparer l'erreur de connexion serveur sur Atlas Pro ONTV. Récupérez vos flux télévisés en moins de 5 minutes.",
+      "Pourquoi Atlas Pro ne fonctionne plus ? Résolvez l'erreur de connexion serveur Atlas Pro en 5 minutes. DNS, cache, code expiré : guide de dépannage complet.",
   },
   {
     id: "tut-smart-tv-samsung",
     slug: "installation-smart-tv-samsung",
-    title: "Comment installer Atlas Pro ONTV sur Smart TV Samsung",
+    title: "Comment installer Atlas Pro ONTV sur Smart TV Samsung et LG",
     category: "hardware",
     excerpt:
-      "Guide complet et à jour pour faire fonctionner Atlas Pro sur les téléviseurs Samsung Tizen sans clé USB ni manipulations complexes.",
+      "Guide complet pour faire fonctionner Atlas Pro sur les téléviseurs Samsung (Tizen) et LG (webOS) via IBO Player, SET IPTV ou IPTV Smarters. Aucune clé USB requise.",
     body: [
       "Les téléviseurs Samsung sous le système Tizen ne permettent pas l'installation directe de fichiers .APK Android. Cependant, il est très simple d'activer votre abonnement Atlas Pro via les applications agréées disponibles sur le Samsung Smart Hub.",
-      "Suivez les étapes ci-dessous pour configurer votre téléviseur en 5 minutes chrono.",
+      "Suivez les étapes ci-dessous pour configurer votre téléviseur Samsung en 5 minutes chrono.",
+      "Sur les téléviseurs LG sous webOS, la démarche est similaire : ouvrez le LG Content Store et installez l'application Smart IPTV ou IPTV Smarters. Connectez-vous ensuite en utilisant vos identifiants Xtream Codes Atlas Pro (URL serveur + nom d'utilisateur + mot de passe). Votre catalogue de plus de 10 000 chaînes se charge en quelques secondes. Notez bien que l'application native Atlas Pro ONTV APK ne s'installe pas directement sur LG webOS — vous devez obligatoirement passer par un lecteur tiers compatible.",
+      "Pour les deux marques, IBO Player est l'option la plus simple. C'est l'application IPTV la plus utilisée sur Smart TV en France. Elle accepte le lien M3U ou la connexion Xtream Codes, et se synchronise automatiquement avec votre guide des programmes (EPG) Atlas Pro.",
     ],
     steps: [
       {
@@ -471,7 +481,7 @@ export const MOCK_TUTORIALS: Tutorial[] = [
         stepNumber: 2,
         title: "Rechercher une application compatible",
         instruction:
-          "Tapez dans la barre de recherche 'IBO Player', 'SET IPTV' ou 'Smart IPTV' puis lancez l'installation.",
+          "Tapez dans la barre de recherche 'IBO Player', 'SET IPTV' ou 'Smart IPTV' puis lancez l'installation. IBO Player est le choix recommandé pour Atlas Pro sur Samsung.",
       },
       {
         stepNumber: 3,
@@ -485,6 +495,12 @@ export const MOCK_TUTORIALS: Tutorial[] = [
         instruction:
           "Transmettez votre adresse MAC à notre support WhatsApp lors de votre commande, ou injectez votre lien M3U sur le portail de l'application.",
       },
+      {
+        stepNumber: 5,
+        title: "Pour LG : ouvrir le LG Content Store et installer Smart IPTV",
+        instruction:
+          "Sur votre téléviseur LG, accédez au LG Content Store depuis le menu Home, recherchez 'Smart IPTV' et installez l'application. Choisissez ensuite 'Connexion Xtream Codes API' et entrez vos identifiants Atlas Pro.",
+      },
     ],
     showExpiredAlert: false,
     relatedTutorialSlugs: [
@@ -492,45 +508,58 @@ export const MOCK_TUTORIALS: Tutorial[] = [
       "erreur-connexion-serveur",
       "resoudre-buffering-coupures",
     ],
-    seoTitle: "Installer Atlas Pro ONTV sur Smart TV Samsung | Tutoriel",
+    seoTitle: "Installer Atlas Pro sur Samsung & LG Smart TV | Guide IBO Player",
     seoDescription:
-      "Découvrez comment installer et configurer Atlas Pro ONTV sur votre téléviseur Samsung. Guide étape par étape simple et rapide.",
+      "Installez Atlas Pro ONTV sur Smart TV Samsung Tizen et LG webOS via IBO Player, SET IPTV ou IPTV Smarters. Guide illustré pas à pas — sans clé USB.",
   },
   {
     id: "tut-fire-stick",
     slug: "installation-fire-stick",
-    title: "Comment installer Atlas Pro sur Amazon Fire TV Stick",
+    title: "Comment installer Atlas Pro sur Fire Stick, Chromecast et Xiaomi TV Box",
     category: "hardware",
     excerpt:
-      "Installez facilement l'APK officiel Atlas Pro ONTV sur votre Fire Stick Amazon à l'aide de l'application Downloader.",
+      "Installez facilement l'APK officiel Atlas Pro ONTV sur votre Fire TV Stick, Chromecast avec Google TV ou Xiaomi TV Box S. Guide illustré avec Downloader.",
     body: [
-      "La clé Amazon Fire Stick est le support idéal pour Atlas Pro grâce à sa fluidité et son lecteur vidéo matériel puissant.",
-      "En quelques manipulations simples, vous aurez accès à l'interface complète sur votre téléviseur.",
+      "La clé Amazon Fire TV Stick est le support idéal pour Atlas Pro grâce à sa fluidité et son lecteur vidéo matériel puissant. En quelques manipulations simples, vous aurez accès à l'interface complète sur votre téléviseur.",
+      "La Xiaomi TV Box S fonctionne sous Android TV natif, ce qui rend l'installation de l'APK Atlas Pro ONTV encore plus simple. Pas besoin d'application intermédiaire : activez simplement les sources inconnues et installez l'APK directement via un gestionnaire de fichiers ou Downloader. L'application se lance comme n'importe quelle application Android TV.",
+      "Le Chromecast avec Google TV (modèle HD ou 4K) étant lui aussi basé sur Android TV, il accepte l'installation de l'APK Atlas Pro ONTV via Downloader ou le Play Store (cherchez un lecteur IPTV compatible Xtream Codes comme IPTV Smarters). La télécommande vocale Google est supportée pour la navigation.",
     ],
     steps: [
       {
         stepNumber: 1,
-        title: "Installer l'application Downloader",
+        title: "Installer l'application Downloader (Fire Stick & Chromecast)",
         instruction:
-          "Depuis l'écran d'accueil Fire TV, allez dans 'Trouver' > 'Rechercher', tapez 'Downloader' et installez l'application orange.",
+          "Depuis l'écran d'accueil Fire TV ou Chromecast, recherchez 'Downloader' et installez l'application orange. Pour Xiaomi TV Box, utilisez directement le Gestionnaire de fichiers.",
       },
       {
         stepNumber: 2,
         title: "Activer les options pour les développeurs",
         instruction:
-          "Allez dans Paramètres > Ma Fire TV > Options pour les développeurs > Installer applis inconnues > Activer pour Downloader.",
+          "Allez dans Paramètres > Ma Fire TV > Options pour les développeurs > Installer applis inconnues > Activer pour Downloader. Pour Xiaomi TV Box : Paramètres > Paramètres supplémentaires > Sécurité > Sources inconnues.",
       },
       {
         stepNumber: 3,
-        title: "Télécharger l'APK Atlas Pro",
+        title: "Télécharger l'APK Atlas Pro ONTV",
         instruction:
-          "Lancez Downloader, saisissez le code direct fourni par notre service et appuyez sur Go.",
+          "Lancez Downloader, saisissez le code direct fourni par notre service et appuyez sur Go. Le fichier APK Atlas Pro ONTV v4.5 se télécharge automatiquement.",
       },
       {
         stepNumber: 4,
         title: "Installer et lancer l'application",
         instruction:
-          "Validez l'installation de l'APK puis entrez votre code d'activation 12 mois.",
+          "Validez l'installation de l'APK puis entrez votre code d'activation 12 mois reçu par e-mail. Votre catalogue de chaînes est prêt en moins d'une minute.",
+      },
+      {
+        stepNumber: 5,
+        title: "Xiaomi TV Box S : Installation via Android TV",
+        instruction:
+          "Sur votre Xiaomi TV Box S, allez dans Paramètres > Paramètres supplémentaires > Sécurité et activez 'Sources inconnues'. Installez ensuite l'APK Atlas Pro ONTV v4.5 via Downloader ou USB. C'est identique à n'importe quelle box Android TV.",
+      },
+      {
+        stepNumber: 6,
+        title: "Chromecast avec Google TV : Installation via Downloader",
+        instruction:
+          "Sur votre Chromecast 4K ou HD, accédez aux paramètres système et activez les sources inconnues. Installez Downloader depuis le Google Play Store, puis saisissez le code APK fourni par notre équipe pour télécharger Atlas Pro ONTV.",
       },
     ],
     showExpiredAlert: false,
@@ -539,39 +568,47 @@ export const MOCK_TUTORIALS: Tutorial[] = [
       "erreur-connexion-serveur",
       "recuperer-identifiant-code",
     ],
-    seoTitle: "Installer Atlas Pro sur Amazon Fire Stick | Guide Complet",
+    seoTitle: "Installer Atlas Pro sur Fire Stick, Chromecast & Xiaomi TV Box | Guide",
     seoDescription:
-      "Tutoriel d'installation rapide d'Atlas Pro ONTV sur Amazon Fire TV Stick via Downloader. Étapes illustrées et vérifiées.",
+      "Guide complet pour installer Atlas Pro ONTV sur Amazon Fire TV Stick, Chromecast avec Google TV et Xiaomi TV Box S. Tutoriel illustré avec Downloader en 5 minutes.",
   },
   {
     id: "tut-recuperer-code",
     slug: "recuperer-identifiant-code",
-    title: "Comment récupérer ou renouveler votre code d'activation Atlas Pro",
+    title: "Comment retrouver, entrer et changer le code Atlas Pro ONTV",
     category: "account",
     excerpt:
-      "Vous avez égaré vos identifiants ou votre code Atlas Pro arrive à échéance ? Voici comment renouveler votre compte sans perdre vos favoris.",
+      "Code Atlas Pro perdu, expiré ou à saisir dans l'application ? Ce guide répond aux trois questions les plus posées sur les identifiants Atlas Pro ONTV.",
     body: [
-      "Chaque compte Atlas Pro est associé à une clé unique d'activation ou à un identifiant Xtream Codes.",
+      "Chaque compte Atlas Pro est associé à une clé unique d'activation ou à un identifiant Xtream Codes. Si votre période de validité arrive à son terme, votre application cesse de charger les chaînes.",
       "Si votre période de validité arrive à son terme, votre application cesse de charger les chaînes.",
+      "Pour entrer le code Atlas Pro dans l'application : ouvrez Atlas Pro ONTV, sélectionnez 'Se connecter avec un code' (ou 'Connexion Xtream Codes' selon votre version), puis saisissez votre code à 12 chiffres exactement comme reçu par e-mail, sans espace. Si l'application vous demande une URL de serveur, un nom d'utilisateur et un mot de passe, entrez les identifiants Xtream Codes fournis dans votre e-mail de bienvenue.",
+      "Pour changer le code sur Atlas Pro ONTV : allez dans Paramètres > Compte > Déconnexion, puis reconnectez-vous avec votre nouveau code. Aucune réinstallation n'est nécessaire.",
     ],
     steps: [
       {
         stepNumber: 1,
         title: "Vérifier votre boîte e-mail de confirmation",
         instruction:
-          "Recherchez l'e-mail envoyé par 'Atlas Pro ONTV' le jour de votre achat contenant votre code à 12 chiffres.",
+          "Recherchez l'e-mail envoyé par 'Atlas Pro ONTV' le jour de votre achat contenant votre code à 12 chiffres. Cherchez aussi dans vos spams.",
       },
       {
         stepNumber: 2,
         title: "Vérifier le statut d'expiration",
         instruction:
-          "Dans l'application Atlas Pro, rendez-vous dans 'Paramètres' > 'Compte' pour visualiser la date d'expiration exacte.",
+          "Dans l'application Atlas Pro, rendez-vous dans 'Paramètres' > 'Compte' pour visualiser la date d'expiration exacte. Si elle est dépassée, un renouvellement est nécessaire.",
       },
       {
         stepNumber: 3,
+        title: "Entrer le code dans l'application Atlas Pro ONTV",
+        instruction:
+          "Ouvrez Atlas Pro ONTV, sélectionnez 'Connexion avec un code' et saisissez votre code à 12 chiffres sans espace. Appuyez sur Valider. Pour Xtream Codes, entrez l'URL + identifiant + mot de passe.",
+      },
+      {
+        stepNumber: 4,
         title: "Renouveler votre code sans changer d'application",
         instruction:
-          "Commandez simplement un renouvellement sur notre site officiel. Votre nouveau code est expédié instantanément.",
+          "Commandez simplement un renouvellement sur notre site officiel. Votre nouveau code est expédié instantanément, et votre line est prolongée à distance.",
       },
     ],
     showExpiredAlert: true,
@@ -580,9 +617,9 @@ export const MOCK_TUTORIALS: Tutorial[] = [
       "installation-smart-tv-samsung",
       "resoudre-buffering-coupures",
     ],
-    seoTitle: "Récupérer ou Renouveler Code Atlas Pro | Guide Officiel",
+    seoTitle: "Comment Retrouver & Entrer le Code Atlas Pro | Guide Officiel",
     seoDescription:
-      "Identifiants Atlas Pro perdus ou expirés ? Retrouvez votre code ou renouvelez votre abonnement en 15 minutes avec assistance 7j/7.",
+      "Comment retrouver son code Atlas Pro, comment entrer le code dans l'application, comment le changer sur Atlas Pro ONTV ? Toutes les réponses ici.",
   },
   {
     id: "tut-resoudre-buffering",
@@ -624,6 +661,60 @@ export const MOCK_TUTORIALS: Tutorial[] = [
     seoTitle: "Supprimer Coupures & Buffering Atlas Pro | Solutions Rapides",
     seoDescription:
       "Éliminez les ralentissements et gels d'image sur Atlas Pro ONTV. Réglages de cache, connexion et paramètres de lecture.",
+  },
+  {
+    id: "tut-lg-smart-tv",
+    slug: "installation-smart-tv-lg",
+    title: "Comment installer Atlas Pro sur LG Smart TV (webOS) : Guide Complet",
+    category: "hardware",
+    excerpt:
+      "Guide pas à pas pour configurer Atlas Pro ONTV sur un téléviseur LG Smart TV sous webOS via Smart IPTV, IBO Player ou IPTV Smarters. Aucune clé USB, aucune manipulation complexe.",
+    body: [
+      "Les téléviseurs LG Smart TV fonctionnent sous webOS, un système propriétaire qui ne supporte pas les APK Android nativement. Impossible donc d'installer l'application Atlas Pro ONTV directement comme sur un boîtier Android. La solution : passer par un lecteur IPTV tiers disponible sur le LG Content Store.",
+      "Trois applications sont recommandées pour utiliser Atlas Pro sur LG : Smart IPTV (la plus populaire), IPTV Smarters Pro, et IBO Player. Toutes trois acceptent la connexion via identifiants Xtream Codes (URL serveur + identifiant + mot de passe) ou via un lien M3U. Vous recevez ces informations par e-mail lors de votre commande d'abonnement.",
+      "La connexion via Xtream Codes API est la méthode recommandée pour Atlas Pro sur LG. Elle permet la mise à jour automatique du guide des programmes (EPG) et la synchronisation des favoris entre vos appareils.",
+    ],
+    steps: [
+      {
+        stepNumber: 1,
+        title: "Ouvrir le LG Content Store",
+        instruction:
+          "Sur votre téléviseur LG, appuyez sur le bouton Home de la télécommande. Sélectionnez 'LG Content Store' dans le menu principal.",
+      },
+      {
+        stepNumber: 2,
+        title: "Installer Smart IPTV ou IBO Player",
+        instruction:
+          "Dans la barre de recherche du Content Store, tapez 'Smart IPTV' ou 'IBO Player'. Sélectionnez l'application et cliquez sur Installer. L'installation prend moins de 30 secondes.",
+      },
+      {
+        stepNumber: 3,
+        title: "Ouvrir l'application et noter l'adresse MAC",
+        instruction:
+          "Lancez Smart IPTV ou IBO Player. L'écran d'accueil affiche votre adresse MAC (format 00:1A:79:XX:XX:XX) et une Device Key. Notez-les ou prenez une photo avec votre smartphone.",
+      },
+      {
+        stepNumber: 4,
+        title: "Saisir vos identifiants Atlas Pro (Xtream Codes)",
+        instruction:
+          "Dans les paramètres de l'application, choisissez 'Connexion Xtream Codes API'. Entrez l'URL du serveur, votre nom d'utilisateur et votre mot de passe Atlas Pro tels que reçus par e-mail. Validez pour charger votre catalogue.",
+      },
+      {
+        stepNumber: 5,
+        title: "Configurer le guide des programmes (EPG)",
+        instruction:
+          "Pour activer le guide TV (EPG), ajoutez l'URL EPG fournie dans votre e-mail d'activation dans la section 'Guide des programmes' des paramètres de l'application. Le guide se synchronise automatiquement toutes les 24h.",
+      },
+    ],
+    showExpiredAlert: true,
+    relatedTutorialSlugs: [
+      "installation-smart-tv-samsung",
+      "erreur-connexion-serveur",
+      "recuperer-identifiant-code",
+    ],
+    seoTitle: "Installer Atlas Pro sur LG Smart TV webOS | Guide IBO Player & Smart IPTV",
+    seoDescription:
+      "Comment installer Atlas Pro sur LG Smart TV webOS ? Utilisez Smart IPTV ou IBO Player depuis le LG Content Store. Connexion Xtream Codes — guide étape par étape.",
   },
 ];
 

@@ -21,9 +21,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Abonnement Atlas Pro Officiel | Accès IPTV Stable & Atlas Pro Max",
+    title: "Atlas Pro France : Site Officiel dès 19.99€",
     description:
-      "Commandez votre abonnement Atlas Pro officiel en France. Activation express en 15 minutes, flux 4K/FHD haute disponibilité et assistance technique 7j/7.",
+      "Fournisseur officiel Atlas Pro France. Commandez votre service IPTV 12, 6 ou 3 mois dès 19.99€ avec activation express en 15 min, flux 4K stable et support 7j/7.",
     path: "/",
   });
 }
@@ -81,7 +81,7 @@ export default function HomePage(): React.JSX.Element {
             </div>
 
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-heading max-w-5xl mx-auto leading-tight">
-              Abonnement <span className="text-primary">Atlas Pro</span> Officiel : Votre Accès IPTV Haute Définition
+              Fournisseur Officiel <span className="text-primary">Atlas Pro France</span> : Votre Service IPTV Haute Définition
             </h1>
 
             <p className="mx-auto max-w-3xl text-base sm:text-lg text-body leading-relaxed">

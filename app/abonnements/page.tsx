@@ -15,9 +15,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Catalogue des Abonnements Atlas Pro : 12, 6, 3 Mois & Renouvellement",
+    title: "Abonnement Atlas Pro : Formules Officielles 12, 6 & 3 Mois en France",
     description:
-      "Catalogue officiel des abonnements Atlas Pro. Comparez les formules 12 mois (40€), 6 mois, 3 mois et multi-écrans. Guide de choix et tarifs détaillés.",
+      "Abonnement Atlas Pro officiel en France. Comparez nos formules 12 mois à 40€, 6 mois à 30€ et 3 mois à 20€. Codes d'accès IPTV livrés par e-mail en 15 minutes.",
     path: "/abonnements",
   });
 }
@@ -48,15 +48,28 @@ export default function AbonnementsPage(): React.JSX.Element {
         <header className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary">
             <Layers className="h-4 w-4" aria-hidden="true" />
-            <span>Catalogue Officiel • Comparatif des Licences</span>
+            <span>Catalogue Officiel • Distributeur Atlas Pro France</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-4xl text-heading tracking-tight">
-            Catalogue des Abonnements Atlas Pro
+            Abonnement Atlas Pro Officiel : Choisissez Votre Formule en France
           </h1>
           <p className="text-base text-body leading-relaxed">
-            Consultez les caractéristiques détaillées de chaque formule d&apos;abonnement Atlas Pro. Que vous souhaitiez tester le service pour 3 mois, vous équiper pour 6 mois ou profiter du tarif le plus avantageux sur 12 mois, accédez aux fiches complètes ci-dessous.
+            Vous cherchez un abonnement Atlas Pro fiable pour regarder vos chaînes préférées sans coupures ? Vous êtes au bon endroit. En tant que distributeur officiel en France, nous proposons trois formules d&apos;abonnement IPTV Atlas Pro adaptées à chaque usage : 12 mois à 40€ pour les utilisateurs réguliers, 6 mois à 30€ pour les saisons sportives, et 3 mois à 20€ pour découvrir le service. Chaque abonnement inclut un accès immédiat à plus de 10 000 chaînes en flux direct, un catalogue VOD complet et vos identifiants Xtream Codes livrés par e-mail en moins de 15 minutes après validation de la commande.
           </p>
         </header>
+
+        {/* SEO Entity Block */}
+        <section className="rounded-2xl border border-border bg-surface p-8 space-y-4 max-w-3xl mx-auto">
+          <h2 className="text-xl font-bold text-heading">
+            Pourquoi choisir un abonnement IPTV Atlas Pro en France ?
+          </h2>
+          <p className="text-sm text-body leading-relaxed">
+            Le service Atlas Pro s&apos;appuie sur une infrastructure CDN européenne dédiée qui garantit un flux IPTV stable même lors des grands événements sportifs en direct. Contrairement aux offres génériques, chaque code d&apos;activation Atlas Pro est lié à un serveur individuel avec load-balancing automatique. Résultat : zéro freeze, zéro buffering. Compatible avec les applications Atlas Pro ONTV, Atlas Pro Max, IBO Player, IPTV Smarters Pro et TiviMate, votre abonnement fonctionne sur Smart TV, boîtier Android, Fire Stick, PC et iOS. Besoin de renouveler un code existant ?{" "}
+            <Link href="/abonnements/renouvellement" className="text-primary underline font-semibold">
+              Renouveler votre code Atlas Pro existant
+            </Link>.
+          </p>
+        </section>
 
         {/* Catalog Cards Grid */}
         <section aria-label="Liste des formules au catalogue" className="grid grid-cols-1 md:grid-cols-3 gap-8">

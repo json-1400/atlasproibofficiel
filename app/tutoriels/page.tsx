@@ -10,9 +10,9 @@ import { buildOrganizationSchema, buildBreadcrumbSchema } from "@/lib/schema";
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Tutoriels & Guides Atlas Pro ONTV | Dépannage et Configuration",
+    title: "Comment Installer Atlas Pro sur la TV | Tutoriels & Guides Officiels",
     description:
-      "Tous les guides d'installation et solutions de dépannage pour Atlas Pro ONTV. Résolution des coupures, erreurs serveur et configuration Smart TV.",
+      "Guides d'installation Atlas Pro sur Smart TV Samsung, LG, Fire Stick, Xiaomi TV Box et Android. Résolvez les erreurs serveur et problèmes de connexion en 5 minutes.",
     path: "/tutoriels",
   });
 }
@@ -63,12 +63,20 @@ export default function TutorielsPage(): React.JSX.Element {
 
       <header className="text-center space-y-4 max-w-3xl mx-auto">
         <h1 className="text-3xl font-extrabold sm:text-4xl text-heading">
-          Centre d&apos;Assistance & <span className="text-primary">Tutoriels Atlas Pro</span>
+          Comment Installer Atlas Pro sur la TV :{" "}
+          <span className="text-primary">Tous les Tutoriels Officiels</span>
         </h1>
         <p className="text-base text-body">
-          Guides pratiques rédigés par nos techniciens pour configurer votre matériel, résoudre les
-          éventuels blocages et profiter de la meilleure qualité de visionnage.
+          Vous venez d&apos;obtenir votre abonnement Atlas Pro et vous cherchez comment l&apos;installer sur votre téléviseur ? Cette page regroupe tous nos guides techniques rédigés et vérifiés par notre équipe. Que vous ayez une Smart TV Samsung, un LG, un Fire TV Stick, une Xiaomi TV Box ou un appareil iOS, chaque tutoriel décrit les étapes précises.
         </p>
+
+        {/* AEO Answer Block — Featured Snippet Target */}
+        <div className="rounded-xl border-l-4 border-primary bg-surface px-6 py-4 text-left space-y-2 max-w-2xl mx-auto">
+          <p className="text-xs font-bold text-primary uppercase tracking-wide">Réponse rapide</p>
+          <p className="text-sm text-body leading-relaxed">
+            Pour installer Atlas Pro sur votre téléviseur : téléchargez l&apos;APK officiel via <strong>Downloader</strong> sur Fire Stick, ou utilisez <strong>IBO Player</strong> depuis le Samsung Smart Hub. Entrez ensuite votre code d&apos;activation à 12 chiffres reçu par e-mail après votre commande. L&apos;installation prend moins de 5 minutes.
+          </p>
+        </div>
       </header>
 
       {/* Tutorials Grid */}

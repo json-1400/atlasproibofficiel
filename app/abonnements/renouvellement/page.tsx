@@ -9,9 +9,9 @@ import { buildOrganizationSchema, buildBreadcrumbSchema } from "@/lib/schema";
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Renouvellement Abonnement Atlas Pro ONTV | Réactivation Immédiate",
+    title: "Code Atlas Pro : Renouvellement & Réactivation Immédiate",
     description:
-      "Renouvelez votre abonnement Atlas Pro ONTV en quelques clics sans changer vos paramètres ni perdre vos favoris. Réactivation immédiate en 15 minutes.",
+      "Votre code Atlas Pro est expiré ou perdu ? Renouvelez votre abonnement officiel en 15 minutes. Nouveau code IPTV livré par e-mail instantanément 7j/7.",
     path: "/abonnements/renouvellement",
   });
 }
@@ -46,11 +46,10 @@ export default function RenouvellementPage(): React.JSX.Element {
         </div>
 
         <h1 className="text-3xl font-extrabold sm:text-4xl text-heading">
-          Renouvellement de votre <span className="text-primary">Abonnement Atlas Pro ONTV</span>
+          Renouveler Votre <span className="text-primary">Code Atlas Pro</span> : Accès Réactivé en 15 Minutes
         </h1>
         <p className="text-base text-body">
-          Votre abonnement arrive à échéance ou votre code est déjà expiré ? Prolongez votre service
-          directement sans réinstaller votre application et sans perdre vos chaînes favorites.
+          Votre code Atlas Pro est expiré ou vous l&apos;avez égaré ? Inutile de réinstaller votre application ni de reconfigurer votre téléviseur. Choisissez simplement une formule ci-dessous : un nouveau code est généré instantanément et envoyé à votre adresse e-mail. Votre ligne est prolongée à distance en moins de 15 minutes, sans aucune manipulation complémentaire de votre part.
         </p>
       </header>
 
@@ -189,6 +188,40 @@ export default function RenouvellementPage(): React.JSX.Element {
         </div>
         <ShieldCheck className="h-6 w-6 text-emerald-700 shrink-0 hidden sm:block" aria-hidden="true" />
       </div>
+
+      {/* FAQ Section — 'code atlas pro', AEO target */}
+      <section className="max-w-3xl mx-auto space-y-4">
+        <h2 className="text-xl font-bold text-heading text-center">
+          Questions fréquentes sur le code Atlas Pro
+        </h2>
+        <div className="space-y-3">
+          {[
+            {
+              q: "Mon code Atlas Pro ne fonctionne plus, que faire ?",
+              a: "Si votre code Atlas Pro affiche une erreur ou ne charge plus les chaînes, votre abonnement est très probablement expiré. Vérifiez la date d&apos;expiration dans l&apos;application (Paramètres > Compte), puis commandez un renouvellement. Le nouveau code est actif en moins de 15 minutes.",
+            },
+            {
+              q: "Comment retrouver son code Atlas Pro perdu ?",
+              a: "Cherchez dans votre boîte e-mail un message expédié par notre service le jour de votre commande. L&apos;objet contient \"code Atlas Pro\" ou \"identifiants IPTV\". Si l&apos;e-mail est introuvable, contactez notre support WhatsApp avec votre numéro de commande.",
+            },
+            {
+              q: "Comment entrer le code Atlas Pro dans l'application ?",
+              a: "Ouvrez l&apos;application Atlas Pro ONTV, sélectionnez \"Se connecter avec un code\" puis saisissez votre code à 12 chiffres exactement comme reçu par e-mail, sans espace. Appuyez sur Valider. Si l&apos;application utilise Xtream Codes, entrez l&apos;URL de serveur, le nom d&apos;utilisateur et le mot de passe fournis.",
+            },
+          ].map(({ q, a }) => (
+            <details
+              key={q}
+              className="rounded-xl border border-border bg-white p-5 group open:border-primary/40"
+            >
+              <summary className="text-sm font-bold text-heading cursor-pointer list-none flex items-center justify-between gap-4">
+                <span>{q}</span>
+                <RefreshCw className="h-4 w-4 text-primary shrink-0 group-open:rotate-180 transition-transform" aria-hidden="true" />
+              </summary>
+              <p className="mt-3 text-xs text-body leading-relaxed" dangerouslySetInnerHTML={{ __html: a }} />
+            </details>
+          ))}
+        </div>
+      </section>
     </div>
   </>
 );

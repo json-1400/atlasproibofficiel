@@ -10,9 +10,9 @@ import { buildOrganizationSchema, buildBreadcrumbSchema } from "@/lib/schema";
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Télécharger Atlas Pro ONTV APK Officiel | Toutes Plateformes",
+    title: "Télécharger Atlas Pro APK Officiel | ONTV, Max & Toutes Plateformes",
     description:
-      "Téléchargez les applications officielles Atlas Pro ONTV et Atlas Pro Max en version APK vérifiée pour Android TV, Smart TV, Fire Stick, PC Windows et iOS.",
+      "Téléchargez l'APK officiel Atlas Pro ONTV ou Atlas Pro Max pour Android, Smart TV, Fire Stick, PC et iOS. Versions vérifiées SHA-256, sans publicité, flux 4K.",
     path: "/telecharger",
   });
 }
@@ -53,11 +53,10 @@ export default function TelechargerPage(): React.JSX.Element {
 
       <header className="text-center space-y-4 max-w-3xl mx-auto">
         <h1 className="text-3xl font-extrabold sm:text-4xl text-heading">
-          Centre de <span className="text-primary">Téléchargement Atlas Pro ONTV</span>
+          Télécharger Atlas Pro ONTV APK Officiel : <span className="text-primary">Toutes les Applications</span>
         </h1>
         <p className="text-base text-body">
-          Installez les applications officielles et certifiées Atlas Pro sur l&apos;ensemble de vos écrans.
-          Versions APK directes, exemptes de publicités et optimisées pour les flux 4K.
+          Pour télécharger Atlas Pro, deux applications officielles sont disponibles selon votre matériel. <strong>Atlas Pro ONTV</strong> est l’application principale conçue pour Smart TV, Android TV box et Fire TV Stick — elle offre le meilleur confort de visionnage sur grand écran. <strong>Atlas Pro Max</strong> est l’application mobile optimisée pour smartphones Android, tablettes et Chromecast. Chaque APK est vérifié par empreinte SHA-256 et ne contient aucune publicité.
         </p>
       </header>
 
@@ -109,6 +108,72 @@ export default function TelechargerPage(): React.JSX.Element {
             </div>
           </article>
         ))}
+      </section>
+
+      {/* Comparison Section — 'quelle appli pour atlas pro' */}
+      <section className="rounded-2xl border border-border bg-surface p-8 space-y-6 max-w-4xl mx-auto">
+        <h2 className="text-xl font-bold text-heading text-center">
+          Atlas Pro ONTV ou Atlas Pro Max : Quelle Application Choisir ?
+        </h2>
+        <p className="text-sm text-body text-center max-w-2xl mx-auto">
+          Le choix dépend de votre matériel. Voici la règle simple : <strong>ONTV pour les TV et boîtiers, Max pour les smartphones et tablettes.</strong>
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="rounded-xl bg-white border-2 border-primary p-5 space-y-3">
+            <h3 className="font-bold text-heading text-base">Atlas Pro ONTV — Smart TV & Boîtiers</h3>
+            <ul className="text-xs text-body space-y-1.5 list-disc list-inside">
+              <li>Android TV, Fire TV Stick 4K, Nvidia Shield</li>
+              <li>Smart TV via IBO Player ou IPTV Smarters</li>
+              <li>Interface télécommande optimisée, zapping ultra-rapide</li>
+              <li>Lecture matérielle 4K HDR, Dolby Audio</li>
+              <li>Version APK 4.5 — compatible Android 5.1+</li>
+            </ul>
+          </div>
+          <div className="rounded-xl bg-white border border-border p-5 space-y-3">
+            <h3 className="font-bold text-heading text-base">Atlas Pro Max — Mobile & Tablettes</h3>
+            <ul className="text-xs text-body space-y-1.5 list-disc list-inside">
+              <li>Smartphones et tablettes Android</li>
+              <li>Chromecast et Miracast depuis mobile</li>
+              <li>Mode Picture-in-Picture (PiP)</li>
+              <li>Téléchargement VOD hors-ligne</li>
+              <li>Interface tactile repensée, poids léger (28 Mo)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section — 'comment telecharger atlas pro', 'atlas pro apk' */}
+      <section className="max-w-3xl mx-auto space-y-4">
+        <h2 className="text-xl font-bold text-heading text-center">
+          Questions Fréquentes sur le Téléchargement Atlas Pro
+        </h2>
+        <div className="space-y-3">
+          {[
+            {
+              q: "Comment télécharger Atlas Pro sur mon téléviseur ?",
+              a: "Sur Fire TV Stick, utilisez l'application Downloader pour installer l'APK Atlas Pro ONTV directement. Sur Android TV box (Xiaomi, Nvidia Shield), activez les sources inconnues dans Paramètres > Sécurité, puis installez l'APK. Sur Samsung ou LG Smart TV, utilisez IBO Player ou IPTV Smarters depuis le Smart Hub.",
+            },
+            {
+              q: "L'APK Atlas Pro est-il sécurisé ?",
+              a: "Oui. Chaque APK distribué sur cette page est signé et vérifié par empreinte SHA-256. Il ne contient aucun logiciel espion ni publicité. Vérifiez toujours que vous téléchargez depuis atlasproibofficiel.com — seule source officielle en France.",
+            },
+            {
+              q: "Atlas Pro ONTV 4.0 ou 4.5 : quelle version installer ?",
+              a: "Installez toujours la dernière version disponible (actuellement 4.5). La version 4.0 n'est plus maintenue. La version 4.5 apporte la stabilité multi-serveur et la compatibilité avec les nouvelles TV Android 14.",
+            },
+          ].map(({ q, a }) => (
+            <details
+              key={q}
+              className="rounded-xl border border-border bg-white p-5 group open:border-primary/40"
+            >
+              <summary className="text-sm font-bold text-heading cursor-pointer list-none flex items-center justify-between gap-4">
+                <span>{q}</span>
+                <Download className="h-4 w-4 text-primary shrink-0 group-open:rotate-180 transition-transform" aria-hidden="true" />
+              </summary>
+              <p className="mt-3 text-xs text-body leading-relaxed">{a}</p>
+            </details>
+          ))}
+        </div>
       </section>
 
       {/* Need Activation CTA */}

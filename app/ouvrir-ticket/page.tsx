@@ -5,7 +5,7 @@ import { MessageSquare, Clock, ShieldCheck, HelpCircle, PhoneCall, ArrowRight } 
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TicketForm } from "@/components/sections/TicketForm";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, WHATSAPP_LINK, WHATSAPP_NUMBER } from "@/lib/seo";
 import { generateAntiBotChallenge } from "@/lib/anti-bot";
 import {
   buildOrganizationSchema,
@@ -134,12 +134,12 @@ export default function OuvrirTicketPage(): React.JSX.Element {
               Pour une panne bloquante lors d&apos;une diffusion en direct ou un renouvellement immédiat, nos conseillers sont joignables directement.
             </p>
             <a
-              href="https://wa.me/33756898687?text=Bonjour,%20j'ai%20besoin%20d'aide%20avec%20mon%20abonnement%20Atlas%20Pro"
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 text-xs font-bold text-white shadow-sm hover:opacity-95 transition-opacity"
             >
-              <span>Contacter sur WhatsApp</span>
+              <span>Contacter sur WhatsApp ({WHATSAPP_NUMBER})</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>

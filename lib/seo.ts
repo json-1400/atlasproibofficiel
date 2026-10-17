@@ -3,8 +3,17 @@ import type { Metadata } from "next";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://atlasproibofficiel.com";
 
-export const SITE_NAME = "Atlas Pro ONTV Officiel";
+export const SITE_NAME = "Atlas Pro IBO Officiel";
+export const BRAND_NAME = "atlasproibofficiel";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.jpg`;
+
+export const WHATSAPP_NUMBER = "+212 715-214002";
+export const WHATSAPP_RAW = "212715214002";
+export const WHATSAPP_WELCOME_MESSAGE =
+  "Bonjour et bienvenue sur atlasproibofficiel ! J'aimerais avoir des informations sur vos abonnements et être guidé pour l'activation.";
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_RAW}?text=${encodeURIComponent(
+  WHATSAPP_WELCOME_MESSAGE
+)}`;
 
 export interface MetadataProps {
   title: string;
@@ -29,10 +38,12 @@ export function buildMetadata({
   const canonicalUrl = `${SITE_URL}${cleanPath === "/" ? "" : cleanPath.replace(/\/$/, "")}`;
 
   return {
-    title: {
-      default: title,
-      template: `%s | ${SITE_NAME}`,
-    },
+    title: title.includes("|")
+      ? { absolute: title }
+      : {
+          default: title,
+          template: `%s | ${SITE_NAME}`,
+        },
     description,
     metadataBase: new URL(SITE_URL),
     alternates: {

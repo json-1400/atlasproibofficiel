@@ -12,18 +12,18 @@ export const dynamic = "force-dynamic";
 function getAllCanonicalUrls(): string[] {
   const staticUrls = [
     `${SITE_URL}`,
-    `${SITE_URL}/abonnements`,
-    `${SITE_URL}/abonnements/multi-ecran`,
-    `${SITE_URL}/abonnements/renouvellement`,
+    `${SITE_URL}/plans-tarifs`,
+    `${SITE_URL}/plans-tarifs/multi-ecran`,
+    `${SITE_URL}/plans-tarifs/renouvellement`,
     `${SITE_URL}/telecharger`,
     `${SITE_URL}/tutoriels`,
     `${SITE_URL}/ouvrir-ticket`,
-    `${SITE_URL}/mentions-legales`,
+    `${SITE_URL}/politique-remboursement`,
     `${SITE_URL}/politique-de-confidentialite`,
     `${SITE_URL}/conditions-generales-de-vente`,
   ];
 
-  const planUrls = getAllPlans().map((p) => `${SITE_URL}/abonnements/${p.slug}`);
+  const planUrls = getAllPlans().map((p) => `${SITE_URL}/plans-tarifs/${p.slug}`);
   const appUrls = getAllAppPages().map((a) => `${SITE_URL}/telecharger/${a.slug}`);
   const tutorialUrls = getAllTutorials().map((t) => `${SITE_URL}/tutoriels/${t.slug}`);
 

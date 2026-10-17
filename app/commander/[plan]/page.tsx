@@ -50,8 +50,8 @@ export default async function CommanderPage({ params }: PageProps): Promise<Reac
 
   const breadcrumbs = [
     { name: "Accueil", path: "/" },
-    { name: "Abonnements", path: "/abonnements" },
-    { name: plan.title, path: `/abonnements/${plan.slug}` },
+    { name: "Plans & Tarifs", path: "/plans-tarifs" },
+    { name: plan.title, path: `/plans-tarifs/${plan.slug}` },
     { name: "Finaliser la commande", path: `/commander/${plan.slug}` },
   ];
 
@@ -66,8 +66,8 @@ export default async function CommanderPage({ params }: PageProps): Promise<Reac
       <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8 space-y-8">
         <Breadcrumbs
           items={[
-            { label: "Abonnements", href: "/abonnements" },
-            { label: plan.title, href: `/abonnements/${plan.slug}` },
+            { label: "Plans & Tarifs", href: "/plans-tarifs" },
+            { label: plan.title, href: `/plans-tarifs/${plan.slug}` },
             { label: "Finaliser la commande" },
           ]}
         />

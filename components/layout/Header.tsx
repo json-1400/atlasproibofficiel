@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight, LifeBuoy } from "lucide-react";
+import { WHATSAPP_LINK } from "@/lib/seo";
 
 interface NavLinkItem {
   label: string;
@@ -14,10 +15,10 @@ interface NavLinkItem {
 }
 
 const NAV_LINKS: NavLinkItem[] = [
-  { label: "Abonnements", href: "/abonnements" },
+  { label: "Plans & Tarifs", href: "/plans-tarifs" },
   { label: "Télécharger", href: "/telecharger" },
   { label: "Tutoriels", href: "/tutoriels" },
-  { label: "Renouvellement", href: "/abonnements/renouvellement" },
+  { label: "Renouvellement", href: "/plans-tarifs/renouvellement" },
   { label: "Ouvrir un Ticket", href: "/ouvrir-ticket", badge: "7j/7" },
 ];
 
@@ -66,19 +67,19 @@ export function Header(): React.JSX.Element {
         <Link
           href="/"
           className="flex items-center gap-2.5 text-heading font-bold text-lg tracking-tight"
-          aria-label="Atlas Pro ONTV Accueil"
+          aria-label="Atlas Pro IBO Officiel Accueil"
           onClick={closeMenu}
         >
           <Image
             src="/logo.png"
-            alt="Atlas Pro ONTV - Logo Officiel"
+            alt="Atlas Pro IBO - Logo Officiel"
             width={36}
             height={36}
             sizes="36px"
             priority
             className="h-9 w-9 rounded-xl object-contain"
           />
-          <span>Atlas Pro ONTV</span>
+          <span>Atlas Pro IBO</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -99,7 +100,7 @@ export function Header(): React.JSX.Element {
         {/* Desktop CTA & Mobile Toggle */}
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
-            href="/abonnements/atlas-pro-12-mois"
+            href="/plans-tarifs/atlas-pro-12-mois"
             className="hidden sm:inline-flex h-9 items-center justify-center rounded-xl bg-primary px-4 text-xs font-semibold text-white shadow-sm hover:bg-primary-hover transition-colors"
           >
             Commander 12 Mois
@@ -165,7 +166,7 @@ export function Header(): React.JSX.Element {
           {/* Mobile Action Buttons */}
           <div className="space-y-3 pt-2 border-t border-border">
             <Link
-              href="/abonnements/atlas-pro-12-mois"
+              href="/plans-tarifs/atlas-pro-12-mois"
               onClick={closeMenu}
               className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 text-sm font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
             >
@@ -174,7 +175,7 @@ export function Header(): React.JSX.Element {
             </Link>
 
             <a
-              href="https://wa.me/33756898687?text=Bonjour,%20j'ai%20besoin%20d'aide%20avec%20mon%20abonnement%20Atlas%20Pro"
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMenu}

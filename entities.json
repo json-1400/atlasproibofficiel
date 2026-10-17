@@ -3,13 +3,15 @@
   "entities": {
     "organization": {
       "@id": "https://atlasproibofficiel.com/#organization",
-      "name": "Atlas Pro ONTV Officiel",
+      "name": "Atlas Pro IBO Officiel",
+      "alternateName": "atlasproibofficiel",
       "url": "https://atlasproibofficiel.com",
       "logo": "https://atlasproibofficiel.com/logo.png"
     },
     "website": {
       "@id": "https://atlasproibofficiel.com/#website",
-      "name": "Atlas Pro ONTV Officiel",
+      "name": "Atlas Pro IBO Officiel",
+      "alternateName": "atlasproibofficiel",
       "url": "https://atlasproibofficiel.com"
     },
     "productAggregate": {

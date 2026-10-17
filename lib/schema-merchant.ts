@@ -2,7 +2,8 @@ import { SITE_URL } from "@/lib/seo";
 
 export const DEFAULT_BRAND = {
   "@type": "Brand",
-  name: "Atlas Pro ONTV",
+  name: "Atlas Pro IBO",
+  alternateName: "atlasproibofficiel",
 };
 
 export const DEFAULT_PRODUCT_IMAGES = [

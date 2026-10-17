@@ -105,7 +105,7 @@ export function buildHomepageProductAggregateSchema(plans: Plan[]): Record<strin
         priceValidUntil: "2026-12-31",
         validFrom: "2026-01-01",
         availability: "https://schema.org/InStock",
-        url: `${SITE_URL}/abonnements/${plan.slug}`,
+        url: `${SITE_URL}/plans-tarifs/${plan.slug}`,
         seller: {
           "@id": ENTITY_IDS.organization,
         },
@@ -118,7 +118,7 @@ export function buildHomepageProductAggregateSchema(plans: Plan[]): Record<strin
 export function buildPlanSchema(plan: Plan): Record<string, unknown> {
   return {
     "@type": "Product",
-    "@id": `${SITE_URL}/abonnements/${plan.slug}#product`,
+    "@id": `${SITE_URL}/plans-tarifs/${plan.slug}#product`,
     name: plan.title,
     description: plan.seoDescription,
     image: DEFAULT_PRODUCT_IMAGES,
@@ -130,7 +130,7 @@ export function buildPlanSchema(plan: Plan): Record<string, unknown> {
       priceValidUntil: "2026-12-31",
       validFrom: "2026-01-01",
       availability: "https://schema.org/InStock",
-      url: `${SITE_URL}/abonnements/${plan.slug}`,
+      url: `${SITE_URL}/plans-tarifs/${plan.slug}`,
       seller: {
         "@id": ENTITY_IDS.organization,
       },
@@ -160,11 +160,11 @@ export function buildContactPageSchema(): Record<string, unknown> {
 export function buildCatalogCollectionSchema(plans: Plan[]): Record<string, unknown> {
   return {
     "@type": "CollectionPage",
-    "@id": `${SITE_URL}/abonnements#webpage`,
-    url: `${SITE_URL}/abonnements`,
-    name: "Catalogue des Abonnements Atlas Pro",
+    "@id": `${SITE_URL}/plans-tarifs#webpage`,
+    url: `${SITE_URL}/plans-tarifs`,
+    name: "Catalogue des Plans & Tarifs Atlas Pro",
     description:
-      "Catalogue et comparatif des forfaits d'abonnement Atlas Pro officiels : 12 mois, 6 mois, 3 mois et renouvellement.",
+      "Catalogue et comparatif des plans et tarifs Atlas Pro officiels : 12 mois, 6 mois, 3 mois et renouvellement.",
     isPartOf: {
       "@id": ENTITY_IDS.website,
     },
@@ -177,7 +177,7 @@ export function buildCatalogCollectionSchema(plans: Plan[]): Record<string, unkn
       itemListElement: plans.map((plan, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `${SITE_URL}/abonnements/${plan.slug}`,
+        url: `${SITE_URL}/plans-tarifs/${plan.slug}`,
         name: plan.title,
       })),
     },
@@ -187,8 +187,8 @@ export function buildCatalogCollectionSchema(plans: Plan[]): Record<string, unkn
 export function buildMultiScreenHubSchema(plans: Plan[]): Record<string, unknown> {
   return {
     "@type": "CollectionPage",
-    "@id": `${SITE_URL}/abonnements/multi-ecran#webpage`,
-    url: `${SITE_URL}/abonnements/multi-ecran`,
+    "@id": `${SITE_URL}/plans-tarifs/multi-ecran#webpage`,
+    url: `${SITE_URL}/plans-tarifs/multi-ecran`,
     name: "Abonnement IPTV Atlas Multiécrans",
     description:
       "Formules officielles multi-écrans Atlas Pro : 2, 3 et 4 connexions simultanées en 4K/FHD. Profitez de votre abonnement sur plusieurs téléviseurs en même temps.",
@@ -204,7 +204,7 @@ export function buildMultiScreenHubSchema(plans: Plan[]): Record<string, unknown
       itemListElement: plans.map((plan, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `${SITE_URL}/abonnements/${plan.slug}`,
+        url: `${SITE_URL}/plans-tarifs/${plan.slug}`,
         name: plan.title,
       })),
     },

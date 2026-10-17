@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
-import { getAllPlans, getAllAppPages, getAllTutorials } from "@/lib/mock-data";
+import { getAllPlans, getAllAppPages, getAllTutorials, getAllIndexableCategories } from "@/lib/mock-data";
 import { getContentRevisions, resolveLastModified } from "@/lib/supabase/sitemap";
 
 // Explicit release dates per content domain for deterministic fallback
@@ -23,20 +23,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1.0,
     },
     {
-      url: `${SITE_URL}/abonnements`,
-      lastModified: resolveLastModified("/abonnements", revisions, RELEASE_DATES.catalog),
+      url: `${SITE_URL}/plans-tarifs`,
+      lastModified: resolveLastModified("/plans-tarifs", revisions, RELEASE_DATES.catalog),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/abonnements/multi-ecran`,
-      lastModified: resolveLastModified("/abonnements/multi-ecran", revisions, RELEASE_DATES.catalog),
+      url: `${SITE_URL}/plans-tarifs/multi-ecran`,
+      lastModified: resolveLastModified("/plans-tarifs/multi-ecran", revisions, RELEASE_DATES.catalog),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/abonnements/renouvellement`,
-      lastModified: resolveLastModified("/abonnements/renouvellement", revisions, RELEASE_DATES.catalog),
+      url: `${SITE_URL}/plans-tarifs/renouvellement`,
+      lastModified: resolveLastModified("/plans-tarifs/renouvellement", revisions, RELEASE_DATES.catalog),
       changeFrequency: "weekly",
       priority: 0.85,
     },
@@ -59,8 +59,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/mentions-legales`,
-      lastModified: resolveLastModified("/mentions-legales", revisions, RELEASE_DATES.legal),
+      url: `${SITE_URL}/politique-remboursement`,
+      lastModified: resolveLastModified("/politique-remboursement", revisions, RELEASE_DATES.legal),
       changeFrequency: "monthly",
       priority: 0.5,
     },
@@ -79,8 +79,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const planRoutes: MetadataRoute.Sitemap = getAllPlans().map((plan) => ({
-    url: `${SITE_URL}/abonnements/${plan.slug}`,
-    lastModified: resolveLastModified(`/abonnements/${plan.slug}`, revisions, RELEASE_DATES.catalog),
+    url: `${SITE_URL}/plans-tarifs/${plan.slug}`,
+    lastModified: resolveLastModified(`/plans-tarifs/${plan.slug}`, revisions, RELEASE_DATES.catalog),
     changeFrequency: "weekly",
     priority: 0.9,
   }));
@@ -99,5 +99,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...planRoutes, ...appRoutes, ...tutorialRoutes];
+  const categoryRoutes: MetadataRoute.Sitemap = getAllIndexableCategories().map((cat) => ({
+    url: `${SITE_URL}/tutoriels/categorie/${cat.slug}`,
+    lastModified: resolveLastModified(`/tutoriels/categorie/${cat.slug}`, revisions, RELEASE_DATES.tutorials),
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+
+  return [...staticRoutes, ...planRoutes, ...appRoutes, ...tutorialRoutes, ...categoryRoutes];
 }

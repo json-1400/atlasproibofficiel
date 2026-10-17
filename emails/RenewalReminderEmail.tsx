@@ -94,7 +94,7 @@ export function RenewalReminderEmail({
 
           <div style={{ textAlign: "center", marginBottom: "24px" }}>
             <a
-              href="https://atlasproibofficiel.com/abonnements/renouvellement"
+              href="https://atlasproibofficiel.com/plans-tarifs/renouvellement"
               style={{
                 display: "inline-block",
                 backgroundColor: "#4F46E5",

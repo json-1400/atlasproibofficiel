@@ -18,6 +18,7 @@
 .DS_Store
 *.pem
 google-pen-fix.md
+seo-agent/
 
 # debug
 npm-debug.log*

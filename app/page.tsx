@@ -21,9 +21,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Atlas Pro France : Site Officiel dès 19.99€",
+    title: "Atlas Pro : Site Officiel France | Abonnement IPTV 4K & Téléchargement",
     description:
-      "Fournisseur officiel Atlas Pro France. Commandez votre service IPTV 12, 6 ou 3 mois dès 19.99€ avec activation express en 15 min, flux 4K stable et support 7j/7.",
+      "Fournisseur officiel Atlas Pro en France. Abonnement IPTV 4K stable sans coupure, codes d'activation express en 15 min et téléchargement direct des applications officielles (ONTV, Max 7).",
     path: "/",
   });
 }
@@ -35,9 +35,9 @@ const HOMEPAGE_FAQS = [
       "Le traitement est entièrement automatisé : vos identifiants d'accès au serveur IPTV Atlas (code d'activation Xtream Codes API et liens M3U) vous sont expédiés par e-mail en moins de 15 minutes après validation sécurisée de la commande.",
   },
   {
-    question: "L'abonnement Atlas IPTV est-il compatible avec les applications Atlas Pro ONTV et Max ?",
+    question: "L'abonnement Atlas IPTV est-il compatible avec les applications Atlas Pro ONTV et Max 7 ?",
     answer:
-      "Oui, votre abonnement Atlas IPTV fonctionne parfaitement sur nos applications officielles Atlas Pro ONTV (v4.5) et Atlas Pro Max (v5.2), ainsi que sur les lecteurs universels tels qu'IBO Player, IPTV Smarters Pro et TiviMate.",
+      "Oui, votre abonnement Atlas IPTV fonctionne parfaitement sur nos applications officielles Atlas Pro ONTV (v4.5) et Atlas Pro Max 7 (v7.0), ainsi que sur les lecteurs universels tels qu'IBO Player, IPTV Smarters Pro et TiviMate.",
   },
   {
     question: "Pourquoi choisir le serveur Atlas Pro en France pour le streaming direct ?",
@@ -81,11 +81,11 @@ export default function HomePage(): React.JSX.Element {
             </div>
 
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-heading max-w-5xl mx-auto leading-tight">
-              Fournisseur Officiel <span className="text-primary">Atlas Pro France</span> : Votre Service IPTV Haute Définition
+              Atlas Pro : <span className="text-primary">Fournisseur Officiel en France</span> | Abonnement IPTV 4K & Applications
             </h1>
 
             <p className="mx-auto max-w-3xl text-base sm:text-lg text-body leading-relaxed">
-              Bienvenue sur le portail de distribution officiel <strong>Atlas Pro France</strong>. Profitez d&apos;une expérience de streaming supérieure avec votre abonnement Atlas Pro : plus de 10 000 chaînes directes en qualité 4K et Full HD native, ainsi qu&apos;un catalogue VOD complet. Bénéficiez d&apos;une activation express en moins de 15 minutes, d&apos;un flux anti-coupure haute disponibilité et d&apos;une compatibilité sur Smart TV, Fire Stick et boîtiers Android.
+              Bienvenue sur le portail officiel <strong>Atlas Pro</strong> (également reconnu sous le nom <em>atlaspro</em>), distributeur de référence du service <strong>IPTV Atlas</strong> en France. Profitez d&apos;une diffusion 4K Ultra HD stable et sans coupure sur plus de 10 000 chaînes en direct et VOD. Téléchargez nos applications officielles (<strong>Atlas Pro ONTV</strong>, <strong>Atlas Pro Max 7</strong>) ou activez vos identifiants Xtream Codes sur Smart TV Samsung, LG, Fire Stick et Android en moins de 15 minutes.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -93,7 +93,7 @@ export default function HomePage(): React.JSX.Element {
                 href="#tarifs"
                 className="w-full sm:w-auto inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-8 text-sm font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
               >
-                <span>Choisir mon abonnement</span>
+                <span>Voir les plans & tarifs</span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <Link
@@ -128,10 +128,10 @@ export default function HomePage(): React.JSX.Element {
         </section>
 
         {/* 2. Pricing Section (H2) */}
-        <section id="tarifs" aria-label="Tarifs des abonnements" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-20">
+        <section id="tarifs" aria-label="Plans et tarifs Atlas Pro" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-20">
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-heading">
-              Nos Formules d&apos;Abonnement Atlas Pro ONTV en France
+              Nos Plans & Tarifs Atlas Pro ONTV en France
             </h2>
             <p className="text-sm text-body">
               Accès complet 4K/FHD au flux IPTV Atlas, support multi-écrans et expédition instantanée de vos codes d&apos;accès par e-mail.
@@ -144,12 +144,19 @@ export default function HomePage(): React.JSX.Element {
             ))}
           </div>
 
-          <div className="text-center pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
-              href="/abonnements/multi-ecran"
+              href="/plans-tarifs"
+              className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-heading hover:bg-surface transition-colors"
+            >
+              <span>Consulter le comparatif de tous les plans & tarifs</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/plans-tarifs/multi-ecran"
               className="inline-flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/5 px-5 py-3 text-xs sm:text-sm font-semibold text-primary hover:bg-primary/10 transition-colors"
             >
-              <span>Besoin de 2, 3 ou 4 écrans simultanés ? Découvrez notre offre Multi-Écrans dès 60€/an</span>
+              <span>Multi-Écrans (2, 3 ou 4 TV) dès 60€/an</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

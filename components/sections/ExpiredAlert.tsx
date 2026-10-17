@@ -25,7 +25,7 @@ export function ExpiredAlert(): React.JSX.Element {
         </div>
 
         <Link
-          href="/abonnements/atlas-pro-12-mois"
+          href="/plans-tarifs/atlas-pro-12-mois"
           className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-primary-hover transition-colors"
         >
           <span>Commander l&apos;abonnement Atlas Pro 12 mois</span>

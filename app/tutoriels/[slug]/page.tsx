@@ -1,17 +1,24 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { HelpCircle } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ExpiredAlert } from "@/components/sections/ExpiredAlert";
 import { RelatedTutorials } from "@/components/sections/RelatedTutorials";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getAllTutorials, getTutorialBySlug, getRelatedTutorials } from "@/lib/mock-data";
-import { buildMetadata } from "@/lib/seo";
+import { AeoSummaryBox } from "@/components/tutorial/AeoSummaryBox";
+import { TableOfContents } from "@/components/tutorial/TableOfContents";
+import { TutorialHeader } from "@/components/tutorial/TutorialHeader";
+import { TutorialSectionsList } from "@/components/tutorial/TutorialSectionsList";
+import { TutorialStepsSection } from "@/components/tutorial/TutorialStepsSection";
+import { TutorialFaqSection } from "@/components/tutorial/TutorialFaqSection";
+import { TutorialSidebar } from "@/components/tutorial/TutorialSidebar";
 import {
-  buildOrganizationSchema,
-  buildBreadcrumbSchema,
-} from "@/lib/schema";
+  getAllTutorials,
+  getTutorialBySlug,
+  getRelatedTutorials,
+} from "@/lib/mock-data";
+import { buildMetadata, SITE_URL } from "@/lib/seo";
+import { buildOrganizationSchema, buildBreadcrumbSchema } from "@/lib/schema";
 import { buildTutorialSchema } from "@/lib/schema-content";
 
 interface PageProps {
@@ -38,10 +45,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     });
   }
 
+  const imageUrl = tut.mainImage?.url?.startsWith("http")
+    ? tut.mainImage.url
+    : `${SITE_URL}${tut.mainImage?.url || "/icon.png"}`;
+
   return buildMetadata({
     title: tut.seoTitle,
     description: tut.seoDescription,
     path: `/tutoriels/${tut.slug}`,
+    image: imageUrl,
   });
 }
 
@@ -70,7 +82,7 @@ export default async function TutorialDetailPage({ params }: PageProps): Promise
   return (
     <>
       <JsonLd graph={graphData} />
-      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8 space-y-8">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-8">
         <Breadcrumbs
           items={[
             { label: "Tutoriels", href: "/tutoriels" },
@@ -78,83 +90,83 @@ export default async function TutorialDetailPage({ params }: PageProps): Promise
           ]}
         />
 
-        {/* Monetization Bridge for Expired Codes */}
         {tut.showExpiredAlert && <ExpiredAlert />}
 
-        <article className="space-y-8">
-          <header className="space-y-3 pb-6 border-b border-border">
-            <span className="inline-block rounded-md bg-surface px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider">
-              {tut.category}
-            </span>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-heading leading-tight">
-              {tut.title}
-            </h1>
-            <p className="text-sm sm:text-base text-body leading-relaxed">
-              {tut.excerpt}
-            </p>
-          </header>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          {/* Main Content Column */}
+          <article className="lg:col-span-8 space-y-8">
+            <TutorialHeader tut={tut} />
 
-          {/* Tutorial Body */}
-          <div className="space-y-4 text-sm sm:text-base text-body leading-relaxed">
-            {tut.body.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
+            {/* Sommaire du guide - In the body under the main post image */}
+            {tut.tableOfContents && tut.tableOfContents.length > 0 && (
+              <TableOfContents items={tut.tableOfContents} />
+            )}
 
-          {/* Numbered Steps */}
-          <section aria-label="Étapes de configuration" className="space-y-6 pt-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-heading">
-              Marche à suivre détaillée
-            </h2>
-            <div className="space-y-5">
-              {tut.steps.map((step) => (
-                <div
-                  key={step.stepNumber}
-                  className="flex items-start gap-4 rounded-2xl border border-border bg-white p-5 sm:p-6 shadow-sm"
-                >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-white font-bold text-sm">
-                    {step.stepNumber}
-                  </div>
-                  <div className="space-y-1.5">
-                    <h3 className="text-base font-bold text-heading">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-body leading-relaxed">
-                      {step.instruction}
-                    </p>
-                  </div>
-                </div>
+            <AeoSummaryBox
+              directAnswer={tut.directAnswer}
+              keyTakeaways={tut.keyTakeaways}
+              author={tut.author}
+              updatedAt={tut.updatedAt}
+              readingTime={tut.readingTime}
+              wordCount={tut.wordCount}
+            />
+
+            {/* Introductory Body Paragraphs */}
+            <div className="space-y-4 text-base text-body leading-relaxed">
+              {tut.body.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
               ))}
             </div>
-          </section>
 
-          {/* FAQ Section */}
-          {tut.faq && tut.faq.length > 0 && (
-            <section aria-label="Questions fréquentes" className="space-y-4 pt-4 border-t border-border">
-              <h2 className="text-xl sm:text-2xl font-bold text-heading flex items-center gap-2">
-                <HelpCircle className="h-6 w-6 text-primary" aria-hidden="true" />
-                Questions fréquentes
-              </h2>
-              <div className="space-y-3">
-                {tut.faq.map(({ question, answer }) => (
-                  <details
-                    key={question}
-                    className="group rounded-xl border border-border bg-white p-5 open:border-primary/40 open:shadow-sm"
-                  >
-                    <summary className="text-sm font-bold text-heading cursor-pointer list-none flex items-center justify-between gap-4">
-                      <span>{question}</span>
-                      <HelpCircle className="h-4 w-4 text-primary shrink-0 group-open:text-primary-hover transition-colors" aria-hidden="true" />
-                    </summary>
-                    <p className="mt-3 text-xs sm:text-sm text-body leading-relaxed">{answer}</p>
-                  </details>
-                ))}
-              </div>
-            </section>
-          )}
-        </article>
+            <TutorialSectionsList sections={tut.sections} />
 
-        {/* Cross-linking to related tutorials */}
-        <RelatedTutorials tutorials={related} />
+            <TutorialStepsSection steps={tut.steps} />
+
+            {/* Advanced Tips Block */}
+            {tut.advancedTips && tut.advancedTips.length > 0 && (
+              <section
+                id="reglages-avances"
+                aria-label="Réglages avancés"
+                className="space-y-4 pt-6 border-t border-border scroll-mt-24"
+              >
+                <h2 className="text-xl sm:text-2xl font-bold text-heading">
+                  Réglages avancés & Optimisation réseau
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {tut.advancedTips.map((tip, idx) => (
+                    <div
+                      key={idx}
+                      className="rounded-xl border border-border bg-surface p-4 space-y-2 shadow-2xs"
+                    >
+                      <h3 className="text-sm font-bold text-heading">
+                        {tip.title}
+                      </h3>
+                      <p className="text-xs text-body leading-relaxed">
+                        {tip.description}
+                      </p>
+                      {tip.codeOrParam && (
+                        <code className="block rounded bg-white border border-border px-2.5 py-1 text-xs font-mono text-primary font-bold overflow-x-auto">
+                          {tip.codeOrParam}
+                        </code>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            <TutorialFaqSection faq={tut.faq} />
+          </article>
+
+          {/* Sticky Sidebar Column */}
+          <div className="lg:col-span-4">
+            <TutorialSidebar tut={tut} related={related} />
+          </div>
+        </div>
+
+        <section className="pt-8 border-t border-border">
+          <RelatedTutorials tutorials={related} />
+        </section>
       </div>
     </>
   );

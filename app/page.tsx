@@ -1,13 +1,14 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Download, ArrowRight, ShieldCheck, Zap, Tv, HelpCircle, Server, Activity, Lock, Cpu } from "lucide-react";
+import { Download, ArrowRight, ShieldCheck, Zap, HelpCircle, Server, Activity } from "lucide-react";
 import { PricingCard } from "@/components/sections/PricingCard";
 import { ComparisonTable } from "@/components/sections/ComparisonTable";
 import { ActivationSteps } from "@/components/sections/ActivationSteps";
 import { DeviceCompatibility } from "@/components/sections/DeviceCompatibility";
 import { ChannelCatalogPreview } from "@/components/sections/ChannelCatalogPreview";
 import { VodCarousel } from "@/components/sections/VodCarousel";
+import { ServerInfrastructure } from "@/components/sections/ServerInfrastructure";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getSingleScreenPlans, getAllPlans } from "@/lib/mock-data";
 import { buildMetadata } from "@/lib/seo";
@@ -21,7 +22,7 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Atlas Pro : Site Officiel France | Abonnement IPTV 4K & Téléchargement",
+    title: "Atlas Pro 2026 Officiel | IPTV 4K France | Atlasproibofficiel",
     description:
       "Fournisseur officiel Atlas Pro en France. Abonnement IPTV 4K stable sans coupure, codes d'activation express en 15 min et téléchargement direct des applications officielles (ONTV, Max 7).",
     path: "/",
@@ -35,14 +36,19 @@ const HOMEPAGE_FAQS = [
       "Le traitement est entièrement automatisé : vos identifiants d'accès au serveur IPTV Atlas (code d'activation Xtream Codes API et liens M3U) vous sont expédiés par e-mail en moins de 15 minutes après validation sécurisée de la commande.",
   },
   {
+    question: "Qu'est-ce qui garantit la stabilité du serveur dédié Atlas Pro en France ?",
+    answer:
+      "Notre infrastructure s'appuie sur des serveurs dédiés CDN 10 Gbps dotés d'une technologie anti-freeze et d'un peering direct avec les FAI français (Orange, Free, SFR, Bouygues). Cette architecture garantit une qualité 4K native sans aucun buffering même lors des fortes affluences sportives.",
+  },
+  {
     question: "L'abonnement Atlas IPTV est-il compatible avec les applications Atlas Pro ONTV et Max 7 ?",
     answer:
       "Oui, votre abonnement Atlas IPTV fonctionne parfaitement sur nos applications officielles Atlas Pro ONTV (v4.5) et Atlas Pro Max 7 (v7.0), ainsi que sur les lecteurs universels tels qu'IBO Player, IPTV Smarters Pro et TiviMate.",
   },
   {
-    question: "Pourquoi choisir le serveur Atlas Pro en France pour le streaming direct ?",
+    question: "L'abonnement Atlas Pro fonctionne-t-il avec un VPN en France ?",
     answer:
-      "Le réseau Atlas Pro France s'appuie sur des serveurs CDN européens dédiés 10 Gbps dotés d'un load-balancing intelligent et d'une technologie anti-freeze avancée, éliminant tout buffering lors des grands matchs de football en direct.",
+      "Oui, le serveur officiel Atlas IPTV est 100% compatible avec tous les VPN majeurs (NordVPN, CyberGhost, ExpressVPN, Surfshark). Vos flux sont chiffrés en SSL/TLS et aucun bridage n'est appliqué.",
   },
   {
     question: "Comment fonctionne l'option multi-écrans sur Atlas IPTV France ?",
@@ -81,11 +87,11 @@ export default function HomePage(): React.JSX.Element {
             </div>
 
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-heading max-w-5xl mx-auto leading-tight">
-              Atlas Pro : <span className="text-primary">Fournisseur Officiel en France</span> | Abonnement IPTV 4K & Applications
+              Atlas Pro ONTV 2026 : <span className="text-primary">Service IPTV 4K Officiel</span> en France
             </h1>
 
             <p className="mx-auto max-w-3xl text-base sm:text-lg text-body leading-relaxed">
-              Bienvenue sur le portail officiel <strong>Atlas Pro</strong> (également reconnu sous le nom <em>atlaspro</em>), distributeur de référence du service <strong>IPTV Atlas</strong> en France. Profitez d&apos;une diffusion 4K Ultra HD stable et sans coupure sur plus de 10 000 chaînes en direct et VOD. Téléchargez nos applications officielles (<strong>Atlas Pro ONTV</strong>, <strong>Atlas Pro Max 7</strong>) ou activez vos identifiants Xtream Codes sur Smart TV Samsung, LG, Fire Stick et Android en moins de 15 minutes.
+              Bienvenue sur le portail officiel <strong>Atlas Pro</strong> (<em>atlasproibofficiel</em>), fournisseur de référence pour votre <strong>abonnement IPTV 4K en France</strong>. Profitez d&apos;un <strong>serveur dédié</strong> haute disponibilité avec technologie <strong>anti-freeze</strong> et diffusion en <strong>qualité 4K native</strong> sans coupure sur plus de 10 000 chaînes directes et VOD. Téléchargez nos applications officielles (<strong>Atlas Pro ONTV</strong>, <strong>Atlas Pro Max 7</strong>) ou activez vos identifiants Xtream Codes API et M3U sur Smart TV Samsung, LG, Fire Stick et boîtier Android en moins de 15 minutes.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -226,49 +232,8 @@ export default function HomePage(): React.JSX.Element {
           </div>
         </section>
 
-        {/* 7. Deep Authority & Anti-Freeze Architecture (H2) */}
-        <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-heading">
-              Infrastructure Serveur Atlas Pro France : Technologie Anti-Coupure et Sécurité CDN
-            </h2>
-            <p className="text-sm text-body">
-              Une architecture réseau haut de gamme pensée pour garantir une disponibilité continue de 99.9%.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-border bg-white p-6 space-y-3 shadow-sm">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Cpu className="h-5 w-5" aria-hidden="true" />
-              </div>
-              <h3 className="text-base font-bold text-heading">Encodage HEVC / H.265</h3>
-              <p className="text-xs sm:text-sm text-body leading-relaxed">
-                Nos flux IPTV bénéficient d&apos;une compression de pointe H.265 réduisant de 50% la bande passante nécessaire tout en restituant une image 4K et Full HD 60 fps d&apos;une netteté irréprochable.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-white p-6 space-y-3 shadow-sm">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Server className="h-5 w-5" aria-hidden="true" />
-              </div>
-              <h3 className="text-base font-bold text-heading">CDN Européen & Peering France</h3>
-              <p className="text-xs sm:text-sm text-body leading-relaxed">
-                Connecté directement aux principaux opérateurs français (Orange, Free, SFR, Bouygues), notre réseau CDN distribue le signal depuis des serveurs de proximité pour un temps de réponse minimal.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-white p-6 space-y-3 shadow-sm">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Lock className="h-5 w-5" aria-hidden="true" />
-              </div>
-              <h3 className="text-base font-bold text-heading">Sécurité & Confidentialité</h3>
-              <p className="text-xs sm:text-sm text-body leading-relaxed">
-                Vos flux de streaming et données de connexion sont protégés par chiffrement SSL/TLS. Les serveurs Atlas Pro sont pleinement compatibles avec l&apos;usage d&apos;un VPN sans restriction de débit.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* 7. Deep Authority, Anti-Freeze Architecture & Server Peering (H2) */}
+        <ServerInfrastructure />
 
         {/* 8. FAQ & AEO Direct Answer Capsules (H2) */}
         <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-8">

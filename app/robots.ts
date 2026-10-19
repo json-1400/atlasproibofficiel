@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 
-// Search engines allowed to index public pages
-const SEARCH_ENGINES = [
+// Search engines and AI citation engines allowed to index public pages
+const ALLOWED_ENGINES = [
   "Googlebot",
   "Googlebot-Image",
   "Bingbot",
@@ -13,17 +13,17 @@ const SEARCH_ENGINES = [
   "Twitterbot",
   "facebookexternalhit",
   "LinkedInBot",
-];
-
-// Scrapers, SEO harvesters, and AI crawlers strictly blocked
-const DISALLOWED_SCRAPERS_AND_AI = [
   "GPTBot",
   "ChatGPT-User",
+  "ClaudeBot",
+  "Claude-Web",
+  "PerplexityBot",
+];
+
+// Bulk scrapers, raw dataset harvesters, and competitive SEO bots strictly blocked
+const DISALLOWED_SCRAPERS = [
   "CCBot",
   "anthropic-ai",
-  "Claude-Web",
-  "ClaudeBot",
-  "PerplexityBot",
   "Bytespider",
   "cohere-ai",
   "Diffbot",
@@ -51,12 +51,12 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: SEARCH_ENGINES,
+        userAgent: ALLOWED_ENGINES,
         allow: "/",
         disallow: PROTECTED_PATHS,
       },
       {
-        userAgent: DISALLOWED_SCRAPERS_AND_AI,
+        userAgent: DISALLOWED_SCRAPERS,
         disallow: ["/"],
       },
       {

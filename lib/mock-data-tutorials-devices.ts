@@ -284,7 +284,7 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
       "installer-atlas-pro-sur-tv-samsung",
       "installer-atlas-pro-sur-lg-smart-tv",
     ],
-    seoTitle: "Installer Atlas Pro sur Box Android : Guide Complet",
+    seoTitle: "Installer Atlas Pro sur Box TV Android : Boîtiers & Shield",
     seoDescription:
       "Installez Atlas Pro ONTV sur une box Android (Mi Box, H96, Shield) : Downloader, code officiel, activation et réglages pour une lecture 4K stable.",
     faq: [

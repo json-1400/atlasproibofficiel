@@ -207,7 +207,7 @@ export const MOCK_PLANS: Plan[] = [
       "Support technique prioritaire 7j/7",
     ],
     ctaLabel: "Commander 2 Écrans (60€)",
-    seoTitle: "Abonnement Atlas Pro 2 Écrans (60€) | Multi-TV 4K",
+    seoTitle: "Atlas Pro 2 Écrans : Formule Duo 12 Mois Multi-TV 4K",
     seoDescription:
       "Abonnement Atlas Pro 2 écrans simultanés (12 mois pour 60€). Regardez vos programmes en même temps sur 2 téléviseurs ou appareils en 4K sans coupure.",
     faq: [
@@ -243,7 +243,7 @@ export const MOCK_PLANS: Plan[] = [
       "Assistance dédiée WhatsApp 7j/7",
     ],
     ctaLabel: "Commander 3 Écrans (80€)",
-    seoTitle: "Abonnement Atlas Pro 3 Écrans (80€) | Multi-TV 4K",
+    seoTitle: "Atlas Pro 3 Écrans : Offre Trio 12 Mois en Famille 4K",
     seoDescription:
       "Abonnement Atlas Pro 3 écrans simultanés (12 mois à 80€). 3 flux 4K actifs en même temps pour toute la famille. Activation rapide et garantie anti-freeze.",
     faq: [
@@ -274,7 +274,7 @@ export const MOCK_PLANS: Plan[] = [
       "Support VIP dédié 7j/7",
     ],
     ctaLabel: "Commander 4 Écrans (100€)",
-    seoTitle: "Abonnement Atlas Pro 4 Écrans (100€) | Multi-TV 4K",
+    seoTitle: "Atlas Pro 4 Écrans : Pack Famille Intégral 12 Mois 4K",
     seoDescription:
       "Abonnement Atlas Pro 4 écrans simultanés Pack Famille (12 mois pour 100€). 4 postes actifs en direct 4K. Idéal grands foyers au meilleur tarif unitaire.",
     faq: [

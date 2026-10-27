@@ -79,9 +79,9 @@ export const MOCK_PLANS: Plan[] = [
       "Support WhatsApp réactif 7j/7 pour la configuration",
     ],
     ctaLabel: "Acheter 12 Mois (40€)",
-    seoTitle: "Acheter Abonnement Atlas Pro 12 Mois Smart TV : Commander (40€)",
+    seoTitle: "Abonnement Atlas Pro 12 Mois (40€) | 4K Sans Coupure",
     seoDescription:
-      "Achetez et commandez votre abonnement officiel Atlas Pro 12 mois pour Smart TV (Samsung, LG, Android TV, Firestick). Flux 4K sans coupure, 10 000+ chaînes et activation en 15 min.",
+      "Abonnement officiel Atlas Pro 12 mois pour Smart TV (Samsung, LG, Android TV, Firestick). Flux 4K Ultra HD sans coupure, 10 000+ chaînes et activation 15 min.",
     faq: [
       {
         question: "Comment installer et utiliser l'abonnement IPTV 12 mois sur Smart TV Samsung ou LG ?",
@@ -329,9 +329,9 @@ export const MOCK_APP_PAGES: AppPage[] = [
       "installer-atlas-pro-sur-fire-stick",
       "atlas-pro-ne-peut-pas-se-connecter-au-serveur",
     ],
-    seoTitle: "Télécharger Atlas Pro ONTV APK Officiel v4.5 | Code Downloader 822648",
+    seoTitle: "Atlas Pro ONTV APK [Code Downloader 822648] v4.5",
     seoDescription:
-      "Télécharger l'APK officiel Atlas Pro ONTV (Atlas Pro On TV) v4.5 pour Smart TV et Fire Stick via le code Downloader 822648. Guide d'installation rapide sans Play Store ni APKPure.",
+      "Télécharger l'APK officiel Atlas Pro ONTV v4.5 pour Smart TV et Fire Stick via le code 822648. Guide d'installation rapide sans coupure.",
     directAnswer:
       "Pour installer l'application officielle Atlas Pro ONTV (ou Atlas Pro On TV / atlaspro ontv) sur Smart TV, Fire Stick ou boîtier Android : ouvrez l'application Downloader by AFTVnews, entrez le code numérique officiel 822648 dans la barre d'adresse, puis validez sur 'Go'. Le fichier APK officiel v4.5.0 se télécharge directement et en toute sécurité sans passer par le Google Play Store ni les plateformes miroirs comme APKPure. Cliquez sur 'Installer' puis renseignez vos identifiants pour profiter de vos chaînes 4K.",
     keyTakeaways: [
@@ -414,9 +414,9 @@ export const MOCK_APP_PAGES: AppPage[] = [
       "retrouver-entrer-code-atlas-pro-ontv",
       "resoudre-coupure-buffering-atlas-pro",
     ],
-    seoTitle: "Télécharger Atlas Pro Max APK 2026 Officiel (v5.0.1, 6.0 & 7.0) | Code 388685",
+    seoTitle: "Atlas Pro Max APK 2026 (v6.0 & 7.0) | Code 388685",
     seoDescription:
-      "Télécharger l'APK officiel Atlas Pro Max 2026 (successeur certifié v5.0.1, 6.0 et 7.0) pour smartphone, tablette et Fire TV. Code Downloader 388685, 4K & PiP.",
+      "Télécharger l'APK officiel Atlas Pro Max 2026 (v6.0, 7.0 et 5.0.1) pour smartphone et Fire TV. Code Downloader 388685, 4K & mode PiP.",
     directAnswer:
       "Pour installer l'application officielle Atlas Pro Max APK 2026 (remplaçant les versions antérieures 5.0.1, 6.0 et 7.0) sur smartphone, tablette ou Fire TV : ouvrez Downloader by AFTVnews ou votre navigateur mobile, tapez le code officiel 388685 (ou le miroir 999217) et cliquez sur 'Go'. Cette version officielle 2026 préserve vos identifiants de compte et favoris tout en intégrant le mode Picture-in-Picture, le zapping ultra-rapide et le téléchargement hors-ligne des séries et films VOD.",
     keyTakeaways: [
@@ -494,9 +494,9 @@ export const MOCK_APP_PAGES: AppPage[] = [
       "resoudre-coupure-buffering-atlas-pro",
       "atlas-pro-ne-peut-pas-se-connecter-au-serveur",
     ],
-    seoTitle: "Télécharger Atlas Pro 9X APK Officiel v9.8 | Boîtier TV & Fire Stick",
+    seoTitle: "Atlas Pro 9X APK Officiel v9.8 [Code 4858164]",
     seoDescription:
-      "Installez l'APK Atlas Pro 9X v9.8 officiel avec le code Downloader by AFTVnews 4858164 (ou 1003269). Version allégée pour boîtier TV Android et Fire Stick : zapping instantané et faible conso RAM.",
+      "Installez l'APK officiel Atlas Pro 9X v9.8 via le code Downloader 4858164. Version allégée pour Fire Stick et boîtier Android : zapping rapide sans coupure.",
     directAnswer:
       "Pour installer Atlas Pro 9X v9.8.0 sur boîtier Android ou Fire Stick : ouvrez l'application Downloader, saisissez le code 4858164 (ou 1003269) et validez. Avec un poids plume de seulement 18 Mo et moins de 40 Mo de RAM consommée, Atlas Pro 9X est la version ultra-légère conçue pour éliminer tout freeze sur les box modestes (1 Go RAM) et les connexions ADSL.",
     keyTakeaways: [
@@ -568,9 +568,9 @@ export const MOCK_APP_PAGES: AppPage[] = [
       "atlas-pro-ne-peut-pas-se-connecter-au-serveur",
       "retrouver-entrer-code-atlas-pro-ontv",
     ],
-    seoTitle: "Télécharger Atlas Pro IBO APK Officiel | Android TV & Fire Stick",
+    seoTitle: "Atlas Pro IBO APK [Code 2681120 & 135290] | Officiel",
     seoDescription:
-      "Installez l'APK officiel Atlas Pro IBO avec le code Downloader by AFTVnews 2681120 (ou 135290). Interface moderne dédiée aux serveurs Atlas Pro, 4K fluide et zapping rapide.",
+      "Installez l'APK officiel Atlas Pro IBO via le code Downloader 2681120 ou 135290. Serveurs 4K stables, zapping fluide et configuration Android TV.",
     directAnswer:
       "Pour installer Atlas Pro IBO sur votre téléviseur ou clé Fire TV : saisissez le code 2681120 (ou 135290) dans l'application Downloader by AFTVnews. Cette version combine la puissance de l'interface IBO avec une préconfiguration directe sur les serveurs Atlas Pro sans frais d'activation supplémentaires.",
     keyTakeaways: [

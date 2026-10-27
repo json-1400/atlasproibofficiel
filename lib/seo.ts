@@ -38,12 +38,7 @@ export function buildMetadata({
   const canonicalUrl = `${SITE_URL}${cleanPath === "/" ? "" : cleanPath.replace(/\/$/, "")}`;
 
   return {
-    title: title.includes("|")
-      ? { absolute: title }
-      : {
-          default: title,
-          template: `%s | ${SITE_NAME}`,
-        },
+    title: { absolute: title },
     description,
     metadataBase: new URL(SITE_URL),
     alternates: {

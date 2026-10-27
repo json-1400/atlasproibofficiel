@@ -15,9 +15,9 @@ const SERVER_FEATURES: FeatureCard[] = [
     icon: Cpu,
   },
   {
-    title: "Serveur Dédié CDN & Peering Direct France",
+    title: "Serveurs Dédiés CDN Haute Performance",
     description:
-      "Infrastructure sur serveurs dédiés 10 Gbps interconnectés directement avec les principaux FAI français (Orange, Free, SFR, Bouygues Telecom) pour un temps de réponse ping inférieur à 15 ms.",
+      "Infrastructure sur serveurs CDN dédiés 10 Gbps garantissant une bande passante stable, une latence minimale et une diffusion 4K fluide pour l'ensemble des utilisateurs en France et en Europe.",
     icon: Server,
   },
   {

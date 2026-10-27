@@ -1,9 +1,47 @@
+// CLIENT: check route to render distraction-free minimal checkout footer on checkout pages
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Lock, ShieldCheck } from "lucide-react";
 
 export function Footer(): React.JSX.Element {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+  const isCheckout = pathname?.startsWith("/commander");
+
+  if (isCheckout) {
+    return (
+      <footer className="border-t border-border bg-surface py-6 text-body">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <div className="flex items-center gap-2 text-slate-500">
+              <Lock className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+              <span>Chiffrement SSL 256 bits • Données strictement confidentielles</span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 text-slate-500">
+              <Link href="/conditions-generales-de-vente" className="hover:text-heading transition-colors">
+                Conditions Générales de Vente
+              </Link>
+              <span>•</span>
+              <Link href="/politique-de-confidentialite" className="hover:text-heading transition-colors">
+                Confidentialité
+              </Link>
+              <span>•</span>
+              <Link href="/politique-remboursement" className="hover:text-heading transition-colors">
+                Garantie 7 jours
+              </Link>
+            </div>
+            <p className="text-[11px] text-slate-400">
+              © {currentYear} Atlas Pro IBO.
+            </p>
+          </div>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="border-t border-border bg-surface text-body">

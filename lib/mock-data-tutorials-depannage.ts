@@ -49,38 +49,71 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "saisie-code",
-        h2: "1. Vérifier la saisie du code",
+        h2: "1. Vérifier la saisie et les pièges typographiques fréquents",
+        callout: {
+          type: "tip",
+          title: "Piège fréquent : Confusions entre chiffres et lettres",
+          text: "Sur une télécommande virtuelle de téléviseur, la confusion la plus fréquente concerne le **chiffre 0** et la **lettre O**, ainsi que le **chiffre 1** et la **lettre I**. Nous vous recommandons de copier-coller vos accès depuis l'e-mail de confirmation ou d'utiliser l'application mobile télécommande de votre smartphone pour une saisie sans faute.",
+        },
         paragraphs: [
-          "Copiez le code depuis l'e-mail de confirmation plutôt que de le retaper de mémoire. Sur une télécommande, vérifiez qu'aucun chiffre n'est doublé.",
-          "Évitez tout espace avant ou après le code, et distinguez bien le chiffre 0 de la lettre O.",
+          "Le message d'erreur **« Code invalide »** (ou « Invalid Code - Please check your credentials ») se déclenche dès lors qu'un seul caractère transmis ne correspond pas aux tables de notre serveur d'authentification.",
+          "Veillez à ne laisser **aucun espace vide** au début ou à la fin du code à 12 chiffres lors de la validation.",
         ],
       },
       {
         id: "bonne-application",
-        h2: "2. Utiliser la bonne application",
+        h2: "2. Distinguer code à 12 chiffres et identifiants Xtream Codes",
         paragraphs: [
-          "Le code à 12 chiffres est destiné aux applications officielles Atlas Pro (ONTV, Max, 9X). Dans un lecteur tiers (IBO Player, IPTV Smarters, TiviMate), il faut saisir les identifiants Xtream Codes : URL du serveur, nom d'utilisateur et mot de passe.",
+          "Il existe deux protocoles de connexion distincts selon le logiciel utilisé sur votre écran :",
+          "- **L'application officielle Atlas Pro ONTV :** nécessite exclusivement votre **code direct à 12 chiffres**. À installer sur boîtier ou clé TV via notre [guide Fire Stick](/tutoriels/installer-atlas-pro-sur-fire-stick) ou [Android TV](/tutoriels/installer-atlas-pro-sur-android-tv).",
+          "- **Les lecteurs tiers (IBO Player, TiviMate, IPTV Smarters) :** refusent le code à 12 chiffres brut. Ils requièrent vos identifiants **Xtream Codes API** : *URL du serveur (http://...)*, *Nom d'utilisateur* et *Mot de passe*. Retrouvez les détails sur notre [comparatif des lecteurs alternatifs](/tutoriels/alternatives-atlas-pro-tv-non-compatible-ibo-player-smarters-tivimate).",
         ],
+        table: {
+          caption: "Méthode d'authentification requise selon l'application installée",
+          headers: ["Application Utilisée", "Type d'Identifiant Requis", "Où le trouver ?", "Action en cas d'erreur"],
+          rows: [
+            [
+              "Atlas Pro ONTV (V4)",
+              "Code numérique à 12 chiffres",
+              "E-mail d'activation officiel",
+              "Retaper sans espace ou [télécharger la version officielle](/telecharger)."
+            ],
+            [
+              "IBO Player (Samsung / LG)",
+              "Adresse MAC + Device Key puis Xtream Codes",
+              "Écran d'accueil de l'application IBO",
+              "Consulter notre [guide d'installation Samsung TV](/tutoriels/installer-atlas-pro-sur-tv-samsung)."
+            ],
+            [
+              "TiviMate / IPTV Smarters",
+              "Serveur URL + Username + Password",
+              "E-mail de livraison section Xtream API",
+              "Vérifier le port du serveur (souvent :8080) et le protocole HTTP."
+            ]
+          ]
+        },
       },
       {
         id: "version-application",
-        h2: "3. Mettre à jour l'application",
+        h2: "3. Mettre à jour l'application officielle vers la dernière version",
         paragraphs: [
-          "Une ancienne version peut ne plus être reconnue par le serveur. Réinstallez la dernière version via le code Downloader officiel (Atlas Pro ONTV V4 : 822648) ou depuis la page de téléchargement du site.",
+          "Nos serveurs déploient régulièrement des correctifs de sécurité TLS. Si vous utilisez une ancienne version d'Atlas Pro ONTV, vos requêtes peuvent être rejetées avec le statut « Code invalide ».",
+          "Pour mettre à jour sur Fire Stick ou boîtier Android : lancez l'application **Downloader**, saisissez le code officiel **822648** et procédez à l'écrasement de l'ancienne version.",
         ],
       },
       {
         id: "date-heure",
-        h2: "4. Contrôler la date et l'heure de l'appareil",
+        h2: "4. Synchroniser l'horloge et le fuseau horaire de l'appareil",
         paragraphs: [
-          "Une date ou une heure incorrecte provoque des échecs d'authentification. Activez la date et l'heure automatiques dans les paramètres de votre téléviseur ou box, puis relancez l'application.",
+          "Les jetons de session (tokens d'authentification) intègrent une signature horodatée universelle (UTC). Si l'horloge interne de votre Smart TV ou de votre box a accumulé un décalage supérieur à 5 minutes, le serveur rejette la poignée de main cryptographique.",
+          "Rendez-vous dans **Paramètres > Système > Date et Heure** de votre téléviseur et cochez impérativement **Date et heure automatiques (fournies par le réseau)**.",
         ],
       },
       {
         id: "abonnement-expire",
-        h2: "5. Vérifier la validité de l'abonnement",
+        h2: "5. Vérifier si votre période d'accès est arrivée à échéance",
         paragraphs: [
-          "Si tout est correct, la période de votre abonnement est peut-être terminée. Un renouvellement génère un nouveau code sans nécessiter de réinstallation.",
+          "Lorsque votre abonnement atteint son terme, le système renvoie le statut de code invalide. Si votre compte a plus de 12 mois, rendez-vous sur notre page [renouvellement de code Atlas Pro expiré](/tutoriels/atlas-pro-code-expire-comment-renouveler) pour réactiver votre ligne en quelques minutes sans perdre vos favoris.",
         ],
       },
     ],
@@ -154,9 +187,9 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
       "Indiquez votre ancien code lors du paiement pour prolonger la ligne existante.",
     ],
     tableOfContents: [
-      { id: "reconnaitre-expiration", title: "Reconnaître un abonnement expiré", level: 2 },
-      { id: "renouveler-code", title: "Renouveler votre code", level: 2 },
-      { id: "saisir-nouveau-code", title: "Saisir le nouveau code", level: 2 },
+      { id: "reconnaitre-expiration", title: "1. Comment identifier formellement un abonnement expiré ?", level: 2 },
+      { id: "renouveler-code", title: "2. Choisir sa formule de renouvellement officiel", level: 2 },
+      { id: "saisir-nouveau-code", title: "3. Saisir le nouveau code dans l'application", level: 2 },
     ],
     body: [
       "Lorsque votre période d'abonnement se termine, l'application cesse de charger les chaînes. Ce n'est pas une panne : il suffit de renouveler.",
@@ -164,24 +197,60 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "reconnaitre-expiration",
-        h2: "Reconnaître un abonnement expiré",
+        h2: "1. Comment identifier formellement un abonnement expiré ?",
+        callout: {
+          type: "info",
+          title: "Astuce Conservation : Ne désinstallez jamais votre application",
+          text: "Pour renouveler votre accès, **vous n'avez absolument pas besoin de désinstaller l'application** ni de refaire la configuration initiale. Tous vos réglages (décodeur matériel, liste de favoris, personnalisation des catégories) sont sauvegardés localement dans la mémoire de votre TV ou Fire Stick.",
+        },
         paragraphs: [
-          "Signes typiques : liste de chaînes vide, message « expiré » ou « code invalide » alors que rien n'a changé sur votre connexion internet.",
-          "Vérifiez la date d'échéance dans Paramètres > Compte de l'application.",
+          "Lorsque la période de validité de votre ligne arrive à son terme, nos clusters d'authentification refusent l'accès aux flux vidéo. Les symptômes les plus fréquents sont :",
+          "- L'apparition du message **« Abonnement expiré »** ou **« Account Expired / Please Renew »**.",
+          "- Une liste de chaînes qui s'affiche vide avec 0 flux détecté.",
+          "- Une redirection vers l'écran de connexion initial demandant un code à 12 chiffres.",
+          "Pour lever tout doute, ouvrez **Paramètres > Mon Compte (Account Info)** dans l'application : la ligne *Expiration Date* indique précisément l'heure et la date d'échéance de votre session.",
         ],
       },
       {
         id: "renouveler-code",
-        h2: "Renouveler votre code",
+        h2: "2. Choisir sa formule de renouvellement officiel",
         paragraphs: [
-          "Choisissez la durée souhaitée (3, 6 ou 12 mois) et indiquez votre ancien code ou votre adresse MAC au moment de la commande afin que la ligne existante soit prolongée.",
+          "Le renouvellement s'effectue directement en ligne avec livraison instantanée par e-mail en moins de 15 minutes. Choisissez la durée adaptée à vos habitudes de visionnage :",
         ],
+        table: {
+          caption: "Formules de renouvellement officiel Atlas Pro avec reconnexion instantanée",
+          headers: ["Formule d'Abonnement", "Tarif Garanti", "Activation & Flux 4K", "Lien de Commande Immédiate"],
+          rows: [
+            [
+              "Abonnement 12 Mois (Recommandé)",
+              "40 € / an",
+              "Livraison en 15 min, 10 000+ flux 4K/FHD, anti-freeze inclus",
+              "[Renouveler 12 Mois (40€)](/plans-tarifs/atlas-pro-12-mois)"
+            ],
+            [
+              "Abonnement 6 Mois",
+              "30 € / semestre",
+              "Accès complet 4K HDR, VOD illimitée, support WhatsApp 7j/7",
+              "[Renouveler 6 Mois (30€)](/plans-tarifs/atlas-pro-6-mois)"
+            ],
+            [
+              "Abonnement 3 Mois",
+              "20 € / trimestre",
+              "Formule découverte sans engagement, compatible tous écrans",
+              "[Renouveler 3 Mois (20€)](/plans-tarifs/atlas-pro-3-mois)"
+            ]
+          ]
+        },
       },
       {
         id: "saisir-nouveau-code",
-        h2: "Saisir le nouveau code",
+        h2: "3. Saisir le nouveau code d'activation dans l'application",
         paragraphs: [
-          "Dans l'application : Paramètres > Compte > Se déconnecter, puis saisissez le nouveau code reçu par e-mail. Aucune désinstallation n'est requise.",
+          "Dès réception de votre e-mail de confirmation contenant votre nouveau code à 12 chiffres :",
+          "1. Ouvrez votre application Atlas Pro ONTV sur [Smart TV Samsung](/tutoriels/installer-atlas-pro-sur-tv-samsung), [LG webOS](/tutoriels/installer-atlas-pro-sur-lg-smart-tv) ou [Amazon Fire Stick](/tutoriels/installer-atlas-pro-sur-fire-stick).",
+          "2. Accédez à **Paramètres > Compte > Se déconnecter (Logout)**.",
+          "3. Saisissez votre nouveau code à 12 chiffres sans espace en veillant à ne pas confondre le chiffre 0 et la lettre O.",
+          "4. Cliquez sur **Connexion** : l'ensemble des chaînes et de la vidéothèque se réactualise immédiatement avec vos favoris préservés !",
         ],
       },
     ],
@@ -253,10 +322,11 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
       "Un débit stable de 15 à 25 Mbps est recommandé en FHD/4K.",
     ],
     tableOfContents: [
-      { id: "tester-chaines", title: "Tester plusieurs chaînes", level: 2 },
-      { id: "redemarrer", title: "Redémarrer appareil et box", level: 2 },
-      { id: "vider-cache", title: "Vider le cache de l'application", level: 2 },
-      { id: "tester-reseau", title: "Tester le réseau", level: 2 },
+      { id: "tester-chaines", title: "1. Diagnostic initial : Isoler le flux ou la passerelle", level: 2 },
+      { id: "son-sans-image", title: "2. Son présent mais écran noir : Décodage matériel H.265", level: 2 },
+      { id: "tableau-diagnostic-ecran-noir", title: "3. Tableau de diagnostic et solutions rapides", level: 2 },
+      { id: "vider-cache", title: "4. Vider le cache de l'application", level: 2 },
+      { id: "tester-reseau", title: "5. Tester le réseau en partage 4G/5G", level: 2 },
     ],
     body: [
       "Un écran noir ou un chargement qui ne se termine jamais ne signifie pas forcément que le service est en panne. Voici la méthode de diagnostic la plus rapide.",
@@ -264,30 +334,74 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "tester-chaines",
-        h2: "Tester plusieurs chaînes",
+        h2: "1. Diagnostic initial : Isoler le flux ou la passerelle",
         paragraphs: [
-          "Si une seule chaîne est concernée, le problème vient de ce flux. Si toutes les chaînes sont touchées, poursuivez avec les étapes suivantes.",
+          "Lorsque l'image refuse de s'afficher, la première démarche consiste à zapper sur au moins trois catégories différentes : une chaîne d'information en continu SD, une chaîne Full HD et un film VOD 4K.",
+          "Si le problème est circonscrit à un flux unique, il s'agit d'une maintenance temporaire sur le serveur source. En revanche, si **l'ensemble des chaînes reste sur un écran noir**, le blocage provient soit de votre décodeur vidéo matériel (problème de codec), soit d'un filtrage réseau imposé par votre box internet.",
         ],
       },
       {
-        id: "redemarrer",
-        h2: "Redémarrer appareil et box",
+        id: "son-sans-image",
+        h2: "2. Son présent mais écran noir : Décodage matériel H.265 (HEVC)",
+        callout: {
+          type: "tip",
+          title: "Incompatibilité de Codec : Pourquoi vous entendez le son sans avoir l'image",
+          text: "Les flux Ultra HD 4K modernes sont encodés en **HEVC / H.265 (Main 10 profile)**. Si votre lecteur multimédia utilise un décodage logiciel (Software Decoding), le processeur de votre téléviseur est incapable de restituer les trames à 60 images par seconde. L'activation du décodeur **Hardware HW+** délègue le calcul directement à la puce graphique de votre écran et résout instantanément ce symptôme.",
+        },
         paragraphs: [
-          "Débranchez la box internet et l'appareil (TV, Fire Stick, box Android) pendant 30 secondes, puis rallumez-les.",
+          "Si vous entendez parfaitement les commentateurs ou la bande sonore mais que l'écran reste obstinément noir, rendez-vous dans les paramètres de votre lecteur (Atlas Pro ONTV, [IBO Player](/tutoriels/installer-atlas-pro-sur-tv-samsung) ou [TiviMate](/tutoriels/installer-atlas-pro-sur-fire-stick)) :",
+          "- Dans **Paramètres > Lecteur Vidéo (Player Settings)**, sélectionnez le décodeur **Hardware (HW+)** à la place de Software (SW).",
+          "- Si vous êtes sur un lecteur alternatif, activez le moteur de rendu **ExoPlayer** ou **VLC**, réputés pour leur compatibilité universelle avec les codecs 10-bit.",
         ],
+      },
+      {
+        id: "tableau-diagnostic-ecran-noir",
+        h2: "3. Tableau de diagnostic et solutions rapides pour écran noir",
+        table: {
+          caption: "Matrice de dépannage selon les symptômes visuels constatés sur Atlas Pro",
+          headers: ["Symptôme Constaté", "Cause Technique Probable", "Test Immédiat", "Action Recommandée"],
+          rows: [
+            [
+              "Son audible mais écran totalement noir",
+              "Incompatibilité du décodeur vidéo avec le profil HEVC / H.265 4K",
+              "Le flux audio AAC / Dolby est décodé mais le GPU n'affiche pas la vidéo",
+              "Activer le décodeur **Hardware HW+** dans les réglages du lecteur."
+            ],
+            [
+              "Écran noir direct sans aucun son",
+              "Filtrage DNS de l'opérateur ou rejet de la poignée de main TLS",
+              "Aucune chaîne ni VOD ne se lance sur le bouquet entier",
+              "Basculer sur les [DNS Cloudflare 1.1.1.1](/tutoriels/atlas-pro-ne-peut-pas-se-connecter-au-serveur) ou tester en partage 4G."
+            ],
+            [
+              "Roue de chargement infinie bloquée à 0 %",
+              "Cache de métadonnées saturé ou délai de préchargement expiré",
+              "L'interface de l'application réagit mais le buffer ne se remplit pas",
+              "Forcer l'arrêt de l'application et [vider le cache applicatif](#vider-cache)."
+            ],
+            [
+              "Freeze soudain après quelques secondes de vidéo",
+              "Saturation de la mémoire RAM du téléviseur ou surchauffe du boîtier",
+              "L'application devient très lente lors de la navigation télécommande",
+              "Débrancher la TV pendant 60 secondes pour purger la mémoire RAM."
+            ]
+          ]
+        },
       },
       {
         id: "vider-cache",
-        h2: "Vider le cache de l'application",
+        h2: "4. Vider le cache et purger les flux temporaires corrompus",
         paragraphs: [
-          "Sur Fire Stick ou Android TV : Paramètres > Applications > Atlas Pro ONTV > Vider le cache, puis Forcer l'arrêt et relancer.",
+          "Lorsque le téléviseur stocke trop de trames en cache, le décodeur vidéo s'engorge. Pour purger ce tampon temporaire sur [Fire TV Stick](/tutoriels/installer-atlas-pro-sur-fire-stick) ou [Android TV](/tutoriels/installer-atlas-pro-sur-android-tv) :",
+          "Accédez à **Paramètres > Applications > Gérer les applications installées > Atlas Pro ONTV**, puis cliquez sur **Forcer l'arrêt** puis sur **Vider le cache** (attention : ne cliquez pas sur 'Effacer les données' afin de conserver votre code d'accès).",
         ],
       },
       {
         id: "tester-reseau",
-        h2: "Tester le réseau",
+        h2: "5. Tester le réseau en partage de connexion 4G/5G",
         paragraphs: [
-          "Préférez un câble Ethernet au Wi-Fi. Pour écarter un blocage de votre fournisseur d'accès, testez brièvement en partage de connexion 4G/5G.",
+          "Pour déterminer en 30 secondes si l'écran noir provient de votre box internet ou d'un filtrage FAI, activez le **partage de connexion (point d'accès mobile 4G/5G)** de votre smartphone.",
+          "Connectez votre téléviseur à ce réseau Wi-Fi temporaire : si la chaîne démarre immédiatement avec l'image et le son, votre fournisseur d'accès internet bloque le flux sur votre ligne fixe. La solution définitive consiste à appliquer notre guide [DNS anti-bridage Cloudflare](/tutoriels/atlas-pro-ne-peut-pas-se-connecter-au-serveur).",
         ],
       },
     ],
@@ -364,20 +478,60 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "verifier-abonnement",
-        h2: "Vérifier l'abonnement",
-        paragraphs: ["Un abonnement terminé supprime l'accès aux chaînes. Contrôlez la date d'échéance dans Paramètres > Compte."],
+        h2: "1. Distinguer compte expiré et défaut de synchronisation",
+        callout: {
+          type: "info",
+          title: "Symptôme n°1 d'un compte arrivé à échéance",
+          text: "Si l'ensemble de vos chaînes (tous pays et toutes catégories confondues) a subitement disparu pour laisser place à un écran totalement blanc ou vide, votre ligne a très probablement atteint sa date d'échéance. Consultez notre guide pour [identifier et renouveler un code expiré](/tutoriels/atlas-pro-code-expire-comment-renouveler).",
+        },
+        paragraphs: [
+          "Avant de réinitialiser votre téléviseur ou votre lecteur, accédez à **Paramètres > Compte (Account Info)** dans Atlas Pro ONTV ou [IBO Player](/tutoriels/installer-atlas-pro-sur-tv-samsung).",
+          "Vérifiez la ligne **Expire Date** : si la date est dépassée, aucune synchronisation ne pourra restaurer les flux sans prolongation de l'accès.",
+        ],
       },
       {
         id: "actualiser-liste",
-        h2: "Actualiser la liste",
+        h2: "2. Forcer la mise à jour de la playlist M3U / Xtream Codes",
         paragraphs: [
-          "Utilisez l'option d'actualisation de la playlist, puis videz le cache et reconnectez-vous avec votre code.",
+          "De nouvelles chaînes et films VOD 4K sont ajoutés chaque semaine à nos serveurs. Si votre application est restée en veille prolongée, elle conserve l'ancienne arborescence en mémoire cache.",
+          "Pour réactualiser manuellement le bouquet :",
+          "- Dans l'application, rendez-vous dans **Paramètres > Mettre à jour le contenu (Update Channels / Movies / Series)**.",
+          "- Cliquez successivement sur **Actualiser les chaînes en direct** puis sur **Actualiser la VOD**.",
+          "- Patientez jusqu'à l'affichage de la jauge à 100 % sans éteindre votre équipement.",
         ],
       },
       {
         id: "filtres",
-        h2: "Contrôler filtres et contrôle parental",
-        paragraphs: ["Des catégories masquées ou un contrôle parental activé donnent l'impression que des chaînes ont disparu."],
+        h2: "3. Contrôler les bouquets masqués et le code parental",
+        paragraphs: [
+          "Il arrive fréquemment qu'une fausse manipulation télécommande active un filtre de masquage ou le contrôle parental :",
+          "- **Gestion des groupes :** Dans Paramètres > Gérer les catégories, vérifiez que les bouquets souhaités (France, Sport, Cinéma, Documentaires) sont bien cochés en statut « Visible ».",
+          "- **Code PIN de déverrouillage :** Par défaut, le code d'accès parental configuré en usine sur nos serveurs est **0000** ou **1234**.",
+        ],
+        table: {
+          caption: "Diagnostic des causes de disparition de chaînes sur Atlas Pro",
+          headers: ["Anomalie Constatée", "Cause Identifiée", "Vérification", "Action Corrective"],
+          rows: [
+            [
+              "Zéro chaîne détectée (tous bouquets)",
+              "Abonnement arrivé à échéance",
+              "Date dans Paramètres > Compte",
+              "Consulter le guide [renouvellement](/tutoriels/atlas-pro-code-expire-comment-renouveler)."
+            ],
+            [
+              "Catégories sport ou cinéma manquantes",
+              "Filtre de masquage ou contrôle parental",
+              "Paramètres > Gérer les groupes",
+              "Saisir le code PIN 0000 et recocher les catégories."
+            ],
+            [
+              "Nouvelles chaînes non visibles",
+              "Cache de playlist obsolète",
+              "Date de dernière mise à jour",
+              "Lancer l'option Forcer l'actualisation de la playlist."
+            ]
+          ]
+        },
       },
     ],
     steps: [
@@ -438,9 +592,9 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
       "Les TV Samsung/LG ne peuvent pas exécuter l'APK officiel : utilisez un lecteur alternatif.",
     ],
     tableOfContents: [
-      { id: "redemarrer-vider", title: "Redémarrer et vider le cache", level: 2 },
-      { id: "liberer-espace", title: "Libérer de l'espace", level: 2 },
-      { id: "reinstaller", title: "Réinstaller la dernière version", level: 2 },
+      { id: "redemarrer-vider", title: "1. Vider le cache et purger les résidus applicatifs", level: 2 },
+      { id: "liberer-espace", title: "2. Libérer le stockage Flash et la mémoire vive (RAM)", level: 2 },
+      { id: "reinstaller", title: "3. Réinstaller la dernière version via Downloader", level: 2 },
     ],
     body: [
       "Une application qui plante au lancement vient souvent d'un cache corrompu, d'un manque d'espace ou d'une ancienne version.",
@@ -448,21 +602,62 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "redemarrer-vider",
-        h2: "Redémarrer et vider le cache",
+        h2: "1. Vider le cache et purger les résidus applicatifs",
+        callout: {
+          type: "warning",
+          title: "Incompatibilité Matérielle : Téléviseurs Samsung & LG",
+          text: "Si vous tentez d'installer le fichier APK d'Atlas Pro ONTV sur une Smart TV Samsung ou LG, l'application plantera ou refusera de s'ouvrir. Ces téléviseurs tournent sous des systèmes propriétaires fermés (Tizen et webOS). Vous devez impérativement passer par un lecteur certifié du store officiel comme [IBO Player sur Samsung](/tutoriels/installer-atlas-pro-sur-tv-samsung) ou [IBO Player sur LG](/tutoriels/installer-atlas-pro-sur-lg-smart-tv).",
+        },
         paragraphs: [
-          "Redémarrez l'appareil, puis Paramètres > Applications > Atlas Pro ONTV > Vider le cache et Effacer les données.",
+          "Lorsqu'une application Android TV ou Fire OS se ferme brutalement ('crash' ou retour instantané à l'écran d'accueil), la cause la plus fréquente est une saturation de la mémoire tampon ou une bibliothèque graphique en conflit.",
+          "Sur [Amazon Fire Stick](/tutoriels/installer-atlas-pro-sur-fire-stick) : rendez-vous dans **Paramètres > Applications > Gérer les applications installées > Atlas Pro ONTV**. Cliquez sur **Forcer l'arrêt** puis sur **Vider le cache**.",
         ],
       },
       {
         id: "liberer-espace",
-        h2: "Libérer de l'espace",
-        paragraphs: ["Désinstallez les applications inutilisées : un stockage presque plein provoque des fermetures inattendues."],
+        h2: "2. Libérer le stockage Flash et la mémoire vive (RAM)",
+        paragraphs: [
+          "Les clés HDMI de streaming disposent d'un stockage interne limité (souvent 8 Go dont moins de 4 Go réellement utilisables). Lorsque l'espace libre descend sous le seuil critique des 500 Mo, le système d'exploitation tue arbitrairement les processus gourmands comme le lecteur 4K.",
+          "Désinstallez les applications et jeux inutilisés depuis les paramètres de stockage pour préserver un minimum de 1,5 Go d'espace libre.",
+        ],
+        table: {
+          caption: "Besoins matériels et recommandations selon les modèles d'appareils de streaming",
+          headers: ["Modèle d'Appareil", "Mémoire Vive (RAM)", "Stabilité Atlas Pro", "Recommandation Réglage"],
+          rows: [
+            [
+              "Fire TV Stick Lite / Basic",
+              "1,0 Go RAM",
+              "Sensible à la surcharge mémoire",
+              "Régler la mémoire tampon à 2 secondes et vider le cache régulièrement."
+            ],
+            [
+              "Fire TV Stick 4K (Standard)",
+              "1,5 Go RAM",
+              "Très bonne fluidité générale",
+              "Activer le décodeur Hardware HW+ pour soulager le GPU."
+            ],
+            [
+              "Fire TV Stick 4K Max / Cube",
+              "2,0 Go RAM (Wi-Fi 6E)",
+              "Excellente, aucun crash constaté",
+              "Compatible flux 4K HDR 60fps sans restriction."
+            ],
+            [
+              "Box Android TV (Nvidia Shield / Xiaomi)",
+              "2 à 3 Go RAM",
+              "Performances maximales",
+              "Privilégier la connexion Ethernet Gigabit RJ45."
+            ]
+          ]
+        },
       },
       {
         id: "reinstaller",
-        h2: "Réinstaller la dernière version",
+        h2: "3. Réinstaller la dernière version officielle via Downloader",
         paragraphs: [
-          "Désinstallez Atlas Pro ONTV, puis relancez Downloader et entrez le code officiel pour récupérer la dernière version (Atlas Pro ONTV V4 : 822648).",
+          "Si les fermetures persistent, la version installée est peut-être altérée. Désinstallez Atlas Pro ONTV, ouvrez l'application [Downloader](/tutoriels/installer-atlas-pro-sur-fire-stick) et saisissez le code officiel de téléchargement direct :",
+          "- **Code Downloader Atlas Pro ONTV V4 :** `822648`",
+          "Après téléchargement et installation de l'APK officiel, saisissez votre code à 12 chiffres pour retrouver un accès stable.",
         ],
       },
     ],

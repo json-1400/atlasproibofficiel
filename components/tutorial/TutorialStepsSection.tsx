@@ -3,11 +3,15 @@ import { Sparkles, Wrench } from "lucide-react";
 import type { TutorialStep } from "@/lib/mock-data-tutorials";
 import { StepImagePlaceholder } from "./StepImagePlaceholder";
 
+import { RichText } from "./RichText";
+
 interface TutorialStepsSectionProps {
   steps: TutorialStep[];
 }
 
 export function TutorialStepsSection({ steps }: TutorialStepsSectionProps): React.JSX.Element {
+  if (!steps || steps.length === 0) return <></>;
+
   return (
     <section
       id="guide-etape-par-etape"
@@ -39,7 +43,7 @@ export function TutorialStepsSection({ steps }: TutorialStepsSectionProps): Reac
                   {step.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-body leading-relaxed">
-                  {step.instruction}
+                  <RichText text={step.instruction} />
                 </p>
               </div>
             </div>
@@ -57,8 +61,9 @@ export function TutorialStepsSection({ steps }: TutorialStepsSectionProps): Reac
             {step.tip && (
               <div className="rounded-lg bg-surface border border-border/80 px-3.5 py-2.5 text-xs text-body flex items-start gap-2">
                 <Sparkles className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
-                <span>
-                  <strong className="text-heading font-semibold">Conseil pratique :</strong> {step.tip}
+                <span className="leading-relaxed">
+                  <strong className="text-heading font-semibold">Conseil pratique : </strong>
+                  <RichText text={step.tip} />
                 </span>
               </div>
             )}

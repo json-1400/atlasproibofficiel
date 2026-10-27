@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, LifeBuoy } from "lucide-react";
+import { Menu, X, ArrowRight, LifeBuoy, Lock } from "lucide-react";
 import { WHATSAPP_LINK } from "@/lib/seo";
 
 interface NavLinkItem {
@@ -25,6 +25,7 @@ const NAV_LINKS: NavLinkItem[] = [
 export function Header(): React.JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const isCheckout = pathname?.startsWith("/commander");
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -59,6 +60,47 @@ export function Header(): React.JSX.Element {
   const closeMenu = (): void => {
     setIsOpen(false);
   };
+
+  if (isCheckout) {
+    return (
+      <header className="sticky top-0 z-40 w-full border-b border-border bg-background">
+        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 text-heading font-bold text-base tracking-tight"
+            aria-label="Atlas Pro IBO - Accueil"
+          >
+            <Image
+              src="/logo.png"
+              alt="Atlas Pro IBO - Logo Officiel"
+              width={32}
+              height={32}
+              sizes="32px"
+              priority
+              className="h-8 w-8 rounded-xl object-contain"
+            />
+            <span>Atlas Pro IBO</span>
+          </Link>
+
+          <div className="flex items-center gap-3 sm:gap-4 text-xs">
+            <div className="flex items-center gap-1.5 font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+              <Lock className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" />
+              <span>Paiement 100% Sécurisé (SSL 256 bits)</span>
+            </div>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1 text-slate-500 hover:text-heading font-medium"
+            >
+              <LifeBuoy className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+              <span>Assistance 7j/7</span>
+            </a>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background">

@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Download, ArrowRight, ShieldCheck, Zap, HelpCircle, Server, Activity } from "lucide-react";
 import { PricingCard } from "@/components/sections/PricingCard";
 import { ComparisonTable } from "@/components/sections/ComparisonTable";
@@ -38,7 +39,7 @@ const HOMEPAGE_FAQS = [
   {
     question: "Qu'est-ce qui garantit la stabilité du serveur dédié Atlas Pro en France ?",
     answer:
-      "Notre infrastructure s'appuie sur des serveurs dédiés CDN 10 Gbps dotés d'une technologie anti-freeze et d'un peering direct avec les FAI français (Orange, Free, SFR, Bouygues). Cette architecture garantit une qualité 4K native sans aucun buffering même lors des fortes affluences sportives.",
+      "Notre infrastructure s'appuie sur des serveurs dédiés CDN 10 Gbps dotés d'une technologie anti-freeze avancée et d'un load-balancing intelligent. Cette architecture garantit une qualité 4K native sans aucun buffering même lors des fortes affluences sportives.",
   },
   {
     question: "L'abonnement Atlas IPTV est-il compatible avec les applications Atlas Pro ONTV et Max 7 ?",
@@ -111,8 +112,23 @@ export default function HomePage(): React.JSX.Element {
               </Link>
             </div>
 
+            {/* Showcase Image with Mapped Keywords */}
+            <div className="pt-6 max-w-4xl mx-auto">
+              <div className="relative rounded-2xl border border-border bg-white p-2 sm:p-3 shadow-md overflow-hidden">
+                <Image
+                  src="/atlas-pro-ontv-devices.webp"
+                  alt="Interface de l'application officielle Atlas Pro sur TV et multi-écrans : Service IPTV 4K France 2026"
+                  width={1672}
+                  height={941}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 900px"
+                  priority
+                  className="w-full h-auto rounded-xl object-contain"
+                />
+              </div>
+            </div>
+
             {/* Trust Badges Bar */}
-            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto text-left">
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto text-left">
               <div className="flex items-center gap-2 rounded-xl border border-border bg-white p-3 text-xs font-semibold text-heading">
                 <Zap className="h-4 w-4 text-primary shrink-0" aria-hidden="true" />
                 <span>Livraison en 15 min</span>

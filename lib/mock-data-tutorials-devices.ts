@@ -47,27 +47,76 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "prerequis-android-tv",
-        h2: "Prérequis",
-        paragraphs: ["Un téléviseur Android TV connecté à internet (idéalement en Ethernet) et votre code d'activation reçu par e-mail."],
+        h2: "1. Modèles compatibles et prérequis techniques",
+        callout: {
+          type: "tip",
+          title: "Compatibilité Native : Android TV et Google TV acceptent l'APK officiel",
+          text: "Contrairement aux téléviseurs [Samsung Tizen](/tutoriels/installer-atlas-pro-sur-tv-samsung) ou [LG webOS](/tutoriels/installer-atlas-pro-sur-lg-smart-tv), tous les téléviseurs équipés d'**Android TV** ou **Google TV** sont capables d'exécuter directement l'APK officiel d'Atlas Pro ONTV sans passer par un lecteur tiers.",
+        },
+        paragraphs: [
+          "Ce tutoriel s'applique à l'ensemble des téléviseurs connectés tournant sous l'environnement Google :",
+          "- **Sony Bravia** (toutes séries sous Android TV et Google TV).",
+          "- **Philips Smart TV** (modèles Ambilight équipés d'Android TV).",
+          "- **TCL et Thomson** (téléviseurs Google TV QLED et Mini-LED).",
+          "- **Xiaomi TV, Hisense (modèles Android)** et vidéoprojecteurs connectés.",
+        ],
+        table: {
+          caption: "Compatibilité et performances vidéo selon les marques de téléviseurs Android TV",
+          headers: ["Marque TV", "Système d'Exploitation", "Processeur Vidéo", "Performances 4K Atlas Pro"],
+          rows: [
+            [
+              "Sony Bravia",
+              "Google TV (Android 10/12)",
+              "Cognitive Processor XR",
+              "Décodage 4K HDR natif exceptionnel, zapping instantané."
+            ],
+            [
+              "Philips Ambilight",
+              "Android TV 11 / Google TV",
+              "P5 Perfect Picture Engine",
+              "Immersion lumineuse Ambilight synchronisée avec les flux directs."
+            ],
+            [
+              "TCL / Thomson",
+              "Google TV",
+              "Processeur AiPQ",
+              "Très bonne fluidité sur les flux sportifs 60 fps."
+            ],
+            [
+              "Xiaomi Mi TV",
+              "PatchWall / Android TV",
+              "Puce quad-core 64-bit",
+              "Excellente stabilité en liaison Ethernet RJ45."
+            ]
+          ]
+        },
       },
       {
         id: "installer-downloader",
-        h2: "Installer Downloader",
+        h2: "2. Installer Downloader depuis le Google Play Store",
         paragraphs: [
-          "Ouvrez le Google Play Store, recherchez Downloader et installez-le. Dans Paramètres > Sécurité et restrictions, autorisez Downloader à installer des applications inconnues.",
+          "1. Sur votre téléviseur, ouvrez l'application officielle **Google Play Store**.",
+          "2. Dans la barre de recherche vocale ou textuelle, saisissez **Downloader** (application orange développée par AFTVnews) et cliquez sur **Installer**.",
+          "3. Une fois l'installation terminée, ouvrez les **Paramètres Android de la TV > Applications > Accès spécial des applications > Installer des applications inconnues**.",
+          "4. Cochez l'autorisation pour **Downloader** afin de lui permettre de finaliser l'installation de l'APK officiel.",
         ],
       },
       {
         id: "installer-apk",
-        h2: "Installer l'application Atlas Pro",
+        h2: "3. Saisir le code officiel 822648 pour télécharger l'APK",
         paragraphs: [
-          "Dans Downloader, saisissez le code officiel (Atlas Pro ONTV V4 : 822648), laissez le téléchargement se terminer puis cliquez sur Installer.",
+          "Lancez Downloader depuis vos applications, autorisez l'accès au stockage, puis entrez le code officiel de redirection automatique :",
+          "- **Code Downloader Atlas Pro ONTV V4 :** `822648`",
+          "Appuyez sur la touche **Go** de la télécommande : le fichier d'installation officiel est téléchargé directement depuis nos serveurs sécurisés en moins de 30 secondes.",
         ],
       },
       {
         id: "activer-code",
-        h2: "Activer votre code",
-        paragraphs: ["Lancez Atlas Pro ONTV, choisissez « Se connecter avec un code » et saisissez les 12 chiffres sans espace."],
+        h2: "4. Activer votre code à 12 chiffres et lancer les chaînes",
+        paragraphs: [
+          "Dès l'ouverture d'Atlas Pro ONTV, sélectionnez **Connexion avec code d'activation**, tapez vos 12 chiffres sans espace et validez.",
+          "Vos bouquets de télévision en direct, vos guides EPG et votre vidéothèque VOD 4K sont immédiatement opérationnels.",
+        ],
       },
     ],
     steps: [
@@ -148,22 +197,68 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "choisir-box",
-        h2: "Choisir sa box Android",
+        h2: "1. Choisir sa box Android : Box certifiées Google vs Boîtiers génériques",
+        callout: {
+          type: "warning",
+          title: "Attention aux certifications DRM : Widevine L1 vs Widevine L3",
+          text: "Pour profiter de la 4K Ultra HD à 60 fps sans saccade, privilégiez un boîtier certifié **Google Android TV avec DRM Widevine L1** (comme la **Xiaomi Mi Box S**, la **Nvidia Shield TV** ou le **Chromecast avec Google TV**). Les boîtiers génériques d'entrée de gamme (type MXQ Pro ou boîtiers Amlogic non certifiés) sont souvent limités au DRM Widevine L3 et peuvent surchauffer lors des diffusions en continu.",
+        },
         paragraphs: [
-          "Privilégiez un modèle avec au moins 2 Go de RAM et le support du 4K (Mi Box S, Nvidia Shield, H96 Max...).",
+          "Une box TV Android est la solution idéale pour transformer n'importe quel téléviseur en Smart TV de pointe. Elle est particulièrement plébiscitée par les détenteurs de téléviseurs [Samsung Tizen](/tutoriels/installer-atlas-pro-sur-tv-samsung) ou [LG webOS](/tutoriels/installer-atlas-pro-sur-lg-smart-tv) souhaitant profiter de l'APK officiel Atlas Pro ONTV sans contrainte.",
         ],
+        table: {
+          caption: "Comparatif des boîtiers Android TV recommandés pour Atlas Pro en 2026",
+          headers: ["Boîtier Android TV", "Système & DRM", "Port Réseau & Wi-Fi", "Performances 4K HDR", "Recommandation d'Expert"],
+          rows: [
+            [
+              "Nvidia Shield TV Pro",
+              "Android TV certifié | Widevine L1",
+              "Ethernet Gigabit 1000 Mbps + Wi-Fi 5",
+              "Processeur Tegra X1+, Upscaling IA 4K magique",
+              "La Rolls-Royce absolue pour les passionnés de Home Cinema."
+            ],
+            [
+              "Xiaomi Mi Box S (2nd Gen)",
+              "Google TV officiel | Widevine L1",
+              "Wi-Fi 5 double bande (adaptateur USB-Ethernet)",
+              "4K Ultra HD, Dolby Vision, HDR10+",
+              "Le meilleur rapport qualité / prix grand public (< 60 €)."
+            ],
+            [
+              "Chromecast avec Google TV 4K",
+              "Google TV officiel | Widevine L1",
+              "Wi-Fi 5 double bande MIMO",
+              "Interface très épurée, télécommande Bluetooth ergonomique",
+              "Compact et très fiable pour un usage familial quotidien."
+            ],
+            [
+              "Boîtiers génériques (MXQ, H96, T95)",
+              "Android AOSP smartphone | Widevine L3",
+              "Ethernet 100 Mbps basique",
+              "Surchauffe fréquente, navigation souris obligatoire",
+              "Déconseillé pour la 4K; acceptable uniquement en dépannage."
+            ]
+          ]
+        },
       },
       {
         id: "installation-box",
-        h2: "Installation pas à pas",
+        h2: "2. Procédure d'installation avec le code Downloader 822648",
         paragraphs: [
-          "Installez Downloader, autorisez l'installation depuis des sources inconnues, entrez le code officiel (V4 : 822648), installez l'APK puis activez votre code.",
+          "1. Ouvrez le **Google Play Store** sur votre box et installez l'application **Downloader**.",
+          "2. Dans les paramètres de la box, autorisez Downloader à installer des applications inconnues.",
+          "3. Lancez Downloader, tapez le code officiel **822648** et validez avec la touche Entrée de la télécommande.",
+          "4. Une fois l'APK officiel téléchargé, cliquez sur **Installer**, ouvrez Atlas Pro ONTV et saisissez votre code à 12 chiffres.",
         ],
       },
       {
         id: "reglages-box",
-        h2: "Réglages recommandés",
-        paragraphs: ["Connectez la box en Ethernet, activez le décodage matériel et laissez la résolution en automatique."],
+        h2: "3. Réglages réseau et affichage pour une fluidité sans freeze",
+        paragraphs: [
+          "- **Priorité Ethernet :** Branchez impérativement votre box avec un câble réseau RJ45 Cat 6 directement à votre box internet pour éliminer les micro-coupures de la bande Wi-Fi.",
+          "- **Décodeur matériel :** Dans les réglages d'Atlas Pro ONTV, basculez le lecteur sur **Hardware (HW+)** pour exploiter le processeur graphique du boîtier.",
+          "- **Espace libre :** Conservez au moins 2 Go d'espace de stockage disponible pour la mémoire tampon.",
+        ],
       },
     ],
     steps: [
@@ -239,22 +334,63 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "methode-lecteur",
-        h2: "Méthode 1 : lecteur compatible",
+        h2: "1. Méthode recommandée : Lecteur IPTV compatible Windows & macOS",
+        callout: {
+          type: "tip",
+          title: "Le choix le plus performant pour ordinateur",
+          text: "Pour regarder Atlas Pro sur votre PC portable ou tour sans ralentir votre machine, privilégiez un lecteur autonome comme **IPTV Smarters Pro pour Windows** ou **VLC Media Player**. Ces logiciels décodent nativement les flux vidéo sans nécessiter de couche de virtualisation Android.",
+        },
         paragraphs: [
-          "Utilisez un lecteur capable de lire une playlist M3U ou une connexion Xtream Codes, puis renseignez l'URL, l'utilisateur et le mot de passe fournis par e-mail.",
+          "Il n'existe pas d'application exécutable .exe native développée sous la marque Atlas Pro. Deux logiciels se démarquent pour une restitution fluide des flux :",
+          "- **IPTV Smarters Pro pour Windows / Mac :** Interface moderne, gestion des catégories TV en direct, affiches de films VOD et guide EPG intégré. Il se connecte en 10 secondes avec vos identifiants **Xtream Codes** (Serveur URL, Identifiant et Mot de passe).",
+          "- **VLC Media Player :** Le lecteur universel le plus léger. Ouvrez simplement votre lien de playlist M3U reçue par e-mail via le menu *Média > Ouvrir un flux réseau*.",
         ],
+        table: {
+          caption: "Comparatif des solutions logicielles pour regarder Atlas Pro sur PC Windows et Mac",
+          headers: ["Logiciel PC / Mac", "Système Compatible", "Consommation RAM", "Interface & EPG", "Verdict"],
+          rows: [
+            [
+              "IPTV Smarters Pro",
+              "Windows 10/11 & macOS",
+              "Faible (~250 Mo RAM)",
+              "Excellente, réplique une interface Smart TV avec affiches VOD",
+              "La solution numéro 1 recommandée pour un usage quotidien."
+            ],
+            [
+              "VLC Media Player",
+              "Windows, Mac, Linux",
+              "Très faible (< 150 Mo RAM)",
+              "Basique (liste textuelle des chaînes)",
+              "Idéal pour tester un flux rapidement avec un lien M3U."
+            ],
+            [
+              "Émulateur Android (Bluestacks)",
+              "Windows 10/11",
+              "Élevée (> 2 Go RAM)",
+              "Interface TV originale de l'APK officiel",
+              "Gourmand en ressources processeur; réservé aux PC puissants."
+            ]
+          ]
+        },
       },
       {
         id: "methode-emulateur",
-        h2: "Méthode 2 : émulateur Android",
+        h2: "2. Méthode alternative : Émulateur Android sur PC (Bluestacks / WSA)",
         paragraphs: [
-          "Un émulateur Android permet d'installer l'APK officiel. Cette méthode demande davantage de mémoire et de puissance processeur.",
+          "Si vous tenez absolument à utiliser l'interface officielle de l'application [Atlas Pro ONTV](/telecharger) avec votre code à 12 chiffres :",
+          "1. Téléchargez et installez l'émulateur gratuit **Bluestacks 5** (ou activez le sous-système Windows pour Android sur Windows 11).",
+          "2. Téléchargez le fichier APK d'Atlas Pro ONTV depuis notre page officielle.",
+          "3. Glissez-déposez le fichier .apk dans la fenêtre de l'émulateur pour finaliser l'installation.",
         ],
       },
       {
         id: "quelle-methode",
-        h2: "Quelle méthode choisir ?",
-        paragraphs: ["Pour un usage simple, préférez le lecteur compatible. Choisissez l'émulateur si vous tenez à l'interface de l'application officielle."],
+        h2: "3. Quelle méthode choisir selon la puissance de votre ordinateur ?",
+        paragraphs: [
+          "- Pour un **ordinateur portable de bureau standard** (Intel Core i3 / i5, 8 Go RAM) : installez **IPTV Smarters Pro** pour préserver votre autonomie de batterie et éviter la chauffe des ventilateurs.",
+          "- Pour un **PC gamer ou station de travail** (16 Go+ RAM) : l'émulateur vous offrira l'expérience télévisuelle exacte.",
+          "Pour profiter de vos flux sur grand écran, découvrez également nos guides pour [Smart TV Samsung](/tutoriels/installer-atlas-pro-sur-tv-samsung) et [Amazon Fire Stick](/tutoriels/installer-atlas-pro-sur-fire-stick).",
+        ],
       },
     ],
     steps: [
@@ -329,39 +465,87 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
     sections: [
       {
         id: "pourquoi-alternatives",
-        h2: "Pourquoi utiliser une alternative ?",
+        h2: "Pourquoi utiliser une alternative à l'application officielle ?",
+        callout: {
+          type: "info",
+          title: "Lecteurs Multimédias Certifiés sur les Boutiques Officielles",
+          text: "Les lecteurs multimédias comme [IBO Player](https://iboplayer.com), TiviMate ou IPTV Smarters sont des logiciels de lecture vidéo certifiés et validés sur les boutiques officielles d'applications ([Google Play Store](https://play.google.com), Samsung Smart Hub, LG Content Store). Ils fonctionnent comme VLC Media Player en permettant la lecture fluide de vos flux via l'API Xtream Codes.",
+        },
         paragraphs: [
-          "Les alternatives ne remplacent pas l'application officielle : elles permettent d'accéder à votre service sur les appareils incompatibles avec elle. Sur Android TV, Fire Stick ou box Android, privilégiez l'application officielle.",
+          "Les applications officielles Atlas Pro (ONTV, Max 7, 9X) sont compilées sous forme d'**APK Android**. Elles s'installent à merveille sur les appareils équipés d'un système Android ou Fire OS ([Amazon Fire Stick](/tutoriels/installer-atlas-pro-sur-fire-stick), [Android TV Sony / Philips / TCL](/tutoriels/installer-atlas-pro-sur-android-tv), boîtiers Nvidia Shield et Xiaomi Box).",
+          "En revanche, les téléviseurs connectés de marque Samsung et LG utilisent des systèmes d'exploitation propriétaires fermés : **Tizen OS** pour Samsung et **webOS** pour LG. Ces systèmes refusent catégoriquement l'installation de fichiers APK Android.",
+          "Pour profiter de votre abonnement sur ces écrans sans investir dans une box TV externe, l'installation d'un **lecteur certifié compatible Xtream Codes** sur le store de votre téléviseur est la méthode officielle recommandée.",
         ],
       },
       {
         id: "ibo-player",
-        h2: "IBO Player : Samsung et LG",
+        h2: "IBO Player : La solution recommandée sur Samsung Smart TV et LG webOS",
         paragraphs: [
-          "IBO Player est disponible sur le Samsung Smart Hub et le LG Content Store. Il propose une période d'essai, puis une activation payante à l'éditeur. Suivez le guide d'installation dédié à votre marque : Samsung ou LG.",
-        ],
-      },
-      {
-        id: "iptv-smarters",
-        h2: "IPTV Smarters : polyvalent",
-        paragraphs: [
-          "IPTV Smarters fonctionne sur de nombreux appareils (Android, certaines Smart TV) et accepte les identifiants Xtream Codes, avec un guide TV intégré.",
+          "**IBO Player Pro** s'est imposé comme la référence absolue sur les téléviseurs modernes Samsung et LG. Téléchargeable en 30 secondes depuis le Samsung Smart Hub ou le LG Content Store, il propose une interface fluide, une compatibilité parfaite avec les flux 4K HEVC et une gestion ergonomique des télécommandes Magic Remote et One Remote.",
+          "Consultez nos guides pas à pas complets :",
+          "- [Comment installer et activer IBO Player sur Samsung Smart TV](/tutoriels/installer-atlas-pro-sur-tv-samsung)",
+          "- [Comment configurer IBO Player sur LG Smart TV webOS](/tutoriels/installer-atlas-pro-sur-lg-smart-tv)",
         ],
       },
       {
         id: "tivimate",
-        h2: "TiviMate : Android TV et Fire Stick",
+        h2: "TiviMate IPTV Player : Le summum de la personnalisation sur Android TV & Fire Stick",
         paragraphs: [
-          "TiviMate est un lecteur très apprécié sur Android TV et Fire Stick pour son interface et son guide des programmes. Il se configure avec Xtream Codes.",
+          "Conçu exclusivement pour les interfaces TV pilotées à la télécommande, **TiviMate** offre une expérience utilisateur digne des décodeurs des plus grands opérateurs câble/satellite. Sa fluidité de zapping (inférieure à 0,8 seconde) et sa grille de programmes EPG interactive sont sans équivalent.",
+          "TiviMate est idéal si vous utilisez un [Amazon Fire TV Stick 4K](/tutoriels/installer-atlas-pro-sur-fire-stick) ou un téléviseur sous [Android TV / Google TV](/tutoriels/installer-atlas-pro-sur-android-tv).",
+        ],
+      },
+      {
+        id: "iptv-smarters",
+        h2: "IPTV Smarters Pro : La polyvalence multi-écrans (PC, Mac, iOS)",
+        paragraphs: [
+          "Si vous souhaitez regarder vos chaînes et films VOD sur ordinateur portable ou tablette, **IPTV Smarters Pro** reste le lecteur le plus versatile du marché. Compatible Windows, macOS, Android et iOS, il permet de tester facilement vos accès avec vos identifiants URL / Utilisateur / Mot de passe Xtream Codes.",
+          "Retrouvez notre tutoriel pour [regarder Atlas Pro sur PC Windows et Mac](/tutoriels/regarder-atlas-pro-sur-pc-windows-mac).",
         ],
       },
       {
         id: "tableau-comparatif",
-        h2: "Comparatif rapide",
+        h2: "Comparatif technique : Quel lecteur choisir selon votre équipement ?",
+        table: {
+          caption: "Benchmark comparatif des meilleurs lecteurs IPTV compatibles Atlas Pro en 2026",
+          headers: ["Lecteur IPTV", "Systèmes d'Exploitation", "Vitesse de Zapping", "EPG & Replay", "Modèle Tarifaire", "Recommandation d'Expert"],
+          rows: [
+            [
+              "IBO Player Pro",
+              "Samsung Tizen, LG webOS, Android TV, Fire TV, Apple tvOS",
+              "Très rapide (< 1,2 s)",
+              "EPG 7 jours, Replay, pistes multi-audio & sous-titres",
+              "Essai 7 jours puis ~8 € à vie (paiement direct développeur)",
+              "Choix numéro 1 pour les Smart TV Samsung et LG sans boîtier externe."
+            ],
+            [
+              "TiviMate IPTV",
+              "Android TV, Google TV, Amazon Fire TV Stick",
+              "Ultra-rapide (< 0,8 s)",
+              "Meilleure interface EPG du marché, mode mosaïque multi-écrans",
+              "Version gratuite basique ou Premium (~35 € à vie)",
+              "La Rolls-Royce des lecteurs pour Fire Stick et Android TV."
+            ],
+            [
+              "IPTV Smarters Pro",
+              "Android, iOS, Windows, macOS, WebOS/Tizen (selon région)",
+              "Standard (< 2,0 s)",
+              "Grille EPG classique, organisation VOD et séries avec résumés",
+              "Gratuit (version Pro optionnelle)",
+              "Recommandé pour PC, tablettes et dépannage multi-appareils."
+            ],
+            [
+              "XCIPTV Player",
+              "Android TV, Fire OS, smartphones Android",
+              "Rapide (< 1,4 s)",
+              "Guide TV interactif, intégration lecteurs ExoPlayer et VLC",
+              "Gratuit",
+              "Interface très simple, idéale pour les utilisateurs seniors."
+            ]
+          ]
+        },
         paragraphs: [
-          "- IBO Player : Samsung, LG, Android. Idéal pour les TV non compatibles avec l'APK.",
-          "- IPTV Smarters : Android, Fire Stick, certaines Smart TV. Polyvalent.",
-          "- TiviMate : Android TV, Fire Stick. Confort d'utilisation et guide des programmes.",
+          "Une fois votre lecteur installé, vous pouvez relier votre [Abonnement IPTV 12 Mois](/plans-tarifs/atlas-pro-12-mois) en saisissant vos identifiants Xtream Codes (Serveur URL, Nom d'utilisateur et Mot de passe) reçus par e-mail.",
         ],
       },
     ],

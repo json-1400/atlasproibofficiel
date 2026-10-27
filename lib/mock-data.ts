@@ -78,10 +78,10 @@ export const MOCK_PLANS: Plan[] = [
       "Livraison immédiate des identifiants Xtream Codes par e-mail en 15 minutes",
       "Support WhatsApp réactif 7j/7 pour la configuration",
     ],
-    ctaLabel: "Commander 12 Mois (40€)",
-    seoTitle: "Abonnement IPTV 12 Mois Smart TV : 4K Stable & Sans Coupure (40€)",
+    ctaLabel: "Acheter 12 Mois (40€)",
+    seoTitle: "Acheter Abonnement Atlas Pro 12 Mois Smart TV : Commander (40€)",
     seoDescription:
-      "Souscrivez l'abonnement IPTV 12 mois pour Smart TV (Samsung, LG, Android TV, Firestick). Flux 4K Ultra HD sans coupure, 10 000+ chaînes et activation en 15 min.",
+      "Achetez et commandez votre abonnement officiel Atlas Pro 12 mois pour Smart TV (Samsung, LG, Android TV, Firestick). Flux 4K sans coupure, 10 000+ chaînes et activation en 15 min.",
     faq: [
       {
         question: "Comment installer et utiliser l'abonnement IPTV 12 mois sur Smart TV Samsung ou LG ?",
@@ -127,10 +127,10 @@ export const MOCK_PLANS: Plan[] = [
       "Livraison express par email en 15 minutes",
       "Assistance technique 7j/7",
     ],
-    ctaLabel: "Commander 6 Mois (30€)",
-    seoTitle: "Abonnement Atlas Pro 6 Mois Officiel | Serveur IPTV Garanti",
+    ctaLabel: "Acheter 6 Mois (30€)",
+    seoTitle: "Acheter Abonnement Atlas Pro 6 Mois : Commander en Ligne (30€)",
     seoDescription:
-      "Commandez l'abonnement Atlas Pro 6 mois officiel pour 30€. Idéal pour tester sur la durée avec une qualité optimale et support inclus.",
+      "Commandez votre abonnement IPTV Atlas Pro 6 mois officiel pour 30€. Idéal pour la saison de football et le sport en 4K. Activation immédiate en 15 min.",
     faq: [
       {
         question: "À qui s'adresse principalement l'abonnement Atlas Pro 6 mois ?",
@@ -165,10 +165,10 @@ export const MOCK_PLANS: Plan[] = [
       "Livraison par e-mail en 15 minutes",
       "Support d'installation et configuration inclus",
     ],
-    ctaLabel: "Commander 3 Mois (20€)",
-    seoTitle: "Abonnement Atlas Pro 3 Mois | Formule Découverte",
+    ctaLabel: "Acheter 3 Mois (20€)",
+    seoTitle: "Acheter Forfait Atlas Pro 3 Mois : Test & Commande Immédiate (20€)",
     seoDescription:
-      "Testez la puissance des serveurs Atlas Pro avec la formule 3 mois à 20€. Configuration facile sur tous vos appareils.",
+      "Commandez votre forfait test 3 mois Atlas Pro IPTV pour 20€. Évaluez la qualité de notre flux 4K stable sans engagement. Réception de vos codes en 15 minutes.",
     faq: [
       {
         question: "Pourquoi choisir la formule découverte 3 mois ?",
@@ -746,3 +746,29 @@ export function getTutorialBySlug(slug: string): Tutorial | undefined {
 export function getRelatedTutorials(slugs: string[]): Tutorial[] {
   return MOCK_TUTORIALS.filter((tut) => slugs.includes(tut.slug));
 }
+
+export function getPlanProfileDescription(months: number): { title: string; desc: string } {
+  switch (months) {
+    case 12:
+      return {
+        title: "Abonnement IPTV 12 Mois : La formule N°1 pour Smart TV & boîtiers 4K",
+        desc: "Cette formule annuelle est le meilleur investissement pour votre divertissement. Elle offre le tarif mensuel le plus bas du marché (seulement 3,33€/mois), une compatibilité totale avec tous vos téléviseurs et vous garantit un accès ininterrompu à toutes les compétitions de l'année sans risque de coupure.",
+      };
+    case 6:
+      return {
+        title: "L'équilibre idéal entre flexibilité et budget",
+        desc: "Parfait pour suivre l'intégralité d'une demi-saison sportive (Ligue des Champions, championnats de football, sports mécaniques) ou profiter d'une période automne/hiver sans vous engager sur une année entière.",
+      };
+    case 3:
+      return {
+        title: "La formule découverte sans engagement",
+        desc: "Idéale pour évaluer en conditions réelles la stabilité de nos flux direct en 4K/FHD, vérifier la compatibilité avec vos équipements (Smart TV, boîtier, Fire Stick) et tester la réactivité de notre support client.",
+      };
+    default:
+      return {
+        title: "Formule sur-mesure",
+        desc: "Accès complet aux serveurs Atlas Pro en haute définition avec support dédié.",
+      };
+  }
+}
+

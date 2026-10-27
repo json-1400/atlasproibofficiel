@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Check, ShieldCheck, Zap, ArrowRight, HelpCircle, Clock, Layers } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getAllPlans, getPlanBySlug } from "@/lib/mock-data";
+import { getAllPlans, getPlanBySlug, getPlanProfileDescription } from "@/lib/mock-data";
 import { buildMetadata } from "@/lib/seo";
 import {
   buildOrganizationSchema,
@@ -13,6 +13,10 @@ import {
   buildBreadcrumbSchema,
   buildFaqSchema,
 } from "@/lib/schema";
+import { PlanChannelsOverview } from "@/components/plan-detail/PlanChannelsOverview";
+import { PlanFrancophonePeering } from "@/components/plan-detail/PlanFrancophonePeering";
+import { PlanQuickInstallLinks } from "@/components/plan-detail/PlanQuickInstallLinks";
+import { PlanImageSlider } from "@/components/plan-detail/PlanImageSlider";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -61,34 +65,7 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
 
   const monthlyPrice = (plan.price / plan.durationMonths).toFixed(2);
   const otherPlans = getAllPlans().filter((p) => p.slug !== plan.slug && !p.slug.includes("ecrans"));
-
-  const getProfileDescription = (months: number): { title: string; desc: string } => {
-    switch (months) {
-      case 12:
-        return {
-          title: "Abonnement IPTV 12 Mois : La formule N°1 pour Smart TV & boîtiers 4K",
-          desc: "Cette formule annuelle est le meilleur investissement pour votre divertissement. Elle offre le tarif mensuel le plus bas du marché (seulement 3,33€/mois), une compatibilité totale avec tous vos téléviseurs et vous garantit un accès ininterrompu à toutes les compétitions de l'année sans risque de coupure.",
-        };
-      case 6:
-        return {
-          title: "L'équilibre idéal entre flexibilité et budget",
-          desc: "Parfait pour suivre l'intégralité d'une demi-saison sportive (Ligue des Champions, championnats de football, sports mécaniques) ou profiter d'une période automne/hiver sans vous engager sur une année entière.",
-        };
-      case 3:
-        return {
-          title: "La formule découverte sans engagement",
-          desc: "Idéale pour évaluer en conditions réelles la stabilité de nos flux direct en 4K/FHD, vérifier la compatibilité avec vos équipements (Smart TV, boîtier, Fire Stick) et tester la réactivité de notre support client.",
-        };
-      default:
-        return {
-          title: "Formule sur-mesure",
-          desc: "Accès complet aux serveurs Atlas Pro en haute définition avec support dédié.",
-        };
-    }
-  };
-
-  const profile = getProfileDescription(plan.durationMonths);
-
+  const profile = getPlanProfileDescription(plan.durationMonths);
   const graphData: Array<Record<string, unknown>> = [
     buildOrganizationSchema(),
     buildPlanSchema(plan),
@@ -120,14 +97,17 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
 
             <h1 className="text-3xl sm:text-4xl font-extrabold text-heading">
               {plan.slug === "atlas-pro-12-mois"
-                ? "Abonnement IPTV 12 Mois Smart TV : Atlas Pro Officiel"
-                : plan.title}
+                ? "Commander Votre Abonnement Atlas Pro 12 Mois Smart TV (40€)"
+                : `Commander Votre ${plan.title} (${plan.price}€)`}
             </h1>
+
+            {/* Screenshots & Interface Preview Slider Under H1 */}
+            <PlanImageSlider planTitle={plan.title} />
 
             <p className="text-base text-body leading-relaxed">
               {plan.slug === "atlas-pro-12-mois"
-                ? "Souscrivez votre abonnement IPTV 12 mois pour Smart TV et profitez d'une stabilité 4K Ultra HD sans coupure. Compatible avec l'ensemble des téléviseurs (Samsung Tizen OS, LG webOS, Android TV, Google TV et Fire TV Stick) ainsi que les applications leaders comme IPTV Smarters Pro, IBO Player et Atlas Pro ONTV."
-                : `Profitez de l'expérience télévisuelle ultime avec l'abonnement officiel Atlas Pro ONTV pour ${plan.durationMonths} mois. Accès immédiat à toutes vos chaînes en direct favorites, retransmissions sportives en haute définition et milliers de titres VOD.`}
+                ? "Achetez et commandez votre abonnement officiel Atlas Pro 12 mois pour Smart TV et profitez d'une diffusion 4K Ultra HD stable et sans coupure. Compatible avec l'ensemble des téléviseurs (Samsung Tizen OS, LG webOS, Android TV, Google TV et Fire TV Stick) ainsi que les applications certifiées IPTV Smarters Pro, IBO Player et Atlas Pro ONTV."
+                : `Achetez et commandez votre licence officielle Atlas Pro ONTV pour ${plan.durationMonths} mois à ${plan.price}€. Accès direct à toutes vos chaînes en direct, flux sportifs en 4K/FHD native et cinémathèque VOD complète avec expédition de vos identifiants en moins de 15 minutes.`}
             </p>
 
             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 space-y-2">
@@ -229,6 +209,15 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
           </div>
         </section>
 
+        {/* 1. Bouquet TV Francophone & VOD 4K (DMCA Safe) */}
+        <PlanChannelsOverview />
+
+        {/* 2. Infrastructure & Peering France, Belgique, Suisse, Canada */}
+        <PlanFrancophonePeering />
+
+        {/* 3. Applications Officielles & Guides d'Installation */}
+        <PlanQuickInstallLinks />
+
         {/* Plan-specific FAQ */}
         {plan.faq && plan.faq.length > 0 && (
           <section className="space-y-6 max-w-3xl pt-8 border-t border-border">
@@ -247,7 +236,6 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
             </div>
           </section>
         )}
-
         {/* Cross-Plan Comparison Section */}
         {otherPlans.length > 0 && (
           <section className="space-y-6 pt-8 border-t border-border">
@@ -283,6 +271,15 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
                   </span>
                 </Link>
               ))}
+            </div>
+
+            <div className="pt-2 text-center sm:text-left">
+              <Link
+                href="/plans-tarifs"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+              >
+                <span>« Consulter le tableau comparatif complet de toutes les formules</span>
+              </Link>
             </div>
           </section>
         )}

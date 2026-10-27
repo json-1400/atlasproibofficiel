@@ -12,6 +12,7 @@ import { TutorialSectionsList } from "@/components/tutorial/TutorialSectionsList
 import { TutorialStepsSection } from "@/components/tutorial/TutorialStepsSection";
 import { TutorialFaqSection } from "@/components/tutorial/TutorialFaqSection";
 import { TutorialSidebar } from "@/components/tutorial/TutorialSidebar";
+import { RichText } from "@/components/tutorial/RichText";
 import {
   getAllTutorials,
   getTutorialBySlug,
@@ -114,7 +115,9 @@ export default async function TutorialDetailPage({ params }: PageProps): Promise
             {/* Introductory Body Paragraphs */}
             <div className="space-y-4 text-base text-body leading-relaxed">
               {tut.body.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index}>
+                  <RichText text={paragraph} />
+                </p>
               ))}
             </div>
 

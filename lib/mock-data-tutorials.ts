@@ -21,12 +21,27 @@ export interface TutorialSectionH3 {
   h4Tip?: string;
 }
 
+export interface TutorialTable {
+  headers: string[];
+  rows: string[][];
+  caption?: string;
+}
+
+export interface TutorialCallout {
+  type: "warning" | "info" | "tip";
+  title: string;
+  text: string;
+  link?: { label: string; url: string };
+}
+
 export interface TutorialSection {
   id: string;
   h2: string;
   intro?: string;
-  paragraphs: string[];
+  paragraphs?: string[];
   h3s?: TutorialSectionH3[];
+  table?: TutorialTable;
+  callout?: TutorialCallout;
 }
 
 export interface TutorialTocItem {
@@ -314,20 +329,55 @@ const BASE_TUTORIALS: Tutorial[] = [
         id: "causes-techniques",
         h2: "Pourquoi Atlas Pro ne peut pas se connecter au serveur ?",
         intro:
-          "Pour appliquer le bon correctif, il est primordial de comprendre les mécanismes réseau sous-jacents qui provoquent l'interruption de communication :",
+          "Pour appliquer le bon correctif, il est primordial de comprendre les mécanismes réseau sous-jacents qui provoquent l'interruption de communication entre votre équipement et notre infrastructure :",
+        callout: {
+          type: "tip",
+          title: "Diagnostic Réseau : Pourquoi les blocages surviennent aux heures de forte écoute",
+          text: "Lors des grands événements diffusés en direct, certains fournisseurs d'accès internet appliquent un filtrage automatisé sur leurs serveurs DNS par défaut ou régulent le trafic vidéo UDP non prioritaire. Remplacer les résolveurs DNS de votre appareil par des DNS neutres et rapides comme [Cloudflare 1.1.1.1](#solution-dns-cloudflare) résout immédiatement ces interruptions sans toucher à votre installation.",
+        },
         paragraphs: [
-          "1. Le filtrage et bridage DNS par votre FAI : En France, Belgique et Suisse, les grands opérateurs télécoms (Orange, SFR, Bouygues, Free, Proximus) appliquent des règles de filtrage automatisé sur leurs serveurs DNS par défaut, particulièrement lors des soirées de Ligue des Champions et de grands événements sportifs.",
-          "2. La saturation du cache mémoire de votre équipement : À force d'accumuler les métadonnées des 10 000 chaînes et 40 000 VOD, le cache local de l'application Atlas Pro ONTV ou IBO Player se corrompt et bloque les requêtes HTTP.",
-          "3. Une attribution d'adresse IP bloquée par le pare-feu : Certaines box internet activent un pare-feu 'Très élevé' qui rejette les flux de streaming UDP entrants.",
-          "4. L'expiration de votre abonnement ou une mauvaise saisie de code : Si votre ligne a dépassé sa date d'échéance, le serveur distant rejette la connexion avec le statut 403 Forbidden.",
+          "1. **Le filtrage et bridage DNS par votre FAI :** En France, Belgique et Suisse, les grands opérateurs télécoms appliquent des règles de filtrage automatisé sur leurs résolveurs DNS par défaut, ciblant les requêtes de streaming direct aux heures de forte consommation.",
+          "2. **La saturation du cache mémoire de votre équipement :** À force d'accumuler les métadonnées des flux 4K et de la vidéothèque, le cache local de l'application [Atlas Pro ONTV](/tutoriels/installer-atlas-pro-sur-fire-stick) ou [IBO Player](/tutoriels/installer-atlas-pro-sur-tv-samsung) se corrompt et bloque les négociations TLS.",
+          "3. **Une attribution d'adresse IP bloquée par le pare-feu :** Certaines box internet activent un niveau de sécurité strict qui rejette les flux de streaming UDP entrants nécessaires à la fluidité sans saccade.",
+          "4. **L'expiration de votre abonnement :** Si votre accès a dépassé sa date d'échéance, nos serveurs renvoient immédiatement un statut HTTP 401 ou 403. Consultez notre guide pour [renouveler un abonnement expiré](/tutoriels/code-atlas-pro-expire-renouveler-abonnement).",
         ],
+        table: {
+          caption: "Matrice technique de diagnostic des erreurs de connexion Atlas Pro",
+          headers: ["Code ou Message d'Erreur", "Origine Technique", "Diagnostic Immédiat", "Action Recommandée"],
+          rows: [
+            [
+              "Server connection failed (Timeout)",
+              "Délai de poignée de main TLS dépassé (> 5000 ms)",
+              "Filtrage DNS de votre box internet ou micro-coupure Wi-Fi",
+              "Basculez sur les [DNS Cloudflare 1.1.1.1](#solution-dns-cloudflare) et privilégiez un câble Ethernet RJ45."
+            ],
+            [
+              "HTTP 401 Unauthorized / Code Invalide",
+              "Session de streaming refusée par le cluster d'authentification",
+              "Erreur de frappe dans le code à 12 chiffres ou abonnement expiré",
+              "Vérifiez l'e-mail de confirmation ou suivez le guide [code invalide](/tutoriels/atlas-pro-code-invalide-que-faire)."
+            ],
+            [
+              "HTTP 403 Forbidden / Écran Noir",
+              "Blocage d'adresse IP source par filtrage dynamique opérateur",
+              "Filtrage DNS opérateur actif lors des pics d'audience",
+              "Activez les DNS neutres ou un protocole DNS sécurisé (DoH) dans votre lecteur."
+            ],
+            [
+              "Boucle de chargement infinie (0 %)",
+              "Corruption de la table locale des flux (cache > 500 Mo)",
+              "Saturation de la mémoire tampon de votre Smart TV ou boîtier",
+              "Exécutez la [procédure de vidage de cache](#solution-vider-cache) et redémarrez électriquement l'appareil."
+            ]
+          ]
+        },
         h3s: [
           {
             id: "impact-fai",
             title: "Le rôle méconnu du bridage des ports par les fournisseurs d'accès",
             content:
               "Aux heures de pointe (entre 20h30 et 23h00), les équipements réseau de certains opérateurs brident volontairement les connexions vers les ports multimédias non prioritaires. Changer vos DNS permet de contourner les serveurs de noms de votre opérateur et de router vos requêtes directement vers des backbones internationaux à haute vitesse.",
-            h4Tip: "Conseil FAI : Si vous êtes chez Orange ou SFR, l'activation des DNS Cloudflare résout à elle seule 92 % des cas de non-connexion signalés.",
+            h4Tip: "Conseil Réseau : Si vous êtes raccordé chez un opérateur national en France, l'activation des DNS Cloudflare résout à elle seule 92 % des cas de non-connexion signalés.",
           },
         ],
       },
@@ -548,11 +598,47 @@ const BASE_TUTORIALS: Tutorial[] = [
       {
         id: "meilleures-applications",
         h2: "Les meilleures applications pour Samsung Tizen",
+        callout: {
+          type: "tip",
+          title: "Pourquoi IBO Player surpasse les autres lecteurs sur Samsung",
+          text: "Sur l'écosystème Samsung Tizen, **IBO Player Pro** exploite directement l'accélération matérielle des puces vidéo Quantum Processor. Il assure un décodage 4K 60fps sans saccade et offre une intégration native avec la télécommande **Samsung One Remote** (navigation fluide avec la molette et pavé tactile).",
+        },
         paragraphs: [
-          "1. IBO Player (Recommandation N°1) : L'application la plus véloce du Smart Hub. Elle gère le multi-profils, l'EPG sur 7 jours, le contrôle du direct (timeshift), les sous-titres multilingues et le choix des pistes audio en Dolby Digital.",
-          "2. Smart IPTV (SIPTV) : L'application historique avec interface épurée. Très stable mais interface graphique plus spartiate.",
-          "3. SET IPTV & Nanomid Player : Deux excellentes alternatives secondaires si IBO Player venait à être indisponible dans le store de votre région.",
+          "Si plusieurs lecteurs multimédias existent sur le Samsung Smart Hub, ils ne se valent pas tous en termes de performances et de stabilité avec les flux 4K :",
+          "1. **IBO Player Pro (Recommandation N°1) :** L'application la plus véloce du Smart Hub. Elle gère le multi-profils, l'EPG sur 7 jours, le contrôle du direct (timeshift), les sous-titres multilingues et le choix des pistes audio en Dolby Digital.",
+          "2. **Smart IPTV (SIPTV) :** L'application historique avec interface épurée. Très stable mais interface graphique plus spartiate.",
+          "3. **SET IPTV & Nanomid Player :** Deux alternatives secondaires si IBO Player venait à être indisponible dans le store de votre région.",
         ],
+        table: {
+          caption: "Comparatif des lecteurs IPTV disponibles sur le Samsung Apps Store (Tizen OS)",
+          headers: ["Lecteur Tizen", "Disponibilité Smart Hub", "Temps de Zapping", "Gestion Replay & EPG", "Tarif Éditeur", "Verdict Technique"],
+          rows: [
+            [
+              "IBO Player Pro",
+              "100 % officiel Samsung Apps",
+              "Ultra-rapide (< 1,2 s)",
+              "EPG 7 jours complet, Replay, audio Dolby",
+              "Essai 7j puis ~8 € à vie",
+              "Le choix incontournable N°1 pour toutes Smart TV Samsung."
+            ],
+            [
+              "Smart IPTV (SIPTV)",
+              "Disponible selon modèles",
+              "Standard (< 2,0 s)",
+              "Grille basique avec liste M3U externe",
+              "Essai 7j puis ~5,49 €",
+              "Pionnier historique, interface plus ancienne."
+            ],
+            [
+              "SET IPTV",
+              "Samsung Apps officiel",
+              "Rapide (< 1,8 s)",
+              "EPG avec résumés de programmes",
+              "Essai 7j puis ~15 € à vie",
+              "Excellente alternative de secours."
+            ]
+          ]
+        },
       },
       {
         id: "reglages-image-samsung",
@@ -720,10 +806,36 @@ const BASE_TUTORIALS: Tutorial[] = [
       {
         id: "meilleures-apps-lg",
         h2: "Les 2 meilleures applications IPTV sur LG Content Store",
+        callout: {
+          type: "tip",
+          title: "Le duo parfait : Télécommande LG Magic Remote & IBO Player",
+          text: "Grâce au pointeur gyroscopique de la télécommande **LG Magic Remote**, IBO Player se pilote comme sur un ordinateur : vous pouvez faire défiler des milliers de flux d'un simple mouvement du poignet et basculer instantanément entre la TV en direct et la vidéothèque 4K.",
+        },
         paragraphs: [
-          "1. IBO Player : Le choix de référence sur LG. Interface moderne, temps de chargement éclair, gestion du guide EPG et support des pistes audio 5.1.",
-          "2. IPTV Smarters Pro : Très populaire, interface inspirée des plateformes de streaming avec sections dédiées Direct, Séries et Films.",
+          "Le magasin d'applications officiel de LG propose deux lecteurs majeurs compatibles avec nos flux haute définition :",
+          "1. **IBO Player Pro (Recommandation N°1) :** Le choix de référence sur LG webOS. Interface moderne, temps de chargement éclair, gestion du guide EPG et support des pistes audio Dolby Digital 5.1.",
+          "2. **IPTV Smarters Pro :** Très populaire, interface inspirée des plateformes de streaming avec sections dédiées Direct, Séries et Films.",
         ],
+        table: {
+          caption: "Comparatif des lecteurs certifiés disponibles sur LG Content Store (webOS)",
+          headers: ["Application LG webOS", "Compatibilité Magic Remote", "Temps de Zapping", "Gestion Replay & 4K", "Modèle Tarifaire"],
+          rows: [
+            [
+              "IBO Player Pro",
+              "Parfaite (pointeur gyroscopique 100 % actif)",
+              "Ultra-rapide (< 1,2 s)",
+              "EPG 7 jours complet, Replay, audio Dolby 5.1",
+              "Essai 7 jours puis ~8 € à vie (paiement direct éditeur)"
+            ],
+            [
+              "IPTV Smarters Pro",
+              "Standard (navigation via croix directionnelle)",
+              "Standard (< 2,0 s)",
+              "Grille classique + VOD organisée avec résumés",
+              "Gratuit (version Pro optionnelle)"
+            ]
+          ]
+        },
       },
       {
         id: "optimisation-oled-lg",
@@ -870,13 +982,45 @@ const BASE_TUTORIALS: Tutorial[] = [
       },
       {
         id: "optimisation-firestick",
-        h2: "Réglages de fluidité pour le Fire Stick 4K Max",
+        h2: "Réglages de fluidité et matériel pour Amazon Fire TV Stick",
+        callout: {
+          type: "warning",
+          title: "Conseil Électrique Crucial : Évitez d'alimenter votre Fire Stick via le port USB de la TV",
+          text: "Les ports USB des téléviseurs ne fournissent généralement que **0,5 A (500 mA)**. Or, le décodage d'un flux 4K HEVC à 60 images par seconde génère des pics de consommation nécessitant **1,0 A à 1,5 A**. Une sous-alimentation provoque des redémarrages inopinés et des gels d'image. Branchez impérativement votre Fire Stick sur la prise murale avec son adaptateur secteur officiel fourni.",
+        },
         paragraphs: [
-          "Pour maximiser la longévité et la réactivité de votre Fire Stick :",
-          "- Désactivez la lecture automatique des bandes-annonces dans Paramètres > Préférences > Contenu en vedette.",
-          "- Branchez le Fire Stick sur une prise électrique murale dédiée plutôt que sur le port USB de votre TV pour lui fournir une alimentation électrique stable.",
-          "- Utilisez la rallonge HDMI fournie dans la boîte pour éloigner la clé des interférences électromagnétiques de la dalle TV.",
+          "Pour maximiser la longévité et la réactivité de votre clé de streaming Amazon Fire TV :",
+          "- **Désactivez la lecture automatique :** Rendez-vous dans Paramètres > Préférences > Contenu en vedette pour couper les bandes-annonces en arrière-plan.",
+          "- **Utilisez l'adaptateur HDMI flexible :** La petite rallonge fournie éloigne la clé du dos métallique de la télévision, ce qui améliore considérablement la réception Wi-Fi 5 GHz.",
+          "- **Optimisez le lecteur :** Pour les vidéos 4K, activez le décodage matériel HW+ et ajustez la mémoire tampon à 3 secondes dans les réglages de l'application.",
         ],
+        table: {
+          caption: "Comparatif des modèles Amazon Fire TV Stick et compatibilité avec les flux 4K Atlas Pro",
+          headers: ["Modèle Fire TV", "Processeur & Mémoire RAM", "Résolution Vidéo Max", "Norme Wi-Fi", "Recommandation Atlas Pro"],
+          rows: [
+            [
+              "Fire TV Stick Lite / HD",
+              "Quad-core 1.7 GHz | 1,0 Go RAM",
+              "1080p Full HD (60 fps)",
+              "Wi-Fi 5 (802.11ac)",
+              "Recommandé pour un second téléviseur d'appoint en Full HD."
+            ],
+            [
+              "Fire TV Stick 4K (2e Gén)",
+              "Quad-core 1.7 GHz | 2,0 Go RAM",
+              "4K Ultra HD (HDR10+, Dolby Vision)",
+              "Wi-Fi 6 (802.11ax)",
+              "Excellent rapport qualité / prix pour tous les flux sportifs 4K."
+            ],
+            [
+              "Fire TV Stick 4K Max",
+              "Quad-core 2.0 GHz | 2,0 Go RAM",
+              "4K UHD 60fps + Décodeur AV1 natif",
+              "Wi-Fi 6E tribande",
+              "Le choix N°1 absolu pour un zapping instantané sous 0,8 seconde."
+            ]
+          ]
+        },
       },
     ],
     steps: [
@@ -1006,11 +1150,35 @@ const BASE_TUTORIALS: Tutorial[] = [
       },
       {
         id: "difference-formats",
-        h2: "Différence entre Code 12 chiffres et Xtream Codes",
+        h2: "Différence entre Code 12 chiffres et identifiants Xtream Codes",
+        callout: {
+          type: "tip",
+          title: "Service Client : Récupération instantanée en cas d'e-mail égaré",
+          text: "Si vous avez vidé votre corbeille ou si votre e-mail de confirmation est introuvable, notre support technique vous renvoie vos identifiants en moins de 15 minutes 7j/7. Munissez-vous simplement de votre adresse e-mail de commande ou de votre reçu de paiement.",
+        },
         paragraphs: [
-          "- Le Code à 12 chiffres (ex: 849204819204) : Conçu spécifiquement pour les applications officielles Atlas Pro ONTV, Atlas Pro Max et Atlas Pro 9X. Simple et rapide à taper avec une télécommande.",
-          "- L'API Xtream Codes : Composée d'une URL de serveur (ex: http://serveur-atlas.com:8080), d'un nom d'utilisateur et d'un mot de passe. Indispensable pour configurer des lecteurs comme IBO Player, Smart IPTV ou TiviMate.",
+          "Lors de votre souscription sur notre site officiel, nos serveurs génèrent deux modes d'accès distincts pour garantir une compatibilité avec 100 % des écrans du marché :",
+          "- **Le Code à 12 chiffres (ex: 8492 0481 9204) :** Conçu spécifiquement pour les applications officielles [Atlas Pro ONTV](/tutoriels/installer-atlas-pro-sur-fire-stick), Atlas Pro Max et Atlas Pro 9X sur boîtiers et téléviseurs Android. Simple et rapide à taper avec une télécommande.",
+          "- **L'API Xtream Codes :** Composée d'une URL de serveur (ex: `http://serveur.atlaspro.tv:8080`), d'un nom d'utilisateur et d'un mot de passe. Indispensable pour configurer des lecteurs comme [IBO Player sur Samsung](/tutoriels/installer-atlas-pro-sur-tv-samsung), [IBO Player sur LG](/tutoriels/installer-atlas-pro-sur-lg-smart-tv) ou [TiviMate](/tutoriels/alternatives-atlas-pro-tv-non-compatible-ibo-player-smarters-tivimate).",
         ],
+        table: {
+          caption: "Comparatif des deux formats d'accès fournis lors de la commande Atlas Pro",
+          headers: ["Format d'Identifiant", "Structure", "Applications Dédiées", "Avantage Principal"],
+          rows: [
+            [
+              "Code Direct 12 chiffres",
+              "12 caractères numériques (ex: 820194829104)",
+              "Atlas Pro ONTV, Atlas Pro Max, Atlas Pro 9X",
+              "Connexion en un clic, idéale avec la télécommande TV."
+            ],
+            [
+              "Identifiants Xtream Codes",
+              "URL Serveur + Nom d'utilisateur + Mot de passe",
+              "IBO Player, TiviMate, IPTV Smarters, VLC",
+              "Compatible avec toutes les Smart TV fermées (Tizen, webOS, PC, Mac)."
+            ]
+          ]
+        },
       },
       {
         id: "changer-code-renouvellement",
@@ -1133,13 +1301,28 @@ const BASE_TUTORIALS: Tutorial[] = [
       {
         id: "origine-buffering",
         h2: "D'où proviennent les coupures et le buffering ?",
+        callout: {
+          type: "tip",
+          title: "Règle d'or pour la fluidité 4K : Éviter absolument le Wi-Fi 2.4 GHz",
+          text: "Le streaming direct en **Ultra HD 4K** requiert une bande passante stable et ininterrompue. La bande Wi-Fi 2.4 GHz traditionnelle subit l'encombrement des réseaux voisins et des micro-ondes, générant des micro-pertes de paquets (packet loss) fatales. Pour éradiquer 90 % des saccades, connectez votre appareil avec un **câble réseau Ethernet Cat 6** ou basculez sur la fréquence Wi-Fi 5 GHz.",
+        },
         paragraphs: [
-          "Contrairement à un téléchargement de fichier où les paquets manquants sont renvoyés automatiquement, la diffusion vidéo en direct utilise des protocoles en temps réel. Si votre connexion subit une micro-coupure de 200 millisecondes, le lecteur n'a plus de données à afficher et l'image se fige.",
-          "Les trois facteurs clés responsables du buffering sont :",
-          "1. Les pertes de paquets Wi-Fi causées par la distance avec la box et les interférences.",
-          "2. Une mémoire tampon réglée à 0 seconde qui ne tolère aucun retard de transmission.",
-          "3. Le bridage du trafic vidéo par l'opérateur internet aux heures de forte consommation.",
+          "Contrairement à la lecture d'une vidéo sur YouTube où l'intégralité du fichier peut être pré-téléchargée des minutes en avance, la télévision en direct fonctionne selon un flux continu en temps réel. Si votre réseau subit une perte de paquets de 200 millisecondes sans mémoire tampon suffisante, le lecteur vidéo est à court de trames et l'image se fige.",
+          "Les trois causes fondamentales identifiées par nos ingénieurs réseau sont :",
+          "1. **Les micro-pertes de paquets Wi-Fi** causées par la dégradation du signal et les interférences d'ondes radio.",
+          "2. **Une mémoire tampon (buffer size) configurée à zéro seconde**, empêchant l'application d'absorber les variations de gigue (jitter).",
+          "3. **Le bridage opérateur ou filtrage DNS** appliqué aux heures de pointe. Consultez notre guide pour [résoudre les erreurs de connexion serveur](/tutoriels/atlas-pro-ne-peut-pas-se-connecter-au-serveur).",
         ],
+        table: {
+          caption: "Besoins techniques de bande passante et tolérance réseau selon la résolution vidéo",
+          headers: ["Résolution Vidéo", "Débit Réel Requis", "Latence (Ping) & Gigue (Jitter)", "Buffer Conseillé"],
+          rows: [
+            ["SD Standard (576p)", "5 Mbps stables", "Ping < 80 ms | Jitter < 25 ms", "1 à 2 secondes"],
+            ["HD Haute Définition (720p 50fps)", "10 Mbps stables", "Ping < 50 ms | Jitter < 15 ms", "2 à 3 secondes"],
+            ["Full HD 1080p (60fps)", "15 Mbps constants", "Ping < 30 ms | Jitter < 10 ms", "3 à 5 secondes"],
+            ["Ultra HD 4K HDR (HEVC H.265)", "25 Mbps constants", "Ping < 20 ms | Jitter < 5 ms", "5 à 8 secondes (HW+)"]
+          ]
+        },
       },
       {
         id: "reglage-1-ethernet",

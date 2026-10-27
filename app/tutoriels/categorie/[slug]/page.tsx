@@ -315,7 +315,8 @@ export default async function CategoryHubPage({ params }: PageProps): Promise<Re
               <span>Télécharger l&apos;application</span>
             </Link>
             <Link
-              href="/commander"
+              href="/commander/atlas-pro-12-mois"
+              rel="nofollow"
               className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs sm:text-sm font-bold text-white hover:bg-primary-hover transition-colors shadow-sm"
             >
               <span>Activer mon abonnement</span>

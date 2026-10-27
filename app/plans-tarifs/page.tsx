@@ -15,9 +15,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Nos Plans et Tarifs IPTV France | Atlasproibofficiel",
+    title: "Comparatif Plans & Tarifs Atlas Pro : Choisir Votre Abonnement IPTV",
     description:
-      "Plans et tarifs officiels Atlas Pro en France. Comparez nos formules 12 mois à 40€, 6 mois à 30€ et 3 mois à 20€. Codes d'accès IPTV livrés par e-mail en 15 minutes.",
+      "Comparez les formules et tarifs officiels Atlas Pro IPTV en France : 12 mois à 40€, 6 mois à 30€ et 3 mois à 20€. Tableau comparatif pour bien choisir votre abonnement.",
     path: "/plans-tarifs",
   });
 }
@@ -48,13 +48,13 @@ export default function PlansTarifsPage(): React.JSX.Element {
         <header className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary">
             <Layers className="h-4 w-4" aria-hidden="true" />
-            <span>Catalogue Officiel • Distributeur Atlas Pro France</span>
+            <span>Catalogue & Comparatif Officiel • Distributeur Atlas Pro France</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-4xl text-heading tracking-tight">
-            Plans & Tarifs Atlas Pro : Choisissez Votre Formule en France
+            Comparatif des Plans & Tarifs Atlas Pro : Comment Choisir Votre Formule IPTV
           </h1>
           <p className="text-base text-body leading-relaxed">
-            Vous cherchez un abonnement Atlas Pro fiable pour regarder vos chaînes préférées sans coupures ? Vous êtes au bon endroit. En tant que distributeur officiel en France, nous proposons trois formules d&apos;abonnement IPTV Atlas Pro adaptées à chaque usage : 12 mois à 40€ pour les utilisateurs réguliers, 6 mois à 30€ pour les saisons sportives, et 3 mois à 20€ pour découvrir le service. Chaque formule inclut un accès immédiat à plus de 10 000 chaînes en flux direct, un catalogue VOD complet et vos identifiants Xtream Codes livrés par e-mail en moins de 15 minutes après validation de la commande.
+            Consultez notre comparatif exhaustif des formules officielles <strong>Atlas Pro IPTV</strong> en France pour choisir l&apos;offre la plus avantageuse selon vos besoins : 12 mois à 40€ (meilleur rapport qualité/prix), 6 mois à 30€ (idéal pour la saison de football et sport en direct), ou 3 mois à 20€ (formule test sans engagement). Comparez ci-dessous les fonctionnalités incluses, le coût mensuel équivalent et commandez votre formule avec activation express en moins de 15 minutes.
           </p>
         </header>
 

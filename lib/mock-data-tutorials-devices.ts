@@ -377,9 +377,9 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
         id: "methode-emulateur",
         h2: "2. Méthode alternative : Émulateur Android sur PC (Bluestacks / WSA)",
         paragraphs: [
-          "Si vous tenez absolument à utiliser l'interface officielle de l'application [Atlas Pro ONTV](/telecharger) avec votre code à 12 chiffres :",
+          "Si vous tenez absolument à utiliser l'interface officielle de l'application [Atlas Pro Windows PC](/telecharger/windows) ou [Atlas Pro ONTV](/telecharger/atlas-pro-ontv) avec votre code à 12 chiffres :",
           "1. Téléchargez et installez l'émulateur gratuit **Bluestacks 5** (ou activez le sous-système Windows pour Android sur Windows 11).",
-          "2. Téléchargez le fichier APK d'Atlas Pro ONTV depuis notre page officielle.",
+          "2. Téléchargez le lecteur officiel depuis notre page [Atlas Pro Windows PC](/telecharger/windows).",
           "3. Glissez-déposez le fichier .apk dans la fenêtre de l'émulateur pour finaliser l'installation.",
         ],
       },
@@ -500,7 +500,7 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
         h2: "IPTV Smarters Pro : La polyvalence multi-écrans (PC, Mac, iOS)",
         paragraphs: [
           "Si vous souhaitez regarder vos chaînes et films VOD sur ordinateur portable ou tablette, **IPTV Smarters Pro** reste le lecteur le plus versatile du marché. Compatible Windows, macOS, Android et iOS, il permet de tester facilement vos accès avec vos identifiants URL / Utilisateur / Mot de passe Xtream Codes.",
-          "Retrouvez notre tutoriel pour [regarder Atlas Pro sur PC Windows et Mac](/tutoriels/regarder-atlas-pro-sur-pc-windows).",
+          "Retrouvez notre guide pour [installer Atlas Pro sur iPhone, iPad et Apple TV](/telecharger/ios) ou notre tutoriel pour [regarder Atlas Pro sur PC Windows et Mac](/tutoriels/regarder-atlas-pro-sur-pc-windows).",
         ],
       },
       {

@@ -119,7 +119,7 @@ export default function PlansTarifsPage(): React.JSX.Element {
                     href={`/plans-tarifs/${plan.slug}`}
                     className="flex h-11 w-full items-center justify-center gap-1.5 rounded-xl border border-primary bg-white px-4 text-xs font-bold text-primary hover:bg-primary/5 transition-colors"
                   >
-                    <span>Voir la fiche détaillée</span>
+                    <span>Détails de l&apos;offre {plan.title}</span>
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                   <Link
@@ -127,7 +127,7 @@ export default function PlansTarifsPage(): React.JSX.Element {
                     rel="nofollow"
                     className="flex h-10 w-full items-center justify-center rounded-xl bg-primary px-4 text-xs font-semibold text-white shadow-sm hover:bg-primary-hover transition-colors"
                   >
-                    Commander directement
+                    Commander {plan.title} ({plan.price}€)
                   </Link>
                 </div>
               </article>

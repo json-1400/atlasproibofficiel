@@ -339,7 +339,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "1. **Le filtrage et bridage DNS par votre FAI :** En France, Belgique et Suisse, les grands opérateurs télécoms appliquent des règles de filtrage automatisé sur leurs résolveurs DNS par défaut, ciblant les requêtes de streaming direct aux heures de forte consommation.",
           "2. **La saturation du cache mémoire de votre équipement :** À force d'accumuler les métadonnées des flux 4K et de la vidéothèque, le cache local de l'application [Atlas Pro ONTV](/tutoriels/installer-atlas-pro-sur-fire-stick) ou [IBO Player](/tutoriels/installer-atlas-pro-sur-tv-samsung) se corrompt et bloque les négociations TLS.",
           "3. **Une attribution d'adresse IP bloquée par le pare-feu :** Certaines box internet activent un niveau de sécurité strict qui rejette les flux de streaming UDP entrants nécessaires à la fluidité sans saccade.",
-          "4. **L'expiration de votre abonnement :** Si votre accès a dépassé sa date d'échéance, nos serveurs renvoient immédiatement un statut HTTP 401 ou 403. Consultez notre guide pour [renouveler un abonnement expiré](/tutoriels/atlas-pro-code-expire-comment-renouveler).",
+          "4. **L'expiration de votre abonnement :** Si votre accès a dépassé sa date d'échéance, nos serveurs renvoient immédiatement un statut HTTP 401 ou 403. Consultez notre guide pour [renouveler un abonnement expiré](/tutoriels/atlas-pro-code-expire-comment-renouveler) ou souscrivez un [abonnement officiel Atlas Pro 12 mois](/plans-tarifs/atlas-pro-12-mois).",
         ],
         table: {
           caption: "Matrice technique de diagnostic des erreurs de connexion Atlas Pro",
@@ -573,8 +573,8 @@ const BASE_TUTORIALS: Tutorial[] = [
       { id: "faq-samsung", title: "Questions fréquentes TV Samsung", level: 2 },
     ],
     body: [
-      "Vous venez de recevoir votre abonnement officiel Atlas Pro et vous souhaitez en profiter sur votre grand écran Smart TV Samsung ? Vous avez peut-être tenté de copier un fichier APK sur une clé USB sans succès. C'est tout à fait normal : Samsung utilise son propre système d'exploitation propriétaire nommé Tizen OS, incompatible avec le format APK Android.",
-      "Heureusement, il existe une solution simple, rapide et 100 % légale : installer un lecteur multimédia IPTV certifié depuis le magasin officiel Samsung Apps du Smart Hub, puis y injecter vos identifiants Atlas Pro Xtream Codes.",
+      "Vous venez de recevoir votre [abonnement officiel Atlas Pro 12 mois](/plans-tarifs/atlas-pro-12-mois) et vous souhaitez en profiter sur votre grand écran Smart TV Samsung ? Vous avez peut-être tenté de copier un fichier APK sur une clé USB sans succès. C'est tout à fait normal : Samsung utilise son propre système d'exploitation propriétaire nommé Tizen OS, incompatible avec le format APK Android.",
+      "Heureusement, il existe une solution simple, rapide et 100 % légale : installer un lecteur multimédia IPTV certifié depuis le magasin officiel Samsung Apps du Smart Hub, puis y injecter vos identifiants Atlas Pro Xtream Codes. Si vous possédez également un téléviseur LG, découvrez notre guide pour [installer Atlas Pro sur LG Smart TV](/tutoriels/installer-atlas-pro-sur-lg-smart-tv).",
     ],
     sections: [
       {
@@ -959,7 +959,7 @@ const BASE_TUTORIALS: Tutorial[] = [
     ],
     body: [
       "L'Amazon Fire TV Stick (modèles HD, 4K et 4K Max) est sans conteste le support de diffusion le plus populaire et le plus stable pour profiter du service Atlas Pro. Grâce à sa base Android (Fire OS) et à son puissant processeur graphique, il offre une réactivité exemplaire et un zapping quasi instantané.",
-      "L'installation d'Atlas Pro ONTV sur Fire Stick ne nécessite aucun matériel supplémentaire ni ordinateur : tout s'exécute directement depuis votre écran avec votre télécommande Amazon.",
+      "L'installation d'[Atlas Pro ONTV APK](/telecharger/atlas-pro-ontv) sur Fire Stick ne nécessite aucun matériel supplémentaire ni ordinateur : tout s'exécute directement depuis votre écran avec votre télécommande Amazon et un [code d'activation Atlas Pro 12 mois](/plans-tarifs/atlas-pro-12-mois).",
     ],
     sections: [
       {
@@ -1184,7 +1184,7 @@ const BASE_TUTORIALS: Tutorial[] = [
         id: "changer-code-renouvellement",
         h2: "Comment renouveler votre code sans réinstaller",
         paragraphs: [
-          "Lorsque vous renouvelez votre abonnement annuel, vous recevez un nouveau code d'accès. Vous n'avez pas besoin de supprimer l'application de votre télévision :",
+          "Lorsque vous effectuez votre [renouvellement d'abonnement Atlas Pro](/plans-tarifs/renouvellement) ou souscrivez un [abonnement officiel Atlas Pro 12 mois](/plans-tarifs/atlas-pro-12-mois), vous recevez un nouveau code d'accès. Vous n'avez pas besoin de supprimer l'application de votre télévision :",
           "1. Ouvrez Atlas Pro ONTV.",
           "2. Allez dans Paramètres (icône engrenage) > Compte.",
           "3. Cliquez sur 'Se déconnecter'.",

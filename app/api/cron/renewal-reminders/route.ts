@@ -3,6 +3,8 @@ import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { sendRenewalReminderEmail } from "@/lib/resend";
 import { getPlanBySlug } from "@/lib/mock-data";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest): Promise<NextResponse> {
   return handleRenewalCron(request);
 }

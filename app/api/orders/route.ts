@@ -7,6 +7,8 @@ import { calculateOrderPrice } from "@/lib/pricing";
 import { sendOrderConfirmationEmail } from "@/lib/resend";
 import { sendAdminNewOrderAlert } from "@/lib/admin-notifications";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     // 1. Rate Limiting by IP

@@ -5,6 +5,8 @@ import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { sendContactReceivedEmail } from "@/lib/resend";
 import { sendAdminNewTicketAlert } from "@/lib/admin-notifications";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     // 1. Rate Limiting by IP

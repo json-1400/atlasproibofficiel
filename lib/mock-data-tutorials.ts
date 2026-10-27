@@ -1409,6 +1409,179 @@ const BASE_TUTORIALS: Tutorial[] = [
       },
     ],
   },
+  {
+    id: "tut-liste-chaines",
+    slug: "liste-chaines-bouquet-atlas-pro",
+    title: "Liste des Chaînes Atlas Pro : Bouquets TV, VOD et 4K",
+    category: "account",
+    categoryLabel: "Abonnement & Activation Codes",
+    tags: ["Liste des chaînes", "Bouquet France", "Sport 4K", "VOD", "M3U"],
+    excerpt:
+      "Explorez le répertoire complet des chaînes Atlas Pro : direct TNT, bouquets sportifs en 4K/50fps, cinéma premium et catalogue de plus de 50 000 films et séries en VOD.",
+    readingTime: "7 min",
+    wordCount: 1400,
+    publishedAt: "2026-10-27",
+    updatedAt: "2026-10-27",
+    author: {
+      name: "Équipe Technique Atlas Pro",
+      role: "Architecte Réseau & Support IPTV",
+    },
+    mainImage: {
+      url: "/images/tutorials/installer-atlas-pro-tv-samsung/maxresdefault.jpg",
+      alt: "Interface de navigation dans la liste des chaînes et bouquets Atlas Pro ONTV",
+      caption: "L'application Atlas Pro classe vos chaînes par pays, catégorie et résolution vidéo.",
+      width: 1200,
+      height: 675,
+    },
+    directAnswer:
+      "La liste des chaînes Atlas Pro regroupe plus de 10 000 chaînes internationales en direct et 50 000 films et séries en VOD. Elle comprend l'intégralité du bouquet français (TNT, Canal+, beIN Sports, RMC Sport, DAZN, Eurosport en FHD et 4K 50 FPS) ainsi que les bouquets internationaux d'Europe, du Maghreb et d'Amérique. La playlist est mise à jour quotidiennement et accessible via l'application officielle Atlas Pro ONTV, par lien M3U ou via API Xtream Codes.",
+    keyTakeaways: [
+      "Plus de 10 000 chaînes directes avec flux de secours (Backups 1, 2 et 3) pour zéro écran noir.",
+      "Chaînes de sport diffusées en 50 images par seconde (50 FPS) et 4K UHD sans saccades.",
+      "Catalogue VOD de 50 000+ titres avec choix des langues audio et sous-titres français.",
+      "Guide électronique des programmes (EPG) interactif sur 7 jours et fonction Replay.",
+    ],
+    tableOfContents: [
+      { id: "composition-bouquets-atlas-pro", title: "Composition générale des bouquets", level: 2 },
+      { id: "bouquet-france-sport-cinema", title: "Bouquet France : TNT, Sport & Cinéma", level: 2 },
+      { id: "bouquets-internationaux", title: "Bouquets Internationaux & Étrangers", level: 2 },
+      { id: "catalogue-vod-series", title: "Catalogue Films & Séries VOD", level: 2 },
+      { id: "formats-acces-m3u-xtream", title: "Accès M3U, Xtream Codes et Application", level: 2 },
+      { id: "faq-liste-chaines", title: "Questions Fréquentes sur les Chaînes", level: 2 },
+    ],
+    body: [
+      "Avant de souscrire un abonnement [Atlas Pro 12 Mois](/plans-tarifs/atlas-pro-12-mois) ou pour découvrir toutes les options de votre offre active, découvrez la composition exhaustive de notre grille de diffusion 2026.",
+      "L'application officielle [Atlas Pro ONTV](/telecharger/atlas-pro-ontv) organise ce catalogue volumineux de manière intuitive avec un moteur de recherche instantané, des favoris personnalisables et un guide des programmes (EPG) mis à jour en temps réel.",
+    ],
+    sections: [
+      {
+        id: "composition-bouquets-atlas-pro",
+        h2: "1. Composition générale et caractéristiques des flux",
+        intro:
+          "Les serveurs Atlas Pro disposent de nœuds de distribution CDN haute disponibilité pour assurer une diffusion fluide en direct :",
+        table: {
+          headers: ["Catégorie de Bouquet", "Nombre de Canaux", "Résolution Vidéo", "Fréquence d'image", "Fonctionnalités incluses"],
+          rows: [
+            ["France Généraliste & TNT", "120+ chaînes", "FHD 1080p / 4K UHD", "50 FPS natif", "EPG 7j + Replay direct"],
+            ["France Sport & Événements", "85+ chaînes", "4K Ultra HD & FHD", "50 FPS fluide", "Multi-flux & Backups"],
+            ["France Cinéma & Séries", "60+ chaînes", "Full HD 1080p", "50 FPS", "Pistes VF et VOSTFR"],
+            ["Bouquets Internationaux", "9 000+ chaînes", "4K, FHD & HD", "25 / 50 FPS", "Classés par pays"],
+            ["VOD Films & Documentaires", "35 000+ titres", "4K UHD & 1080p", "24 / 60 FPS", "Multi-audio & Subtitles FR"],
+            ["VOD Séries TV complètes", "15 000+ saisons", "Full HD 1080p", "24 FPS", "Épisodes classés par saison"],
+          ],
+        },
+        callout: {
+          type: "tip",
+          title: "Flux sportifs en 50 FPS réels",
+          text: "Pour les événements à haute vitesse comme le football ou les sports mécaniques, nos flux diffusent en 50 images par seconde pour éliminer tout flou de mouvement sur grand écran.",
+        },
+      },
+      {
+        id: "bouquet-france-sport-cinema",
+        h2: "2. Bouquet France : TNT, Sport et Cinéma Premium",
+        paragraphs: [
+          "Le bouquet français est le cœur de l'offre Atlas Pro, conçu pour répondre aux attentes des téléspectateurs les plus exigeants :",
+          "- **Chaînes Nationales & TNT** : TF1 4K, France 2 4K, France 3 Régions, M6 4K, Arte, W9, TMC, et l'ensemble des canaux de la TNT en qualité Full HD sans compression.",
+          "- **Bouquet Sport Direct** : beIN Sports 1 à 10, Canal+ Sport, Canal+ Foot, Canal+ 360, RMC Sport 1 et 2, Eurosport 1 et 2, DAZN 1 et DAZN 2, Automoto, Equidia, chaînes événementielles PPV.",
+          "- **Cinéma & Séries** : Canal+ Grand Écran, Canal+ Box Office, Ciné+ Premier, Frisson, Émotion, Famiz, OCS, Paramount Channel, Action, Polar+.",
+          "- **Jeunesse & Découverte** : Disney Channel, Cartoon Network, Nickelodeon, National Geographic Wild, Discovery Channel, Planète+, Science & Vie TV.",
+        ],
+      },
+      {
+        id: "bouquets-internationaux",
+        h2: "3. Bouquets Internationaux et Mondiaux",
+        paragraphs: [
+          "Atlas Pro propose une couverture planétaire avec des flux dédiés pour chaque communauté :",
+          "- **Europe** : Belgique (RTBF, RTL TVI), Suisse (RTS 1 & 2), Espagne (Movistar+, LaLiga), Italie (Sky Italia, DAZN Italia), Portugal (Sport TV, Benfica TV), Royaume-Uni (Sky Sports, TNT Sports UK), Allemagne (Sky Sport DE).",
+          "- **Monde Arabe & Maghreb** : Bein Sports MENA (flux arabe & anglais 4K), MBC HD, OSN, Al Jazeera, chaînes nationales du Maroc (SNRT), d'Algérie (ENTV) et de Tunisie.",
+          "- **Amériques & Afrique** : États-Unis (ESPN, NBC Sports, HBO), Canada (TSN, TVA Sports, RDS), chaînes francophones d'Afrique subsaharienne (Canal+ Afrique, RTI, CRTV).",
+        ],
+      },
+      {
+        id: "catalogue-vod-series",
+        h2: "4. Catalogue Films et Séries VOD",
+        paragraphs: [
+          "Le catalogue à la demande (VOD) d'Atlas Pro est actualisé plusieurs fois par semaine avec les dernières sorties cinéma et séries télévisées :",
+          "- **Films Récents** : Ajout des nouveautés quelques semaines après leur sortie en salle, disponibles en 4K UHD avec son Dolby Digital 5.1.",
+          "- **Séries Télévisées** : Saisons complètes des plus grandes plateformes de streaming avec choix des langues audio (VF ou VO) et sous-titres synchronisés.",
+          "- **Documentaires & Spectacles** : Concerts, documentaires animaliers et scientifiques, spectacles d'humour en haute résolution.",
+        ],
+        callout: {
+          type: "info",
+          title: "Comment signaler un lien de chaîne ou film défaillant ?",
+          text: "Notre support technique surveille les flux en continu. Si un canal présente un souci temporaire, utilisez le serveur de backup ou [ouvrez un ticket d'assistance](/ouvrir-ticket) pour un traitement prioritaire.",
+        },
+      },
+      {
+        id: "formats-acces-m3u-xtream",
+        h2: "5. Formats de connexion : Application, M3U et Xtream Codes",
+        paragraphs: [
+          "Votre abonnement est utilisable sur une multitude d'équipements grâce aux formats universels pris en charge :",
+          "- **Application Officielle Atlas Pro ONTV** : La solution la plus conviviale. Saisissez simplement votre code d'activation à 12 chiffres pour charger la liste complète automatiquement.",
+          "- **Lien M3U avec options** : Permet de télécharger la playlist complète sur des lecteurs compatibles comme VLC, Kodi ou Perfect Player. Vous pouvez filtrer les bouquets pour alléger le chargement.",
+          "- **API Xtream Codes** : Renseignez le serveur URL, votre nom d'utilisateur et votre mot de passe sur des applications tierces telles qu'IBO Player, IPTV Smarters Pro ou TiviMate.",
+        ],
+      },
+    ],
+    steps: [
+      {
+        stepNumber: 1,
+        title: "Ouvrir l'application Atlas Pro",
+        instruction:
+          "Lancez Atlas Pro ONTV ou votre lecteur configuré sur votre téléviseur ou boîtier TV.",
+      },
+      {
+        stepNumber: 2,
+        title: "Sélectionner la catégorie TV en Direct",
+        instruction:
+          "Naviguez dans le menu principal et cliquez sur Live TV pour afficher la liste des pays et bouquets classés.",
+      },
+      {
+        stepNumber: 3,
+        title: "Utiliser la recherche rapide ou les favoris",
+        instruction:
+          "Tapez le nom de votre chaîne préférée dans la barre de recherche ou ajoutez-la à vos favoris avec la télécommande.",
+      },
+      {
+        stepNumber: 4,
+        title: "Consulter le guide EPG",
+        instruction:
+          "Appuyez sur la touche EPG ou Guide de votre télécommande pour visualiser le programme en cours et les horaires de la soirée.",
+      },
+    ],
+    showExpiredAlert: false,
+    relatedTutorialSlugs: [
+      "installer-atlas-pro-sur-freebox",
+      "installer-atlas-pro-sur-tv-samsung",
+      "resoudre-coupure-buffering-atlas-pro",
+      "retrouver-entrer-code-atlas-pro-ontv",
+    ],
+    seoTitle: "Liste des Chaînes Atlas Pro : Bouquets TV, VOD & 4K 2026",
+    seoDescription:
+      "Découvrez la liste complète des chaînes Atlas Pro : bouquets français en direct, sport 4K, cinéma, séries et VOD illimitée. Guide des catégories et M3U.",
+    faq: [
+      {
+        question: "Combien de chaînes compte la liste officielle Atlas Pro ?",
+        answer:
+          "La liste officielle comprend plus de 10 000 chaînes en direct et plus de 50 000 films et séries en VOD, couvrant les bouquets français, européens, arabes et internationaux.",
+      },
+      {
+        question: "Les chaînes de sport sont-elles diffusées en 50 FPS ?",
+        answer:
+          "Oui, la majorité des chaînes de sport françaises et européennes (beIN Sports, Canal+ Sport, RMC Sport, DAZN) sont encodées en 50 images par seconde (50 FPS) pour une fluidité parfaite sur grand écran.",
+      },
+      {
+        question: "Peut-on masquer ou filtrer les bouquets de chaînes superflus ?",
+        answer:
+          "Oui, depuis les paramètres de l'application Atlas Pro ONTV ou via votre lecteur Xtream Codes, vous pouvez masquer les catégories de pays que vous ne regardez pas pour simplifier votre zapping.",
+      },
+      {
+        question: "Comment obtenir l'URL de playlist M3U officielle ?",
+        answer:
+          "Votre lien M3U et vos identifiants Xtream Codes vous sont transmis automatiquement par e-mail immédiatement après la confirmation de votre commande sur notre boutique officielle.",
+      },
+    ],
+  },
 ];
 
 export const MOCK_TUTORIALS_EXTENDED: Tutorial[] = [

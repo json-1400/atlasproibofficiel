@@ -589,4 +589,169 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
       },
     ],
   },
+  {
+    id: "tut-freebox",
+    slug: "installer-atlas-pro-sur-freebox",
+    title: "Installer Atlas Pro sur Freebox : Guide Pop, Delta & Mini 4K",
+    category: "installation",
+    categoryLabel: "Installation & Configuration TV",
+    tags: ["Freebox Pop", "Freebox Mini 4K", "Freebox Delta", "Downloader", "Android TV"],
+    excerpt:
+      "Installez facilement Atlas Pro sur votre Freebox Pop, Delta ou Mini 4K. Procédure détaillée avec le Google Play Store, Downloader et vos codes d'activation.",
+    readingTime: "6 min",
+    wordCount: 1250,
+    publishedAt: "2026-10-27",
+    updatedAt: "2026-10-27",
+    author: AUTHOR,
+    mainImage: {
+      url: "/images/tutorials/installer-atlas-pro-fire-stick.webp",
+      alt: "Installation officielle d'Atlas Pro ONTV sur boîtier Freebox Pop et Mini 4K",
+      caption: "La Freebox Pop et la Freebox Mini 4K exécutent directement l'application officielle Atlas Pro.",
+      width: 1200,
+      height: 675,
+    },
+    directAnswer:
+      "Pour installer Atlas Pro sur Freebox : sur Freebox Pop ou Mini 4K (Android TV), ouvrez le Google Play Store et téléchargez Downloader, autorisez les sources inconnues, entrez le code officiel Atlas Pro ONTV (822648) puis renseignez votre code d'activation à 12 chiffres. Pour la Freebox Delta ou Révolution sans Android TV natif, utilisez une clé HDMI (Fire TV Stick ou Chromecast Google TV) ou diffusez le flux via Chromecast.",
+    keyTakeaways: [
+      "La Freebox Pop et la Freebox Mini 4K intègrent nativement le système Android TV certifié Google.",
+      "L'application officielle Atlas Pro ONTV s'installe en 2 minutes via Downloader (code 822648).",
+      "Pour Freebox Delta et Révolution, le branchement d'un dongle HDMI ou le cast sans fil est requis.",
+      "La modification des DNS sur Freebox OS permet d'éliminer tout bridage opérateur lors des matchs.",
+    ],
+    tableOfContents: [
+      { id: "compatibilite-modeles-freebox", title: "Compatibilité des boîtiers Freebox", level: 2 },
+      { id: "installation-freebox-pop-mini-4k", title: "Installation pas à pas sur Freebox Pop & Mini 4K", level: 2 },
+      { id: "solutions-freebox-delta-revolution", title: "Solutions pour Freebox Delta, Ultra & Révolution", level: 2 },
+      { id: "optimisation-dns-freebox", title: "Optimisation Réseau & DNS Freebox OS", level: 2 },
+      { id: "faq-freebox", title: "Questions Fréquentes Freebox", level: 2 },
+    ],
+    body: [
+      "Vous souhaitez profiter de votre abonnement [Atlas Pro 12 Mois](/plans-tarifs/atlas-pro-12-mois) directement sur votre téléviseur relié à une box internet Free ? Ce guide technique complet vous explique comment installer et configurer l'application officielle [Atlas Pro ONTV](/telecharger/atlas-pro-ontv) sur l'ensemble des décodeurs TV de l'opérateur Free.",
+      "Selon le modèle de votre boîtier TV Freebox (Player Pop, Mini 4K, Delta, Ultra ou Révolution), la méthode d'installation diffère sensiblement en raison du système d'exploitation embarqué.",
+    ],
+    sections: [
+      {
+        id: "compatibilite-modeles-freebox",
+        h2: "1. Compatibilité des décodeurs Freebox avec Atlas Pro",
+        intro:
+          "Tous les décodeurs Freebox ne fonctionnent pas sous le même système. Voici le tableau récapitulatif de compatibilité pour choisir la bonne méthode :",
+        table: {
+          headers: ["Modèle Player Freebox", "Système d'exploitation", "Compatibilité APK Officiel", "Méthode recommandée"],
+          rows: [
+            ["Freebox Pop (Player Pop)", "Android TV 9 / 10 / 11", "100 % Compatible", "Google Play Store + Downloader (code 822648)"],
+            ["Freebox Mini 4K", "Android TV", "100 % Compatible", "Google Play Store + Downloader ou Clé USB"],
+            ["Freebox Delta (Player Devialet)", "Freebox OS propriétaire", "Non compatible APK direct", "Clé HDMI (Fire Stick / Chromecast) ou AirPlay"],
+            ["Freebox Ultra (Player TV Free 4K)", "Android TV / Google TV", "100 % Compatible", "Play Store + Downloader officiel"],
+            ["Freebox Révolution", "Freebox OS propriétaire", "Non compatible APK direct", "Dongle HDMI externe ou Cast vidéo réseau"],
+          ],
+        },
+        callout: {
+          type: "tip",
+          title: "Vous possédez une Freebox Pop ou Mini 4K ?",
+          text: "Votre décodeur dispose d'un accès natif au Google Play Store. Vous pouvez installer directement l'APK certifié sans aucun matériel supplémentaire.",
+        },
+      },
+      {
+        id: "installation-freebox-pop-mini-4k",
+        h2: "2. Procédure d'installation sur Freebox Pop et Mini 4K",
+        paragraphs: [
+          "Suivez ces 4 étapes simples depuis votre téléviseur pour déployer l'application officielle :",
+          "1. **Installer l'utilitaire Downloader** : Depuis l'écran d'accueil Android TV de votre Freebox, ouvrez l'application **Google Play Store**. Dans la barre de recherche, tapez « Downloader by AFTVnews » et lancez l'installation gratuite.",
+          "2. **Autoriser les sources inconnues** : Rendez-vous dans les *Paramètres Freebox (icône engrenage) > Préférences relatives à l'appareil > Sécurité et restrictions > Sources inconnues*. Activez l'interrupteur en face de l'application Downloader.",
+          "3. **Télécharger l'APK Atlas Pro ONTV** : Ouvrez Downloader, autorisez l'accès aux fichiers, puis entrez le code de téléchargement officiel **822648** dans la barre URL. Appuyez sur **Go**. Le téléchargement de la version optimisée Android TV démarre automatiquement.",
+          "4. **Installer et Activer** : Cliquez sur **Installer**. Une fois le déploiement terminé, ouvrez Atlas Pro ONTV et saisissez votre code d'activation à 12 chiffres fourni lors de votre commande.",
+        ],
+        callout: {
+          type: "info",
+          title: "Codes de téléchargement rapide Downloader",
+          text: "Pour Atlas Pro ONTV V4 : entrez le code **822648**. Pour la variante Atlas Pro Max : utilisez le code **134444**.",
+        },
+      },
+      {
+        id: "solutions-freebox-delta-revolution",
+        h2: "3. Comment regarder Atlas Pro sur Freebox Delta et Révolution ?",
+        paragraphs: [
+          "Les décodeurs Player Devialet (Freebox Delta) et Player Révolution n'utilisent pas Android TV, mais un environnement fermé conçu par Free ne permettant pas l'installation d'APK tiers.",
+          "Pour profiter de vos chaînes et VOD sur ces équipements, deux solutions officielles existent :",
+          "- **Brancher un dongle HDMI externe** : Branchez une clé [Fire TV Stick](/tutoriels/installer-atlas-pro-sur-fire-stick) ou un [Chromecast avec Google TV](/tutoriels/installer-atlas-pro-sur-android-tv) sur l'un des ports HDMI libres de votre téléviseur. Vous bénéficiez ainsi d'une expérience 4K ultra-fluide avec télécommande dédiée.",
+          "- **Diffusion sans fil (Casting / AirPlay)** : Lancez vos flux depuis l'application Atlas Pro sur votre smartphone ou tablette, puis cliquez sur l'icône de diffusion (AirPlay sur Player Devialet ou Chromecast) pour projeter l'image sur l'écran du salon.",
+        ],
+      },
+      {
+        id: "optimisation-dns-freebox",
+        h2: "4. Réglage DNS sur Freebox OS pour éviter les coupures",
+        paragraphs: [
+          "Lors des retransmissions sportives majeures (Ligue des Champions, Classico, F1), certains Fournisseurs d'Accès Internet peuvent appliquer un filtrage ou un bridage temporaire sur les serveurs de streaming.",
+          "Pour garantir une fluidité totale sans aucun buffering, il est vivement conseillé de remplacer les DNS par défaut de votre Freebox par des serveurs ultra-rapides et non filtrés :",
+          "1. Ouvrez un navigateur web sur votre ordinateur ou smartphone et connectez-vous à l'interface `http://mafreebox.freebox.fr`.",
+          "2. Rendez-vous dans **Paramètres de la Freebox** > **Mode avancé** > **Réseau local** > **Serveur DHCP**.",
+          "3. Remplacez le DNS 1 par `1.1.1.1` (Cloudflare) et le DNS 2 par `8.8.8.8` (Google DNS).",
+          "4. Sauvegardez puis redémarrez votre Freebox Server et votre Player Pop.",
+        ],
+        callout: {
+          type: "tip",
+          title: "Fluidité 4K garantie",
+          text: "Pour aller plus loin dans la résolution des ralentissements, consultez notre [guide complet de résolution du buffering](/tutoriels/resoudre-coupure-buffering-atlas-pro).",
+        },
+      },
+    ],
+    steps: [
+      {
+        stepNumber: 1,
+        title: "Installer Downloader sur la Freebox",
+        instruction:
+          "Depuis le Google Play Store de votre Freebox Pop ou Mini 4K, recherchez et installez l'application officielle gratuite Downloader.",
+      },
+      {
+        stepNumber: 2,
+        title: "Autoriser l'installation d'applications",
+        instruction:
+          "Dans Paramètres > Sécurité et restrictions > Sources inconnues, activez l'autorisation pour l'application Downloader.",
+      },
+      {
+        stepNumber: 3,
+        title: "Télécharger l'APK Atlas Pro",
+        instruction:
+          "Lancez Downloader, tapez le code officiel 822648 dans le champ de saisie et validez en cliquant sur Go.",
+      },
+      {
+        stepNumber: 4,
+        title: "Activer votre abonnement",
+        instruction:
+          "Ouvrez l'application Atlas Pro ONTV et renseignez votre code d'accès à 12 chiffres pour charger instantanément les chaînes.",
+      },
+    ],
+    showExpiredAlert: false,
+    relatedTutorialSlugs: [
+      "installer-atlas-pro-sur-android-tv",
+      "installer-atlas-pro-sur-fire-stick",
+      "resoudre-coupure-buffering-atlas-pro",
+      "retrouver-entrer-code-atlas-pro-ontv",
+    ],
+    seoTitle: "Installer Atlas Pro sur Freebox : Pop, Delta et Mini 4K",
+    seoDescription:
+      "Guide pas à pas pour installer Atlas Pro sur Freebox Pop, Delta et Mini 4K. Téléchargez l'application officielle via Google Play Store ou Downloader.",
+    faq: [
+      {
+        question: "L'application Atlas Pro fonctionne-t-elle sur la Freebox Pop ?",
+        answer:
+          "Oui, la Freebox Pop fonctionne sous Android TV certifié par Google. Vous pouvez installer directement l'APK officiel Atlas Pro ONTV via l'application Downloader en utilisant le code 822648.",
+      },
+      {
+        question: "Peut-on installer Atlas Pro sur une Freebox Révolution ou Delta ?",
+        answer:
+          "Ces décodeurs n'utilisent pas Android TV et ne peuvent pas installer d'APK. La solution recommandée est de brancher une clé Fire TV Stick ou Chromecast Google TV en HDMI sur votre téléviseur.",
+      },
+      {
+        question: "Faut-il modifier les DNS Freebox pour regarder le streaming sans coupure ?",
+        answer:
+          "Oui, configurer les DNS 1.1.1.1 de Cloudflare sur Freebox OS permet d'éviter tout bridage ou ralentissement aux heures de grande affluence lors des événements sportifs en direct.",
+      },
+      {
+        question: "Quel code Downloader utiliser pour la Freebox ?",
+        answer:
+          "Le code Downloader officiel pour Atlas Pro ONTV V4 est 822648. Pour la déclinaison Atlas Pro Max, utilisez le code 134444.",
+      },
+    ],
+  },
 ];

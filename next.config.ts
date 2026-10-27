@@ -64,6 +64,16 @@ const nextConfig: NextConfig = {
         destination: "/politique-de-confidentialite",
         permanent: true,
       },
+      {
+        source: "/tutoriels/code-atlas-pro-expire-renouveler-abonnement",
+        destination: "/tutoriels/atlas-pro-code-expire-comment-renouveler",
+        permanent: true,
+      },
+      {
+        source: "/tutoriels/regarder-atlas-pro-sur-pc-windows-mac",
+        destination: "/tutoriels/regarder-atlas-pro-sur-pc-windows",
+        permanent: true,
+      },
     ];
   },
 };

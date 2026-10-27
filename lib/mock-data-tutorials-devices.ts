@@ -500,7 +500,7 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
         h2: "IPTV Smarters Pro : La polyvalence multi-écrans (PC, Mac, iOS)",
         paragraphs: [
           "Si vous souhaitez regarder vos chaînes et films VOD sur ordinateur portable ou tablette, **IPTV Smarters Pro** reste le lecteur le plus versatile du marché. Compatible Windows, macOS, Android et iOS, il permet de tester facilement vos accès avec vos identifiants URL / Utilisateur / Mot de passe Xtream Codes.",
-          "Retrouvez notre tutoriel pour [regarder Atlas Pro sur PC Windows et Mac](/tutoriels/regarder-atlas-pro-sur-pc-windows-mac).",
+          "Retrouvez notre tutoriel pour [regarder Atlas Pro sur PC Windows et Mac](/tutoriels/regarder-atlas-pro-sur-pc-windows).",
         ],
       },
       {

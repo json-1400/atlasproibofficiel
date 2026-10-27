@@ -339,7 +339,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "1. **Le filtrage et bridage DNS par votre FAI :** En France, Belgique et Suisse, les grands opérateurs télécoms appliquent des règles de filtrage automatisé sur leurs résolveurs DNS par défaut, ciblant les requêtes de streaming direct aux heures de forte consommation.",
           "2. **La saturation du cache mémoire de votre équipement :** À force d'accumuler les métadonnées des flux 4K et de la vidéothèque, le cache local de l'application [Atlas Pro ONTV](/tutoriels/installer-atlas-pro-sur-fire-stick) ou [IBO Player](/tutoriels/installer-atlas-pro-sur-tv-samsung) se corrompt et bloque les négociations TLS.",
           "3. **Une attribution d'adresse IP bloquée par le pare-feu :** Certaines box internet activent un niveau de sécurité strict qui rejette les flux de streaming UDP entrants nécessaires à la fluidité sans saccade.",
-          "4. **L'expiration de votre abonnement :** Si votre accès a dépassé sa date d'échéance, nos serveurs renvoient immédiatement un statut HTTP 401 ou 403. Consultez notre guide pour [renouveler un abonnement expiré](/tutoriels/code-atlas-pro-expire-renouveler-abonnement).",
+          "4. **L'expiration de votre abonnement :** Si votre accès a dépassé sa date d'échéance, nos serveurs renvoient immédiatement un statut HTTP 401 ou 403. Consultez notre guide pour [renouveler un abonnement expiré](/tutoriels/atlas-pro-code-expire-comment-renouveler).",
         ],
         table: {
           caption: "Matrice technique de diagnostic des erreurs de connexion Atlas Pro",

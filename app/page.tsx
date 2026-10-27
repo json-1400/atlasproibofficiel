@@ -23,9 +23,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Atlas Pro 2026 Officiel | IPTV 4K France | Atlasproibofficiel",
+    title: "Atlas Pro Officiel : Abonnement IPTV 4K & Téléchargement",
     description:
-      "Fournisseur officiel Atlas Pro en France. Abonnement IPTV 4K stable sans coupure, codes d'activation express en 15 min et téléchargement direct des applications officielles (ONTV, Max 7).",
+      "Fournisseur officiel Atlas Pro IPTV 4K en France sans coupure. Codes d'activation reçus en 15 min et téléchargement direct des APK officiels ONTV & Max 7.",
     path: "/",
   });
 }

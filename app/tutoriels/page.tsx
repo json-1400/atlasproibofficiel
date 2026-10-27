@@ -13,9 +13,9 @@ import { buildOrganizationSchema, buildBreadcrumbSchema } from "@/lib/schema";
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Comment Installer Atlas Pro sur la TV | Tutoriels & Guides Officiels",
+    title: "Tutoriels & Guides Atlas Pro : Installation & Dépannage TV",
     description:
-      "Guides d'installation Atlas Pro sur Smart TV Samsung, LG, Fire Stick, Xiaomi TV Box et Android. Résolvez les erreurs serveur et problèmes de connexion en 5 minutes.",
+      "Guides pas à pas Atlas Pro sur Smart TV Samsung, LG, Fire Stick et boîtier Android. Résolvez les erreurs de connexion et serveur en 5 minutes.",
     path: "/tutoriels",
   });
 }

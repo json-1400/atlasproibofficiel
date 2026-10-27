@@ -141,9 +141,9 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
       "atlas-pro-code-expire-comment-renouveler",
       "atlas-pro-ne-peut-pas-se-connecter-au-serveur",
     ],
-    seoTitle: "Code Atlas Pro Invalide : 6 Solutions Rapides | Guide Officiel",
+    seoTitle: "Code Atlas Pro Invalide : 6 Solutions Rapides | Guide",
     seoDescription:
-      "Message « Code invalide » sur Atlas Pro ONTV ? Saisie, version de l'application, date de l'appareil, abonnement : 6 solutions pas à pas pour réactiver votre accès.",
+      "Message « Code invalide » sur Atlas Pro ONTV ? Saisie, version APK, date de l'appareil et abonnement : 6 solutions pas à pas pour réactiver votre accès.",
     faq: [
       {
         question: "Pourquoi mon code Atlas Pro tout neuf est-il refusé ?",
@@ -279,7 +279,7 @@ export const TROUBLESHOOTING_TUTORIALS: Tutorial[] = [
     ],
     seoTitle: "Code Atlas Pro Expiré : Renouveler Sans Réinstaller | Guide",
     seoDescription:
-      "Code Atlas Pro expiré ou plus de chaînes ? Reconnaissez l'expiration et renouvelez votre accès en 15 minutes sans réinstaller l'application, favoris conservés.",
+      "Code Atlas Pro expiré ? Reconnaissez l'expiration et renouvelez votre accès en 15 minutes sans réinstaller l'application, favoris conservés.",
     faq: [
       {
         question: "Perd-on ses favoris après un renouvellement ?",

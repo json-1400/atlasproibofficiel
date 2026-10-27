@@ -136,8 +136,8 @@ export const TUTORIAL_CATEGORIES: TutorialCategory[] = [
     name: "Installation & Configuration TV",
     description: "Guides pas à pas pour Smart TV Samsung, LG webOS, Fire Stick et boîtiers Android",
     h1: "Tutoriels d'Installation Atlas Pro sur Smart TV & Boîtiers",
-    seoTitle: "Comment Installer Atlas Pro sur TV | Guides d'Installation Officiels",
-    seoDescription: "Tous les guides pas à pas pour installer et configurer Atlas Pro sur Samsung Smart TV, LG webOS, Fire Stick 4K et boîtiers Android TV. Configuration en 5 minutes.",
+    seoTitle: "Comment Installer Atlas Pro sur TV | Guides Officiels",
+    seoDescription: "Guides pas à pas pour installer et configurer Atlas Pro sur Samsung Smart TV, LG webOS, Fire Stick 4K et boîtiers Android TV. Configuration en 5 minutes.",
     fullIntro: "Vous venez de souscrire à votre abonnement Atlas Pro et vous souhaitez en profiter sur votre grand écran ? Cette catégorie regroupe tous nos manuels détaillés pour installer l'application officielle Atlas Pro ONTV ou un lecteur certifié (IBO Player, Smart IPTV) selon la marque de votre équipement.",
     directAnswer: "Pour installer Atlas Pro sur un téléviseur : utilisez l'application Downloader (code officiel 822648) sur Fire Stick et Android TV, ou téléchargez IBO Player depuis le store officiel Samsung Smart Hub ou LG Content Store. L'activation prend moins de 5 minutes avec vos identifiants Xtream Codes ou code à 12 chiffres.",
     keyTakeaways: [
@@ -509,7 +509,7 @@ const BASE_TUTORIALS: Tutorial[] = [
     ],
     seoTitle: "Atlas Pro Ne Peut Pas Se Connecter au Serveur : 5 Solutions",
     seoDescription:
-      "Erreur Atlas Pro ne peut pas se connecter au serveur ? Découvrez nos 5 solutions vérifiées pour Smart TV, Fire Stick et Android TV. DNS Cloudflare et dépannage rapide.",
+      "Atlas Pro ne peut pas se connecter au serveur ? 5 solutions vérifiées pour Smart TV, Fire Stick et boîtier Android. Résolvez le blocage en 5 minutes.",
     faq: [
       {
         question: "Pourquoi mon application Atlas Pro indique 'Échec de connexion au serveur' uniquement le soir ?",
@@ -725,7 +725,7 @@ const BASE_TUTORIALS: Tutorial[] = [
       "atlas-pro-ne-peut-pas-se-connecter-au-serveur",
       "alternatives-atlas-pro-tv-non-compatible-ibo-player-smarters-tivimate",
     ],
-    seoTitle: "Installer Atlas Pro sur TV Samsung | Guide IBO Player & IPTV",
+    seoTitle: "Installer Atlas Pro sur TV Samsung | Guide IBO Player",
     seoDescription:
       "Comment installer Atlas Pro sur TV Samsung Tizen ? Guide officiel avec IBO Player ou Smart IPTV. Connexion Xtream Codes sans clé USB en 5 minutes chrono.",
     faq: [
@@ -901,7 +901,7 @@ const BASE_TUTORIALS: Tutorial[] = [
       "resoudre-coupure-buffering-atlas-pro",
       "alternatives-atlas-pro-tv-non-compatible-ibo-player-smarters-tivimate",
     ],
-    seoTitle: "Installer Atlas Pro sur LG Smart TV | Guide webOS & IBO Player",
+    seoTitle: "Installer Atlas Pro sur LG Smart TV | Guide webOS",
     seoDescription:
       "Comment installer Atlas Pro sur Smart TV LG webOS ? Téléchargez IBO Player ou IPTV Smarters sur le LG Content Store et connectez vos accès 4K en 5 minutes.",
     faq: [
@@ -1079,7 +1079,7 @@ const BASE_TUTORIALS: Tutorial[] = [
       "resoudre-coupure-buffering-atlas-pro",
       "atlas-pro-ne-peut-pas-se-connecter-au-serveur",
     ],
-    seoTitle: "Installer Atlas Pro sur Fire Stick | Code Downloader Officiel",
+    seoTitle: "Installer Atlas Pro sur Fire Stick | Code Downloader",
     seoDescription:
       "Comment installer Atlas Pro sur Amazon Fire Stick avec Downloader ? Code officiel, options développeurs (7 clics) et configuration rapide en 5 minutes.",
     faq: [
@@ -1238,7 +1238,7 @@ const BASE_TUTORIALS: Tutorial[] = [
     ],
     seoTitle: "Retrouver & Entrer le Code Atlas Pro ONTV | Guide Officiel",
     seoDescription:
-      "Comment retrouver son code Atlas Pro perdu, comment l'entrer sur sa TV et le renouveler sans réinstaller ? Guide officiel complet pour activer votre abonnement.",
+      "Retrouver son code Atlas Pro perdu, l'entrer sur sa TV et le renouveler sans réinstaller : guide officiel pas à pas pour activer votre abonnement 4K.",
     faq: [
       {
         question: "Que faire si j'ai perdu mon code et supprimé mes e-mails ?",

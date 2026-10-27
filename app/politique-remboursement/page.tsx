@@ -9,9 +9,9 @@ import { buildOrganizationSchema, buildWebSiteSchema, buildBreadcrumbSchema } fr
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Politique de Remboursement | Garantie Satisfait ou Remboursé Atlas Pro",
+    title: "Garantie Remboursement 7 Jours | Atlas Pro Officiel",
     description:
-      "Découvrez les conditions de notre garantie satisfait ou remboursé sous 7 jours. Procédure simple, transparente et traitement rapide de votre demande sur Atlas Pro ONTV Officiel.",
+      "Conditions de notre garantie satisfait ou remboursé sous 7 jours. Procédure simple et traitement rapide de votre demande sur Atlas Pro Officiel.",
     path: "/politique-remboursement",
   });
 }

@@ -15,9 +15,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Comparatif Plans & Tarifs Atlas Pro : Choisir Votre Abonnement IPTV",
+    title: "Plans & Tarifs Atlas Pro Officiel : Abonnements IPTV 4K",
     description:
-      "Comparez les formules et tarifs officiels Atlas Pro IPTV en France : 12 mois à 40€, 6 mois à 30€ et 3 mois à 20€. Tableau comparatif pour bien choisir votre abonnement.",
+      "Comparez les formules officielles Atlas Pro IPTV : 12 mois à 40€, 6 mois à 30€ et multi-écrans. Qualité 4K stable sans coupure, livraison express en 15 min.",
     path: "/plans-tarifs",
   });
 }

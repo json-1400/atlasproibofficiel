@@ -9,7 +9,7 @@ import { buildOrganizationSchema, buildWebSiteSchema, buildBreadcrumbSchema } fr
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Politique de Confidentialité & RGPD | Atlas Pro ONTV Officiel",
+    title: "Politique de Confidentialité & RGPD | Atlas Pro",
     description:
       "Engagement de confidentialité et protection de vos données personnelles conformément au RGPD sur Atlas Pro ONTV Officiel.",
     path: "/politique-de-confidentialite",

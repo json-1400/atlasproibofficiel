@@ -17,7 +17,7 @@ export function generateMetadata(): Metadata {
   return buildMetadata({
     title: "Atlas Pro APK : Télécharger l'Application Officielle 2026",
     description:
-      "Télécharger l'APK officiel Atlas Pro (Atlas Pro ONTV, Max 7, 9X) pour Fire TV Stick, Android TV et smartphone. Codes Downloader certifiés et guide d'installation 2026.",
+      "Télécharger l'APK officiel Atlas Pro (ONTV, Max 7, 9X) pour Fire TV Stick, Smart TV et Android. Codes Downloader certifiés et guides d'installation 2026.",
     path: "/telecharger",
   });
 }

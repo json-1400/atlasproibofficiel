@@ -128,9 +128,9 @@ export const MOCK_PLANS: Plan[] = [
       "Assistance technique 7j/7",
     ],
     ctaLabel: "Acheter 6 Mois (30€)",
-    seoTitle: "Acheter Abonnement Atlas Pro 6 Mois : Commander en Ligne (30€)",
+    seoTitle: "Abonnement Atlas Pro 6 Mois (30€) | IPTV 4K Stable",
     seoDescription:
-      "Commandez votre abonnement IPTV Atlas Pro 6 mois officiel pour 30€. Idéal pour la saison de football et le sport en 4K. Activation immédiate en 15 min.",
+      "Commandez votre abonnement IPTV Atlas Pro 6 mois officiel pour 30€. Idéal pour le sport et le direct en 4K. Activation immédiate par e-mail en 15 min.",
     faq: [
       {
         question: "À qui s'adresse principalement l'abonnement Atlas Pro 6 mois ?",
@@ -166,9 +166,9 @@ export const MOCK_PLANS: Plan[] = [
       "Support d'installation et configuration inclus",
     ],
     ctaLabel: "Acheter 3 Mois (20€)",
-    seoTitle: "Acheter Forfait Atlas Pro 3 Mois : Test & Commande Immédiate (20€)",
+    seoTitle: "Forfait Atlas Pro 3 Mois (20€) | Test IPTV 4K",
     seoDescription:
-      "Commandez votre forfait test 3 mois Atlas Pro IPTV pour 20€. Évaluez la qualité de notre flux 4K stable sans engagement. Réception de vos codes en 15 minutes.",
+      "Commandez votre forfait test 3 mois Atlas Pro IPTV pour 20€. Testez la qualité de notre flux 4K stable sans engagement. Réception des codes en 15 minutes.",
     faq: [
       {
         question: "Pourquoi choisir la formule découverte 3 mois ?",
@@ -207,7 +207,7 @@ export const MOCK_PLANS: Plan[] = [
       "Support technique prioritaire 7j/7",
     ],
     ctaLabel: "Commander 2 Écrans (60€)",
-    seoTitle: "Abonnement IPTV Atlas 2 Écrans Simultanés | Atlas Pro ONTV Officiel",
+    seoTitle: "Abonnement Atlas Pro 2 Écrans (60€) | Multi-TV 4K",
     seoDescription:
       "Abonnement Atlas Pro 2 écrans simultanés (12 mois pour 60€). Regardez vos programmes en même temps sur 2 téléviseurs ou appareils en 4K sans coupure.",
     faq: [
@@ -243,7 +243,7 @@ export const MOCK_PLANS: Plan[] = [
       "Assistance dédiée WhatsApp 7j/7",
     ],
     ctaLabel: "Commander 3 Écrans (80€)",
-    seoTitle: "Abonnement IPTV Atlas 3 Écrans Simultanés | Atlas Pro ONTV Officiel",
+    seoTitle: "Abonnement Atlas Pro 3 Écrans (80€) | Multi-TV 4K",
     seoDescription:
       "Abonnement Atlas Pro 3 écrans simultanés (12 mois à 80€). 3 flux 4K actifs en même temps pour toute la famille. Activation rapide et garantie anti-freeze.",
     faq: [
@@ -274,7 +274,7 @@ export const MOCK_PLANS: Plan[] = [
       "Support VIP dédié 7j/7",
     ],
     ctaLabel: "Commander 4 Écrans (100€)",
-    seoTitle: "Abonnement IPTV Atlas 4 Écrans Simultanés | Atlas Pro ONTV Officiel",
+    seoTitle: "Abonnement Atlas Pro 4 Écrans (100€) | Multi-TV 4K",
     seoDescription:
       "Abonnement Atlas Pro 4 écrans simultanés Pack Famille (12 mois pour 100€). 4 postes actifs en direct 4K. Idéal grands foyers au meilleur tarif unitaire.",
     faq: [
@@ -626,9 +626,9 @@ export const MOCK_APP_PAGES: AppPage[] = [
       },
     ],
     relatedTutorialSlugs: ["atlas-pro-ne-peut-pas-se-connecter-au-serveur", "retrouver-entrer-code-atlas-pro-ontv"],
-    seoTitle: "Atlas Pro Windows PC | Télécharger le lecteur IPTV Officiel",
+    seoTitle: "Atlas Pro Windows PC | Télécharger le lecteur IPTV",
     seoDescription:
-      "Installez Atlas Pro sur votre ordinateur Windows 10 et 11. Lecteur haute performance avec zapping ultra-rapide.",
+      "Installez le lecteur officiel Atlas Pro sur votre PC Windows 10 et 11. Profitez d'une diffusion 4K fluide avec zapping instantané et 0 coupure.",
     directAnswer:
       "Pour installer Atlas Pro sur un ordinateur Windows 10 ou Windows 11 (64-bit) : téléchargez l'exécutable officiel atlas-pro-windows-setup.exe, lancez l'installation guidée en 3 clics, puis saisissez votre code d'activation à 12 chiffres ou vos accès Xtream Codes. Le lecteur prend en charge l'accélération matérielle DirectX pour un affichage 4K 60fps sans solliciter le processeur.",
     keyTakeaways: [
@@ -672,9 +672,9 @@ export const MOCK_APP_PAGES: AppPage[] = [
       },
     ],
     relatedTutorialSlugs: ["retrouver-entrer-code-atlas-pro-ontv", "resoudre-coupure-buffering-atlas-pro"],
-    seoTitle: "Comment Regarder Atlas Pro sur iPhone, iPad & Apple TV | Guide App Store",
+    seoTitle: "Atlas Pro sur iPhone, iPad & Apple TV | Guide iOS",
     seoDescription:
-      "Comment faire tourner le service Atlas Pro sur iPhone, iPad et Apple TV ? Les appareils Apple n'étant pas compatibles APK, découvrez les lecteurs certifiés App Store et la configuration Xtream Codes.",
+      "Guide complet pour configurer Atlas Pro sur iPhone, iPad et Apple TV via les lecteurs certifiés App Store (IPTV Smarters, IBO Player, UHF).",
     directAnswer:
       "Pour utiliser votre abonnement Atlas Pro sur iPhone, iPad ou Apple TV : téléchargez un lecteur IPTV homologué sur l'App Store officiel d'Apple (comme IPTV Smarters Player Lite, UHF IPTV ou IBO Player). Ouvrez l'application, sélectionnez 'Connexion via API Xtream Codes' et renseignez vos identifiants Atlas Pro (URL serveur, nom d'utilisateur et mot de passe reçus par e-mail).",
     keyTakeaways: [

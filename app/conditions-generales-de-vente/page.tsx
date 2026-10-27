@@ -9,7 +9,7 @@ import { buildOrganizationSchema, buildWebSiteSchema, buildBreadcrumbSchema } fr
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Conditions Générales de Vente (CGV) | Atlas Pro ONTV Officiel",
+    title: "Conditions Générales de Vente (CGV) | Atlas Pro",
     description:
       "Conditions Générales de Vente des abonnements et licences Atlas Pro ONTV Officiel. Tarifs, livraison express sous 15 min et garanties.",
     path: "/conditions-generales-de-vente",

@@ -573,9 +573,9 @@ export const DEVICE_TUTORIALS: Tutorial[] = [
       "installer-atlas-pro-sur-box-android",
       "regarder-atlas-pro-sur-pc-windows",
     ],
-    seoTitle: "Alternatives Atlas Pro pour TV Non Compatible : IBO, Smarters",
+    seoTitle: "Alternatives Atlas Pro TV Non Compatible : IBO & Smarters",
     seoDescription:
-      "TV Samsung ou LG incompatible avec Atlas Pro ? Comparez IBO Player, IPTV Smarters et TiviMate pour utiliser votre service avec vos identifiants Xtream Codes.",
+      "TV Samsung ou LG non compatible avec l'APK Atlas Pro ? Comparez IBO Player, IPTV Smarters et TiviMate pour configurer vos accès Xtream Codes en 5 minutes.",
     faq: [
       {
         question: "Pourquoi Atlas Pro ne s'installe-t-il pas sur ma TV Samsung ou LG ?",

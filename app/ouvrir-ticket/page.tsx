@@ -19,9 +19,9 @@ export const dynamic = "force-dynamic";
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Ouvrir un Ticket Support Atlas Pro | Assistance & Dépannage 7j/7",
+    title: "Support & Ticket Atlas Pro : Assistance et Dépannage 7j/7",
     description:
-      "Besoin d'aide ? Ouvrez un ticket support Atlas Pro officiel. Assistance technique, dépannage de votre application IPTV et activation en moins de 2h ouvrées.",
+      "Besoin d'aide ? Ouvrez un ticket support Atlas Pro officiel. Assistance technique 7j/7, dépannage de votre application IPTV et activation en moins de 2h.",
     path: "/ouvrir-ticket",
   });
 }

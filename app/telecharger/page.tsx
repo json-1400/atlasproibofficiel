@@ -15,9 +15,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Atlas Pro APK : Télécharger l'Application Officielle 2026",
+    title: "Télécharger Atlas Pro APK : Toutes les Applications (2026)",
     description:
-      "Télécharger l'APK officiel Atlas Pro (ONTV, Max 7, 9X) pour Fire TV Stick, Smart TV et Android. Codes Downloader certifiés et guides d'installation 2026.",
+      "Téléchargez Atlas Pro APK : ONTV, Max, 9X, IBO, iOS et Windows. Choisissez la version adaptée à votre appareil et installez-la en quelques minutes.",
     path: "/telecharger",
   });
 }
@@ -88,7 +88,7 @@ export default function TelechargerPage(): React.JSX.Element {
 
         <header className="text-center space-y-4 max-w-3xl mx-auto">
           <h1 className="text-3xl font-extrabold sm:text-4xl text-heading">
-            Télécharger Atlas Pro APK : <span className="text-primary">Applications Officielles & Compatibles</span>
+            Télécharger Atlas Pro APK : <span className="text-primary">ONTV, Max, 9X, IBO, iOS et Windows</span>
           </h1>
           <p className="text-sm sm:text-base text-body">
             Téléchargez l&apos;application <strong>Atlas Pro APK</strong> officielle adaptée à votre appareil pour profiter de vos flux IPTV en 4K UHD. Installez <strong>Atlas Pro ONTV</strong>, <strong>Atlas Pro Max 7</strong> ou <strong>Atlas Pro 9X</strong> directement sur votre Fire TV Stick et box Android via nos codes certifiés Downloader, ou configurez vos lecteurs compatibles (<strong>IBO Player, Smart IPTV, TiviMate</strong>) sur Samsung Tizen, LG webOS et Apple TV.

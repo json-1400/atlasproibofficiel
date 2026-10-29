@@ -60,6 +60,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/tutoriels/categorie/abonnement-activation-codes",
+        destination: "/tutoriels/retrouver-entrer-code-atlas-pro-ontv",
+        permanent: true,
+      },
+      {
         source: "/mentions-legales",
         destination: "/politique-de-confidentialite",
         permanent: true,

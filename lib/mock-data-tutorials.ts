@@ -69,7 +69,7 @@ export interface Tutorial {
   id: string;
   slug: string;
   title: string;
-  category: "installation" | "troubleshooting" | "optimization" | "account" | "comparisons";
+  category: "installation" | "troubleshooting" | "optimization" | "comparisons";
   categoryLabel: string;
   tags: string[];
   excerpt: string;
@@ -211,29 +211,6 @@ export const TUTORIAL_CATEGORIES: TutorialCategory[] = [
       {
         question: "Pourquoi augmenter le buffer supprime-t-il les saccades ?",
         answer: "Le buffer pré-charge quelques secondes de flux à l'avance. Si votre connexion subit une micro-perte de 200 ms, la vidéo continue de tourner sur la mémoire tampon sans aucun freeze."
-      }
-    ]
-  },
-  {
-    id: "account",
-    slug: "abonnement-activation-codes",
-    name: "Abonnement & Activation",
-    description: "Retrouver son code, renouveler son abonnement et configurer le multi-écrans",
-    h1: "Abonnement, Codes & Activation Atlas Pro : Guides du Compte",
-    seoTitle: "Activer & Renouveler son Code Atlas Pro | Guide Officiel",
-    seoDescription: "Comment retrouver un code perdu, entrer ses identifiants à 12 chiffres, configurer les identifiants Xtream Codes API et renouveler sans réinstaller.",
-    fullIntro: "Tout ce qu'il faut savoir pour gérer votre abonnement Atlas Pro en toute sérénité : retrouver un code d'activation égaré, entrer vos accès sans erreur sur votre téléviseur et prolonger votre accès annuel.",
-    directAnswer: "Pour retrouver ou renouveler votre code Atlas Pro : consultez votre boîte mail (dossier spams inclus) pour récupérer vos 12 chiffres ou contactez notre support. Pour prolonger votre abonnement, commandez un renouvellement en ligne : votre ligne est réactivée à distance sans réinstaller l'application.",
-    keyTakeaways: [
-      "Le code d'activation se compose de 12 chiffres uniques transmis immédiatement par e-mail après commande.",
-      "Les identifiants Xtream Codes API sont également inclus pour configurer les applications tierces.",
-      "Le renouvellement d'abonnement conserve l'ensemble de vos favoris et préférences sans réinstallation."
-    ],
-    relatedTags: ["Code d'activation", "Xtream Codes", "Renouvellement", "Compte", "Multi-écrans"],
-    faq: [
-      {
-        question: "Comment faire si je ne retrouve pas mon code après achat ?",
-        answer: "Inspectez votre dossier courrier indésirable (spam). Si le message est introuvable, ouvrez un ticket technique ou contactez notre support avec votre e-mail d'achat : nous vous renvoyons vos accès en quelques minutes."
       }
     ]
   },
@@ -1099,8 +1076,8 @@ const BASE_TUTORIALS: Tutorial[] = [
     id: "tut-recuperer-code",
     slug: "retrouver-entrer-code-atlas-pro-ontv",
     title: "Code Atlas Pro ONTV : Retrouver, Entrer et Renouveler vos Identifiants",
-    category: "account",
-    categoryLabel: "Abonnement & Activation",
+    category: "troubleshooting",
+    categoryLabel: "Dépannage & Erreurs Serveur",
     tags: ["Code d'activation", "Atlas Pro ONTV", "Xtream Codes", "Renouvellement", "Compte"],
     excerpt:
       "Code Atlas Pro perdu, expiré ou message d'erreur 'Code invalide' ? Guide officiel pour retrouver vos identifiants, entrer le code dans l'application et renouveler sans réinstaller.",
@@ -1413,8 +1390,8 @@ const BASE_TUTORIALS: Tutorial[] = [
     id: "tut-liste-chaines",
     slug: "liste-chaines-bouquet-atlas-pro",
     title: "Liste des Chaînes Atlas Pro : Bouquets TV, VOD et 4K",
-    category: "account",
-    categoryLabel: "Abonnement & Activation Codes",
+    category: "installation",
+    categoryLabel: "Installation & Configuration TV",
     tags: ["Liste des chaînes", "Bouquet France", "Sport 4K", "VOD", "M3U"],
     excerpt:
       "Explorez le répertoire complet des chaînes Atlas Pro : direct TNT, bouquets sportifs en 4K/50fps, cinéma premium et catalogue de plus de 50 000 films et séries en VOD.",

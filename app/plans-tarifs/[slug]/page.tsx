@@ -96,9 +96,7 @@ export default async function PlanDetailPage({ params }: PageProps): Promise<Rea
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-extrabold text-heading">
-              {plan.slug === "atlas-pro-12-mois"
-                ? "Commander Votre Abonnement Atlas Pro 12 Mois Smart TV (40€)"
-                : `Commander Votre ${plan.title} (${plan.price}€)`}
+              {plan.h1 ?? `Commander Votre ${plan.title} (${plan.price}€)`}
             </h1>
 
             {/* Screenshots & Interface Preview Slider Under H1 */}

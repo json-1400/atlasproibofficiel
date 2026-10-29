@@ -44,6 +44,7 @@ const DISALLOWED_SCRAPERS = [
 // otherwise Googlebot cannot crawl them to read the noindex directive and flags "Indexed, though blocked by robots.txt".
 const PROTECTED_PATHS = [
   "/api/",
+  "/studio",
   "/studio/",
 ];
 

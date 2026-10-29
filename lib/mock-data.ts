@@ -12,6 +12,7 @@ export interface Plan {
   ctaLabel: string;
   seoTitle: string;
   seoDescription: string;
+  h1?: string;
   faq: Array<{ question: string; answer: string }>;
 }
 
@@ -79,7 +80,8 @@ export const MOCK_PLANS: Plan[] = [
       "Support WhatsApp réactif 7j/7 pour la configuration",
     ],
     ctaLabel: "Acheter 12 Mois (40€)",
-    seoTitle: "Abonnement Atlas Pro 12 Mois (40€) | 4K Sans Coupure",
+    seoTitle: "Code IPTV Atlas Pro ONTV Abonnement 12 Mois",
+    h1: "Code IPTV Atlas Pro ONTV Abonnement 12 Mois",
     seoDescription:
       "Abonnement officiel Atlas Pro 12 mois pour Smart TV (Samsung, LG, Android TV, Firestick). Flux 4K Ultra HD sans coupure, 10 000+ chaînes et activation 15 min.",
     faq: [

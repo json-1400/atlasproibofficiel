@@ -573,7 +573,7 @@ const BASE_TUTORIALS: Tutorial[] = [
       { id: "faq-samsung", title: "Questions fréquentes TV Samsung", level: 2 },
     ],
     body: [
-      "Vous venez de recevoir votre [abonnement officiel Atlas Pro 12 mois](/plans-tarifs/atlas-pro-12-mois) et vous souhaitez en profiter sur votre grand écran Smart TV Samsung ? Vous avez peut-être tenté de copier un fichier APK sur une clé USB sans succès. C'est tout à fait normal : Samsung utilise son propre système d'exploitation propriétaire nommé Tizen OS, incompatible avec le format APK Android.",
+      "Vous venez de recevoir votre [code IPTV Atlas Pro ONTV 12 mois](/plans-tarifs/atlas-pro-12-mois) et vous souhaitez en profiter sur votre grand écran Smart TV Samsung ? Vous avez peut-être tenté de copier un fichier APK sur une clé USB sans succès. C'est tout à fait normal : Samsung utilise son propre système d'exploitation propriétaire nommé Tizen OS, incompatible avec le format APK Android.",
       "Heureusement, il existe une solution simple, rapide et 100 % légale : installer un lecteur multimédia IPTV certifié depuis le magasin officiel Samsung Apps du Smart Hub, puis y injecter vos identifiants Atlas Pro Xtream Codes. Si vous possédez également un téléviseur LG, découvrez notre guide pour [installer Atlas Pro sur LG Smart TV](/tutoriels/installer-atlas-pro-sur-lg-smart-tv).",
     ],
     sections: [
@@ -1184,7 +1184,7 @@ const BASE_TUTORIALS: Tutorial[] = [
         id: "changer-code-renouvellement",
         h2: "Comment renouveler votre code sans réinstaller",
         paragraphs: [
-          "Lorsque vous effectuez votre [renouvellement d'abonnement Atlas Pro](/plans-tarifs/renouvellement) ou souscrivez un [abonnement officiel Atlas Pro 12 mois](/plans-tarifs/atlas-pro-12-mois), vous recevez un nouveau code d'accès. Vous n'avez pas besoin de supprimer l'application de votre télévision :",
+          "Lorsque vous effectuez votre [renouvellement d'abonnement Atlas Pro](/plans-tarifs/renouvellement) ou souscrivez un [code IPTV Atlas Pro ONTV 12 mois](/plans-tarifs/atlas-pro-12-mois), vous recevez un nouveau code d'accès. Vous n'avez pas besoin de supprimer l'application de votre télévision :",
           "1. Ouvrez Atlas Pro ONTV.",
           "2. Allez dans Paramètres (icône engrenage) > Compte.",
           "3. Cliquez sur 'Se déconnecter'.",

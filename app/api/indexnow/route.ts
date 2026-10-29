@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { submitToIndexNow, getIndexNowKey, getIndexNowKeyLocation } from "@/lib/indexnow";
 import { SITE_URL } from "@/lib/seo";
-import { getAllPlans, getAllAppPages, getAllTutorials } from "@/lib/mock-data";
+import { getAllPlans, getAllAppPages, getAllTutorials, getAllIndexableCategories } from "@/lib/mock-data";
 import { recordContentRevisions } from "@/lib/supabase/sitemap";
 
 export const dynamic = "force-dynamic";
@@ -26,8 +26,9 @@ function getAllCanonicalUrls(): string[] {
   const planUrls = getAllPlans().map((p) => `${SITE_URL}/plans-tarifs/${p.slug}`);
   const appUrls = getAllAppPages().map((a) => `${SITE_URL}/telecharger/${a.slug}`);
   const tutorialUrls = getAllTutorials().map((t) => `${SITE_URL}/tutoriels/${t.slug}`);
+  const categoryUrls = getAllIndexableCategories().map((c) => `${SITE_URL}/tutoriels/categorie/${c.slug}`);
 
-  return [...staticUrls, ...planUrls, ...appUrls, ...tutorialUrls];
+  return [...staticUrls, ...planUrls, ...appUrls, ...tutorialUrls, ...categoryUrls];
 }
 
 /**

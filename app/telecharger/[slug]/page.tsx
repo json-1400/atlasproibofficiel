@@ -196,7 +196,11 @@ export default async function AppPageDetail({ params }: PageProps): Promise<Reac
                 </div>
               ) : app.slug === "atlas-pro-ontv" ? (
                 <p className="text-sm sm:text-base text-body leading-relaxed">
-                  Téléchargez l&apos;application officielle <strong>Atlas Pro ONTV</strong> (également reconnue sous l&apos;appellation <strong>Atlas Pro On TV</strong> ou <em>atlaspro ontv</em>) sur votre Smart TV, boîtier Android TV ou Amazon Fire Stick. Grâce au code officiel <strong>822648</strong> sur <strong>Downloader by AFTVnews</strong>, l&apos;installation de l&apos;APK s&apos;effectue directement en 15 secondes sans passer par le Play Store ni manipulation manuelle de fichiers.
+                  Téléchargez l&apos;application officielle <strong>Atlas Pro ONTV</strong> (également reconnue sous l&apos;appellation <strong>Atlas Pro On TV</strong> ou <em>atlaspro ontv</em>) sur votre Smart TV, boîtier Android TV ou Amazon Fire Stick pour activer votre{" "}
+                  <Link href="/plans-tarifs/atlas-pro-12-mois" className="text-primary font-semibold hover:underline">
+                    code IPTV Atlas Pro ONTV 12 mois
+                  </Link>
+                  . Grâce au code officiel <strong>822648</strong> sur <strong>Downloader by AFTVnews</strong>, l&apos;installation de l&apos;APK s&apos;effectue directement en 15 secondes sans passer par le Play Store ni manipulation manuelle de fichiers.
                 </p>
               ) : app.slug === "atlas-pro-max" ? (
                 <div className="space-y-3">

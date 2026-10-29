@@ -273,11 +273,11 @@ const BASE_TUTORIALS: Tutorial[] = [
       role: "Architecte Réseau & Support IPTV",
     },
     mainImage: {
-      url: "/images/tutorials/atlas-pro-erreur-serveur.webp",
-      alt: "Message d'erreur Atlas Pro ne peut pas se connecter au serveur résolu sur écran TV",
-      caption: "Résolution pas à pas de l'erreur de connexion aux serveurs Atlas Pro.",
+      url: "/images/tutorials/atlas-pro-connexion-serveur.jpg",
+      alt: "Illustration résolvant l'erreur de connexion Atlas Pro – DNS Cloudflare, Wi‑Fi et Ethernet",
+      caption: "Guide visuel pour rétablir la connexion serveur d'Atlas Pro.",
       width: 1200,
-      height: 675,
+      height: 800,
     },
     directAnswer:
       "Pour résoudre l'erreur 'Atlas Pro ne peut pas se connecter au serveur' : basculez immédiatement les serveurs DNS de votre téléviseur ou Fire Stick vers Cloudflare (1.1.1.1 et 1.0.0.1) afin de contourner le blocage opérateur. Videz ensuite le cache de l'application et redémarrez votre box internet. Si l'erreur persiste, vérifiez la date de validité de votre code d'accès.",
@@ -422,6 +422,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "Ouvrez une autre application (YouTube ou Netflix) sur votre téléviseur pour vérifier que votre connexion internet générale fonctionne convenablement.",
         tip: "Si YouTube ne charge pas non plus, redémarrez votre box internet pendant 60 secondes.",
         image: {
+          url: "/images/tutorials/wifi_icon.png",
           alt: "Vérification de la connexion internet sur écran Smart TV",
           caption: "Étape 1 : Validez que l'accès internet de votre équipement est pleinement opérationnel.",
           placeholderLabel: "Écran Diagnostic Réseau TV",
@@ -434,6 +435,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "Accédez aux paramètres réseau avancés de votre appareil et modifiez le serveur DNS principal vers 1.1.1.1 et le secondaire vers 1.0.0.1.",
         tip: "Cette manipulation lève immédiatement les restrictions de filtrage imposées par votre opérateur.",
         image: {
+          url: "/images/tutorials/atlas_pro_dns_settings.jpg",
           alt: "Configuration des serveurs DNS 1.1.1.1 dans les paramètres réseau",
           caption: "Étape 2 : Entrez manuellement les adresses DNS Cloudflare 1.1.1.1.",
           placeholderLabel: "Menu Configuration DNS Manuelle",
@@ -446,6 +448,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "Dans Paramètres > Applications > Atlas Pro ONTV, cliquez sur 'Forcer l'arrêt' puis sur 'Vider le cache'.",
         tip: "Ne cliquez pas sur 'Effacer les données' pour conserver vos identifiants enregistrés.",
         image: {
+          url: "/images/tutorials/cache_icon.jpg",
           alt: "Menu Forcer l'arrêt et vider le cache sur Android TV",
           caption: "Étape 3 : Nettoyez les données temporaires corrompues de l'application.",
           placeholderLabel: "Paramètres Applications Android",
@@ -458,6 +461,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "Débranchez la prise électrique de votre téléviseur pendant 30 secondes pour purger la mémoire RAM, puis relancez l'application.",
         tip: "Atlas Pro charge à nouveau le catalogue officiel en quelques secondes.",
         image: {
+          url: "/atlaspro-interface.webp",
           alt: "Écran de chargement réussi du catalogue Atlas Pro ONTV",
           caption: "Étape 4 : Vos chaînes en direct et VOD 4K sont de nouveau accessibles.",
           placeholderLabel: "Catalogue Chaînes Restauré",
@@ -746,11 +750,11 @@ const BASE_TUTORIALS: Tutorial[] = [
       role: "Architecte Réseau & Support IPTV",
     },
     mainImage: {
-      url: "/images/tutorials/installer-atlas-pro-lg-tv.webp",
-      alt: "Installation Atlas Pro sur téléviseur LG webOS via LG Content Store",
-      caption: "Configuration d'Atlas Pro sur Smart TV LG avec webOS et Magic Remote.",
+      url: "/images/tutorials/installer-atlas-pro-lg-smart-tv.jpg",
+      alt: "Illustration guide d'installation d'Atlas Pro sur LG Smart TV – LG Content Store, IBO Player, DNS Cloudflare",
+      caption: "Guide visuel pour installer Atlas Pro sur LG Smart TV via le LG Content Store.",
       width: 1200,
-      height: 675,
+      height: 800,
     },
     directAnswer:
       "Pour installer Atlas Pro sur une Smart TV LG : allumez votre TV, ouvrez le LG Content Store (ou Apps), recherchez 'IBO Player' ou 'IPTV Smarters Pro' et cliquez sur Installer. Récupérez l'adresse MAC de l'application et renseignez vos identifiants Xtream Codes Atlas Pro pour débloquer immédiatement l'ensemble des flux 4K HDR.",
@@ -832,8 +836,9 @@ const BASE_TUTORIALS: Tutorial[] = [
         instruction:
           "Appuyez sur le bouton Home de votre télécommande Magic Remote et cliquez sur l'application 'Apps' ou 'LG Content Store'.",
         image: {
-          alt: "Ouverture du LG Content Store sur téléviseur LG webOS",
-          caption: "Étape 1 : Accédez au catalogue d'applications officiel LG.",
+          url: "/images/tutorials/installer-atlas-pro-lg-tv/lg-magic-remote-apps.jpg",
+          alt: "Ouverture du menu Apps via la télécommande Magic Remote sur téléviseur LG webOS",
+          caption: "Étape 1 : Accédez au catalogue d'applications officiel LG depuis la barre Home.",
           placeholderLabel: "Menu LG Apps Store",
         },
       },
@@ -843,8 +848,9 @@ const BASE_TUTORIALS: Tutorial[] = [
         instruction:
           "Tapez 'IBO Player' dans la barre de recherche en haut à droite, puis cliquez sur 'Installer'.",
         image: {
+          url: "/images/tutorials/installer-atlas-pro-lg-tv/lg-content-store.jpg",
           alt: "Installation d'IBO Player depuis le LG Content Store",
-          caption: "Étape 2 : Installez le lecteur IBO Player officiel.",
+          caption: "Étape 2 : Installez le lecteur IBO Player officiel depuis le store LG.",
           placeholderLabel: "Fiche IBO Player webOS",
         },
       },
@@ -854,6 +860,7 @@ const BASE_TUTORIALS: Tutorial[] = [
         instruction:
           "Ouvrez l'application pour afficher votre adresse MAC et votre Device Key uniques.",
         image: {
+          url: "/images/tutorials/installer-atlas-pro-lg-tv/ibo-player-on-smart-tv-CksoaH66.webp",
           alt: "Adresse MAC et Device Key affichées dans IBO Player sur LG TV",
           caption: "Étape 3 : Notez les identifiants pour activer votre ligne.",
           placeholderLabel: "Écran MAC IBO Player LG",
@@ -865,6 +872,7 @@ const BASE_TUTORIALS: Tutorial[] = [
         instruction:
           "Renseignez l'URL serveur, votre nom d'utilisateur et votre mot de passe pour importer les bouquets 4K.",
         image: {
+          url: "/images/tutorials/installer-atlas-pro-tv-samsung/hqdefault.jpg",
           alt: "Saisie des identifiants Xtream Codes Atlas Pro",
           caption: "Étape 4 : Validez la connexion pour charger vos flux.",
           placeholderLabel: "Formulaire de Connexion",
@@ -912,11 +920,11 @@ const BASE_TUTORIALS: Tutorial[] = [
       role: "Architecte Réseau & Support IPTV",
     },
     mainImage: {
-      url: "/images/tutorials/installer-atlas-pro-fire-stick.webp",
-      alt: "Installation d'Atlas Pro ONTV sur Amazon Fire TV Stick avec l'application Downloader",
+      url: "/atlas-pro-firestick.webp",
+      alt: "Installation Atlas Pro sur Amazon Fire TV Stick",
       caption: "Guide officiel d'installation d'Atlas Pro sur Amazon Fire TV Stick.",
       width: 1200,
-      height: 675,
+      height: 800,
     },
     directAnswer:
       "Pour installer Atlas Pro sur un Fire TV Stick : téléchargez l'application Downloader depuis l'Amazon Appstore. Activez les Options pour développeurs (7 clics sur le nom de l'appareil dans À propos) et autorisez l'installation d'applications inconnues pour Downloader. Ouvrez Downloader, tapez le code officiel 822648 et cliquez sur Installer.",
@@ -1008,6 +1016,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "Sur l'écran d'accueil de votre Fire TV, sélectionnez 'Trouver' > 'Rechercher', tapez 'Downloader' et cliquez sur Télécharger (icône orange).",
         tip: "Downloader est une application 100 % gratuite développée par AFTVnews.",
         image: {
+          url: "/images/tutorials/installer-atlas-pro-fire-stick/Downloader-app-for-TV-Tablet-Phone.png",
           alt: "Recherche de Downloader sur l'Amazon Appstore",
           caption: "Étape 1 : Téléchargez l'application Downloader officielle.",
           placeholderLabel: "Fiche Downloader Amazon Store",
@@ -1020,6 +1029,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "Rendez-vous dans Paramètres > Ma Fire TV > Options pour les développeurs > Installer des applications inconnues > Activez 'Downloader'.",
         tip: "Si le menu Développeur est absent, appliquez l'astuce des 7 clics dans À propos.",
         image: {
+          url: "/downloader-interface.webp",
           alt: "Activation des sources inconnues pour Downloader dans Fire OS",
           caption: "Étape 2 : Autorisez Downloader à installer les fichiers APK.",
           placeholderLabel: "Options Développeur Fire OS",
@@ -1032,6 +1042,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "Ouvrez Downloader, autorisez l'accès au stockage. Dans le champ URL, tapez simplement le code numérique 822648 et appuyez sur 'Go'.",
         tip: "Le téléchargement du paquet officiel Atlas Pro ONTV se lance automatiquement après 5 secondes.",
         image: {
+          url: "/images/tutorials/installer-atlas-pro-fire-stick/downloader-code-input.jpg",
           alt: "Saisie du code Downloader 822648 dans l'application",
           caption: "Étape 3 : Saisissez le code rapide officiel AFTVnews.",
           placeholderLabel: "Écran Saisie Code Downloader",
@@ -1044,6 +1055,7 @@ const BASE_TUTORIALS: Tutorial[] = [
           "Cliquez sur 'Installer' lorsque la boîte de dialogue apparaît. Une fois l'installation terminée, cliquez sur 'Ouvrir' et entrez votre code d'accès à 12 chiffres.",
         tip: "Supprimez le fichier APK d'installation lorsque Downloader vous le propose pour économiser l'espace disque.",
         image: {
+          url: "/images/tutorials/installer-atlas-pro-fire-stick/atlas-pro-multi-devices.jpg",
           alt: "Boîte de dialogue d'installation de l'application Atlas Pro ONTV",
           caption: "Étape 4 : Validez l'installation et lancez l'application.",
           placeholderLabel: "Dialogue Installation APK",
@@ -1404,11 +1416,11 @@ const BASE_TUTORIALS: Tutorial[] = [
       role: "Architecte Réseau & Support IPTV",
     },
     mainImage: {
-      url: "/images/tutorials/installer-atlas-pro-tv-samsung/maxresdefault.jpg",
-      alt: "Interface de navigation dans la liste des chaînes et bouquets Atlas Pro ONTV",
-      caption: "L'application Atlas Pro classe vos chaînes par pays, catégorie et résolution vidéo.",
+      url: "/images/tutorials/liste-chaines-bouquet-atlas-pro.jpg",
+      alt: "Illustration de la liste des chaînes et bouquets Atlas Pro – grille TV, catégories, badge 4K",
+      caption: "Vue d'ensemble visuelle des chaînes Atlas Pro, catégories et options 4K.",
       width: 1200,
-      height: 675,
+      height: 800,
     },
     directAnswer:
       "La liste des chaînes Atlas Pro regroupe plus de 10 000 chaînes internationales en direct et 50 000 films et séries en VOD. Elle comprend l'intégralité du bouquet français (TNT, Canal+, beIN Sports, RMC Sport, DAZN, Eurosport en FHD et 4K 50 FPS) ainsi que les bouquets internationaux d'Europe, du Maghreb et d'Amérique. La playlist est mise à jour quotidiennement et accessible via l'application officielle Atlas Pro ONTV, par lien M3U ou via API Xtream Codes.",
@@ -1506,24 +1518,48 @@ const BASE_TUTORIALS: Tutorial[] = [
         title: "Ouvrir l'application Atlas Pro",
         instruction:
           "Lancez Atlas Pro ONTV ou votre lecteur configuré sur votre téléviseur ou boîtier TV.",
+        image: {
+          url: "/atlaspro-interface.webp",
+          alt: "Écran d'accueil et ouverture de l'application Atlas Pro ONTV",
+          caption: "Étape 1 : Lancez Atlas Pro ONTV sur votre téléviseur ou boîtier TV.",
+          placeholderLabel: "Ouverture Application Atlas Pro",
+        },
       },
       {
         stepNumber: 2,
         title: "Sélectionner la catégorie TV en Direct",
         instruction:
           "Naviguez dans le menu principal et cliquez sur Live TV pour afficher la liste des pays et bouquets classés.",
+        image: {
+          url: "/images/atlas/s1-768x354.jpg",
+          alt: "Sélection de la tuile Live TV dans le menu principal Atlas Pro",
+          caption: "Étape 2 : Cliquez sur Live TV pour naviguer parmi les bouquets disponibles.",
+          placeholderLabel: "Menu Principal Live TV",
+        },
       },
       {
         stepNumber: 3,
         title: "Utiliser la recherche rapide ou les favoris",
         instruction:
           "Tapez le nom de votre chaîne préférée dans la barre de recherche ou ajoutez-la à vos favoris avec la télécommande.",
+        image: {
+          url: "/images/atlas/s7-768x354.jpg",
+          alt: "Liste des chaînes françaises FHD et recherche par nom sur Atlas Pro",
+          caption: "Étape 3 : Filtrez par pays ou utilisez la loupe pour rechercher une chaîne.",
+          placeholderLabel: "Recherche et Liste des Chaînes",
+        },
       },
       {
         stepNumber: 4,
         title: "Consulter le guide EPG",
         instruction:
           "Appuyez sur la touche EPG ou Guide de votre télécommande pour visualiser le programme en cours et les horaires de la soirée.",
+        image: {
+          url: "/images/tutorials/atlas_pro_epg_guide.jpg",
+          alt: "Guide électronique des programmes EPG sur écran Smart TV Atlas Pro",
+          caption: "Étape 4 : Affichez la grille horaire et les résumés des programmes avec l'EPG.",
+          placeholderLabel: "Guide EPG Interactif",
+        },
       },
     ],
     showExpiredAlert: false,
